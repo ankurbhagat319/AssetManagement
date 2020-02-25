@@ -1,0 +1,115 @@
+﻿@model AssetManagement.Models.User
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DisplayName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DisplayName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScrumTeam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScrumTeam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GripLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GripLevel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Joining_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Joining_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Designation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Designation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modified_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modified_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modified_By)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modified_By)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsActive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.ProjectName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.ProjectName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Role.Role_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Role.Role_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.UserID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

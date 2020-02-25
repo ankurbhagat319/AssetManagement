@@ -1,0 +1,99 @@
+﻿@model AssetManagement.Models.CompetencyQuestion
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CompetencyQuestion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.QuestionText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuestionText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QuestionExplanation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QuestionExplanation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InsertedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InsertedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InsertedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InsertedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsValid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsValid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompetencyCategory.CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompetencyCategory.CategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.ProjectName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.ProjectName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompetencySubCategory.SubCategory_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompetencySubCategory.SubCategory_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.QuestionID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

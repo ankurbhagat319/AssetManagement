@@ -1,0 +1,429 @@
+﻿@model AssetManagement.Models.AssetDetailsOverview
+@{
+    ViewBag.Title = "ManageAssets";
+}
+
+<h2>ManageAssets</h2>
+<style>
+        table#newRow {
+            display: none;
+        }
+
+        /*div.addRow {
+        line-height: 45px;
+        background-color: #fff;
+        padding-left: 10px;
+        border-bottom: 1px solid;
+        border-top: 1px solid #e5e5e5;
+    }*/
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+
+<script src="https://cdn.datatables.net/rowreorder/1.2.0/js/dataTables.rowReorder.min.js"></script>
+
+<link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.css" rel="stylesheet" />
+
+<link href="https://cdn.datatables.net/rowreorder/1.2.0/css/rowReorder.dataTables.min.css" rel="stylesheet" />
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<div class="row">
+
+    <button class="btn-primary" id="save" onclick="fnSaveAssets()">Save Entries</button>
+    <button class="btn-primary" id="addRow">Add new Row</button>
+</div>
+</br>
+<table id="example" class="table table-striped table-bordered" style="width:100%;">
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>Manufacturer</th>
+            <th>Resources_Class</th>
+            <th>Serial_No</th>
+            <th>HostName</th>
+            <th>SpiridonNo</th>
+            <th>Location</th>
+            <th>PRNO</th>
+            <th>PONO</th>
+            <th>WarrantyStartDate</th>
+            <th>AgeOfAsset</th>
+            <th>ExpireBy</th>
+            <th>Owner</th>
+            <th>RAM</th>
+            <th>Storage</th>
+            <th>Processor</th>
+            <th>CPUClockSpeed</th>
+            <th>PhysicalCores</th>
+            <th>NIC_Count</th>
+            <th>Update</th>
+
+
+
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+<table id="newRow">
+    <tbody>
+        <tr>
+            <td>
+                <input type="text" id="Type" value="" placeholder="Insert Type" />
+            </td>
+            <td>
+
+                <input type="text" id="Manufacturer" value=""  placeholder="Manufacturer" />
+            </td>
+            <td>
+                <input type="text" id="Resources_Class" placeholder="Resources_Class" />
+            </td>
+            <td>
+                <input type="text" id="Serial_No" placeholder="Serial_No" />
+            </td>
+            <td>
+                <input type="text" id="HostName" placeholder="HostName" />
+            </td>
+            <td>
+                <input type="text" id="SpiridonNo" placeholder="SpiridonNo" />
+                @*<i class="fa fa-minus-square" aria-hidden="true"></i>*@
+            </td>
+            <td>
+                <input type="text" id="Location" placeholder="Location" />
+            </td>
+            <td>
+                <input type="text" id="PRNO" placeholder="PRNO" />
+            </td>
+            <td>
+                <input type="text" id="PONO" placeholder="PONO" />
+            </td>
+            <td>
+                <input type="text" id="WarrantyStartDate" placeholder="WarrantyStartDate" />
+            </td>
+
+            <td>
+                <input type="text" id="AgeOfAsset" placeholder="AgeOfAsset" />
+            </td>
+            <td>
+                <input type="text" id="ExpireBy" placeholder="ExpireBy" />
+            </td>
+            <td>
+                <input type="text" id="Owner" placeholder="Owner" />
+            </td>
+            <td>
+                <input type="text" id="RAM" placeholder="RAM" />
+            </td>
+            <td>
+                <input type="text" id="Storage" placeholder="Storage" />
+            </td>
+            <td>
+                <input type="text" id="Processor" placeholder="Processor" />
+            </td>
+            <td>
+                <input type="text" id="CPUClockSpeed" placeholder="CPUClockSpeed" />
+            </td>
+            <td>
+                <input type="text" id="PhysicalCores" placeholder="PhysicalCores" />
+            </td>
+
+            <td>
+                <input type="text" id="NIC_Count" placeholder="NIC_Count" />
+            </td>
+
+            <td>
+                <input type="button" class="btn-primary" data-target="#myModal"  data-toggle="modal"   value="Edit" />
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog" id="modalDialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Asset Details</h4>
+            </div>
+            <div class="modal-body">
+                <label>Type</label>
+                <input type="text" id="eType" value="" placeholder="Insert Type" />
+                <br />
+
+                <label>Manufacturer</label>
+                <input type="text" id="eManufacturer" value="" placeholder="Manufacturer" />
+                <br />
+                <label>Resources_Class</label>
+                <input type="text" id="eResources_Class" placeholder="Resources_Class" />
+                <br />
+                <label>Serial_No</label>
+                <input type="text" id="eSerial_No" placeholder="Serial_No" />
+                <br />
+                <label>HostName</label>
+                <input type="text" id="eHostName" placeholder="HostName" />
+                <br />
+                <label>SpiridonNo</label>
+                <input type="text" id="eSpiridonNo" placeholder="SpiridonNo" />
+                @*<i class="fa fa-minus-square" aria-hidden="true"></i>*@
+                <br />
+                <label>Location</label>
+                <input type="text" id="eLocation" placeholder="Location" />
+                <br />
+                <label>PRNO</label>
+                <input type="text" id="ePRNO" placeholder="PRNO" />
+                <br />
+                <label>PONO</label>
+                <input type="text" id="ePONO" placeholder="PONO" />
+                <br />
+                <label>WarrantyStartDate</label>
+                <input type="text" id="eWarrantyStartDate" placeholder="WarrantyStartDate" />
+                <br />
+
+                <label>AgeOfAsset</label>
+                <input type="text" id="eAgeOfAsset" placeholder="AgeOfAsset" />
+                <br />
+                <label>ExpireBy</label>
+                <input type="text" id="eExpireBy" placeholder="ExpireBy" />
+                <br />
+                <label>Owner</label>
+                <input type="text" id="eOwner" placeholder="Owner" />
+                <br />
+                <label>RAM</label>
+                <input type="text" id="eRAM" placeholder="RAM" />
+                <br />
+                <label>Storage</label>
+                <input type="text" id="eStorage" placeholder="Storage" />
+                <br />
+                <label>Processor</label>
+                <input type="text" id="eProcessor" placeholder="Processor" />
+                <br />
+                <label>CPUClockSpeed</label>
+                <input type="text" id="eCPUClockSpeed" placeholder="CPUClockSpeed" />
+                <br />
+                <label>PhysicalCores</label>
+                <input type="text" id="ePhysicalCores" placeholder="PhysicalCores" />
+                <br />
+
+                <label>NIC_Count</label>
+                <input type="text" id="eNIC_Count" placeholder="NIC_Count" />
+
+                <br />
+               
+
+            </div>
+            <div class="modal-footer">
+                @*<input type="text" class="form-control" id="txtCurrentExportUriName" />
+                    <button type="button" class="btn btn-default" onclick="AddToFavorites()">Add to Favorites</button>*@
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="fnUpdateRow()">Update</button>
+            </div>
+        </div>
+    </div>
+</div>@*Modal_Ends*@
+
+<script>
+    var data = [];
+    //$(document).ready(function () {
+    //    //var dt = $('#example').dataTable();
+    //    //dt.fnDestroy();
+    //});
+
+    $(document).ready(function () {
+        var dt = $('#example').dataTable();
+        dt.fnDestroy();
+        //var url = 'http://www.json-generator.com/api/json/get/ckDfqBChNK?indent=2';
+        var url = data;
+        var table = $('#example').DataTable({
+            "ajax": {
+                "url": "GetAssets",
+                "type": "GET",
+                "datatype": "json"
+            },
+            //paging: false,
+            ordering: true,
+            //order: [[0, asc]],
+            paging: true,
+            //ajax: url,
+            //rowReorder: {
+            //    dataSrc: 'order'
+            //},
+            columns: [{
+                data: 'Type'
+            }, {
+                data: 'Manufacturer'
+            }, {
+                data: 'Resources_Class'
+            }, {
+                data: 'Serial_No'
+            }, {
+                data: 'HostName'
+            },  {
+                data: 'SpiridonNo'
+            },
+            {
+                data: 'Location'
+            }, {
+                data: 'PRNO'
+            }, {
+                data: 'PONO'
+            }, {
+                data: 'WarrantyStartDate'
+            },  {
+                data: 'AgeOfAsset'
+            }, {
+                data: 'ExpireBy'
+            }, {
+                data: 'Owner'
+            }, {
+                data: 'RAM'
+            }, {
+                data: 'Storage'
+            }, {
+                data: 'Processor'
+            }, {
+                data: 'CPUClockSpeed'
+            }, {
+                data: 'PhysicalCores'
+            }, {
+                data: 'NIC_Count'
+            }, {
+                'targets': 19,
+                'searchable': false,
+
+                'orderable': false,
+                'className': 'dt-body-center',
+                'render': function (data, type, full, meta) {
+                    return '<input type="button" class="btn-primary" data-target="#myModal"  data-toggle="modal"   value="Edit" name="id[]" value="'
+                       + $('<div/>').text(data).html() + '">';
+                  //  data-target="#myModal"
+                },
+            }, ]
+
+            //"initComplete": function (settings, json) {
+            //    console.log(json);
+            //    // call your function here
+            //}
+
+            //"initComplete": function (oSettings) {
+
+            //    $(this).on('click', "i.fa.fa-minus-square", function (e) {
+
+            //        table.row($(this).closest('tr')).remove().draw();
+
+            //    });
+
+
+            //}
+        });
+        $('#example').css('border-bottom', 'none');
+        //$('<div class="addRow"><button id="addRow" class="btn-primary">Add New Row</button></div>').insertBefore('#example');
+        $('#addRow').on('click', function () {
+
+            var rowHtml = $("#newRow").find("tr")[0].outerHTML
+
+            table.row.add($(rowHtml)).draw(false);
+            table.order([1, 'asc']).draw();
+            table.order([0, 'asc']).draw();
+
+            //table.page('last').draw('page');
+
+        });
+    });
+
+    function fnSaveAssets()
+    {
+        var Type = $('#Type').val();
+        var Manufacturer = $('#Manufacturer').val();
+        var Resources_Class = $('#Resources_Class').val();
+        var Serial_No = $('#Serial_No').val();
+        var HostName = $('#HostName').val();
+        var SpiridonNo = $('#SpiridonNo').val();
+        var Location = $('#Location').val();
+        var PRNO = $('#PRNO').val();
+        var PONO = $('#PONO').val();
+        var WarrantyStartDate = $('#WarrantyStartDate').val();
+        var AgeOfAsset = $('#AgeOfAsset').val();
+        var ExpireBy = $('#ExpireBy').val();
+        var Owner = $('#Owner').val();
+        var RAM = $('#RAM').val();
+        var Storage = $('#Storage').val();
+        var Processor = $('#Processor').val();
+        var CPUClockSpeed = $('#CPUClockSpeed').val();
+        var PhysicalCores = $('#PhysicalCores').val();
+        var NIC_Count = $('#NIC_Count').val();
+        $.getJSON("@Url.Action("SaveAssest", "Home")", {
+            Type: Type, Manufacturer: Manufacturer, Resources_Class: Resources_Class,
+            Serial_No: Serial_No, HostName: HostName, SpiridonNo: SpiridonNo, Location: Location, PRNO: PRNO, PONO: PONO, WarrantyStartDate: WarrantyStartDate
+            , AgeOfAsset: AgeOfAsset, ExpireBy: ExpireBy, Owner: Owner, RAM: RAM, Storage: Storage, Processor: Processor, CPUClockSpeed: CPUClockSpeed,
+            PhysicalCores: PhysicalCores, NIC_Count: NIC_Count
+        }, function (data) {
+            if (data.data === "Success")
+            {
+                alert("Asset Saved sucecssfully");
+            }
+           
+        });
+
+    }
+
+    //var table = $("#example").DataTable();
+    $('#example tbody').on('click', '.btn-primary', function () {
+
+        var tr = $(this).closest("tr");
+        document.getElementById('eType').value = tr[0].childNodes[0].innerText;
+        document.getElementById('eManufacturer').value = tr[0].childNodes[1].innerText;
+        document.getElementById('eResources_Class').value = tr[0].childNodes[2].innerText;
+        document.getElementById('eSerial_No').value = tr[0].childNodes[3].innerText;
+        document.getElementById('eHostName').value = tr[0].childNodes[4].innerText;
+        document.getElementById('eSpiridonNo').value = tr[0].childNodes[5].innerText;
+        document.getElementById('eLocation').value = tr[0].childNodes[6].innerText;
+        document.getElementById('ePRNO').value = tr[0].childNodes[7].innerText;
+        document.getElementById('ePONO').value = tr[0].childNodes[8].innerText;
+        document.getElementById('eWarrantyStartDate').value = tr[0].childNodes[9].innerText;
+        document.getElementById('eAgeOfAsset').value = tr[0].childNodes[10].innerText;
+        document.getElementById('eExpireBy').value = tr[0].childNodes[11].innerText;
+        document.getElementById('eOwner').value = tr[0].childNodes[12].innerText;
+        document.getElementById('eRAM').value = tr[0].childNodes[13].innerText;
+        document.getElementById('eStorage').value = tr[0].childNodes[14].innerText;
+        document.getElementById('eProcessor').value = tr[0].childNodes[15].innerText;
+        document.getElementById('eCPUClockSpeed').value = tr[0].childNodes[16].innerText;
+        document.getElementById('ePhysicalCores').value = tr[0].childNodes[17].innerText;
+        document.getElementById('eNIC_Count').value = tr[0].childNodes[18].innerText;
+    });
+
+    function fnUpdateRow()
+    {
+
+        var Type = $('#eType').val();
+        var Manufacturer = $('#eManufacturer').val();
+        var Resources_Class = $('#eResources_Class').val();
+        var Serial_No = $('#eSerial_No').val();
+        var HostName = $('#eHostName').val();
+        var SpiridonNo = $('#eSpiridonNo').val();
+        var Location = $('#eLocation').val();
+        var PRNO = $('#ePRNO').val();
+        var PONO = $('#ePONO').val();
+        var WarrantyStartDate = $('#eWarrantyStartDate').val();
+        var AgeOfAsset = $('#eAgeOfAsset').val();
+        var ExpireBy = $('#eExpireBy').val();
+        var Owner = $('#eOwner').val();
+        var RAM = $('#eRAM').val();
+        var Storage = $('#eStorage').val();
+        var Processor = $('#eProcessor').val();
+        var CPUClockSpeed = $('#eCPUClockSpeed').val();
+        var PhysicalCores = $('#ePhysicalCores').val();
+        var NIC_Count = $('#eNIC_Count').val();
+
+
+        $.getJSON("@Url.Action("UpdateAssest", "Home")", {
+        Type: Type, Manufacturer: Manufacturer, Resources_Class: Resources_Class,
+        Serial_No: Serial_No, HostName: HostName, SpiridonNo: SpiridonNo, Location: Location, PRNO: PRNO, PONO: PONO, WarrantyStartDate: WarrantyStartDate
+        , AgeOfAsset: AgeOfAsset, ExpireBy: ExpireBy, Owner: Owner, RAM: RAM, Storage: Storage, Processor: Processor, CPUClockSpeed: CPUClockSpeed,
+        PhysicalCores: PhysicalCores, NIC_Count: NIC_Count
+    }, function (data) {
+        if (data.data === "Success")
+        {
+            alert("Asset Updated sucecssfully");
+        }
+           
+    });
+
+    }
+</script>

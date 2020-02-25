@@ -1,0 +1,247 @@
+﻿@model IEnumerable<AssetManagement.Models.ProjectAssetDetail>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+
+<script src="https://cdn.datatables.net/rowreorder/1.2.0/js/dataTables.rowReorder.min.js"></script>
+
+<link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.css" rel="stylesheet" />
+
+<link href="https://cdn.datatables.net/rowreorder/1.2.0/css/rowReorder.dataTables.min.css" rel="stylesheet" />
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<h2>Index</h2>
+<style>
+     .redClass {
+         /*background: gold !important;*/
+         background-color: #ffcccb !important;
+         /*font-family:Calibri;
+    font-weight: bold !important;*/
+         /*background: #ffcccb;*/
+     }
+</style>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table"  id="tblassets"  >
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Manufacturer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Resources_Class)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Serial_No)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HostName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SpiridonNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PRNO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PONO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WarrantyStartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AgeOfAsset)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExpireBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Owner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RAM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Storage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Processor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CPUClockSpeed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhysicalCores)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NIC_Count)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISActive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ToBeReplaced)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Acknowledge)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Project.ProjectName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User.UserName)
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Manufacturer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Resources_Class)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Serial_No)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HostName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SpiridonNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PRNO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PONO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WarrantyStartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AgeOfAsset)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExpireBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Owner)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RAM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Storage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Processor)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CPUClockSpeed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhysicalCores)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NIC_Count)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ISActive)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToBeReplaced)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Acknowledge)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModifiedBy)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModifiedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Project.ProjectName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.UserName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new
+               {
+                   id = item.Id
+               }) |
+                    @Html.ActionLink("Details", "Details", new
+               {
+                   id = item.Id
+               }) |
+                    @Html.ActionLink("Delete", "Delete", new
+               {
+                   id = item.Id
+               })
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+<script>
+
+    $(document).ready(function () {
+        //$('#tblassets').DataTable();
+
+
+        $('#tblassets').DataTable({
+            "createdRow": function (row, data, dataIndex) {
+
+                var index = row.rowIndex;
+                var ExpiryDate = new Date(data[12]);
+                var today = new Date();
+       var res =  compare_dates(ExpiryDate, today);
+             if (res === "Expired") {
+                 $(row).addClass('redClass');
+
+                }
+            }
+        });
+
+    });
+    var compare_dates = function (date1, date2) {
+        if (date1 > date2) return ("Valid");
+        else if (date1 < date2) return ("Expired");
+        else return ("Date1 = Date2");
+    }
+    </script>

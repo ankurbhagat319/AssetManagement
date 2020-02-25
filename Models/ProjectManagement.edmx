@@ -1,0 +1,2874 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ProjectManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AssetDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="UserName" Type="nvarchar(max)" />
+          <Property Name="ProjectID" Type="int" />
+          <Property Name="Type" Type="nvarchar(max)" />
+          <Property Name="Manufacturer" Type="nvarchar(max)" />
+          <Property Name="Resources_Class" Type="nvarchar(max)" />
+          <Property Name="Serial_No" Type="nvarchar(max)" />
+          <Property Name="HostName" Type="nvarchar(max)" />
+          <Property Name="SpiridonNo" Type="nvarchar(max)" />
+          <Property Name="Location" Type="nvarchar(max)" />
+          <Property Name="PRNO" Type="nvarchar(max)" />
+          <Property Name="PONO" Type="nvarchar(max)" />
+          <Property Name="WarrantyStartDate" Type="nvarchar(max)" />
+          <Property Name="AgeOfAsset" Type="nvarchar(max)" />
+          <Property Name="ExpireBy" Type="nvarchar(max)" />
+          <Property Name="Owner" Type="nvarchar(max)" />
+          <Property Name="RAM" Type="nvarchar(max)" />
+          <Property Name="Storage" Type="nvarchar(max)" />
+          <Property Name="Processor" Type="nvarchar(max)" />
+          <Property Name="CPUClockSpeed" Type="nvarchar(max)" />
+          <Property Name="PhysicalCores" Type="nvarchar(max)" />
+          <Property Name="NIC_Count" Type="nvarchar(max)" />
+          <Property Name="ISActive" Type="bit" />
+          <Property Name="ToBeReplaced" Type="bit" />
+          <Property Name="Acknowledge" Type="bit" />
+        </EntityType>
+        <EntityType Name="Competency_Analysis">
+          <Key>
+            <PropertyRef Name="CompetencyID" />
+          </Key>
+          <Property Name="CompetencyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="ProjectID" Type="int" />
+          <Property Name="FeatureCycle_ID" Type="int" />
+          <Property Name="QuestionID" Type="int" />
+          <Property Name="Category_ID" Type="int" />
+          <Property Name="SubCategoryID" Type="int" />
+          <Property Name="Level_ID" Type="int" />
+          <Property Name="Base_Value" Type="int" />
+          <Property Name="Goal" Type="int" />
+          <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="InsertedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="IsValid" Type="bit" />
+        </EntityType>
+        <EntityType Name="CompetencyCategory">
+          <Key>
+            <PropertyRef Name="Category_ID" />
+          </Key>
+          <Property Name="Category_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar(max)" />
+          <Property Name="Inserted_By" Type="nvarchar" MaxLength="100" />
+          <Property Name="Inserted_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CompetencyLevels">
+          <Key>
+            <PropertyRef Name="Level_ID" />
+          </Key>
+          <Property Name="Level_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Level_Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="InsterDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CompetencyMatrix">
+          <Key>
+            <PropertyRef Name="Competency_ID" />
+          </Key>
+          <Property Name="Competency_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectId" Type="int" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="Category_ID" Type="int" />
+          <Property Name="SubCategory_ID" Type="int" />
+          <Property Name="QuestionID" Type="int" />
+          <Property Name="Version_ID" Type="int" />
+          <Property Name="FeatureCycleID" Type="int" />
+          <Property Name="QuestionText" Type="nvarchar(max)" />
+          <Property Name="QuestionExplanation" Type="nvarchar(max)" />
+          <Property Name="BaseValue" Type="nvarchar(max)" />
+          <Property Name="GoalValue" Type="nvarchar(max)" />
+          <Property Name="FC1_LevelID" Type="int" />
+          <Property Name="FC2_LevelID" Type="int" />
+          <Property Name="FC3_LevelID" Type="int" />
+          <Property Name="FC4_LevelID" Type="int" />
+          <Property Name="Financial_Year" Type="nvarchar" MaxLength="50" />
+          <Property Name="Comment" Type="nvarchar(max)" />
+          <Property Name="ModifiedBy" Type="nvarchar(max)" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="CompetencyQuestions">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="QuestionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QuestionText" Type="nvarchar(max)" />
+          <Property Name="QuestionExplanation" Type="nvarchar(max)" />
+          <Property Name="ProjectID" Type="int" />
+          <Property Name="Category_ID" Type="int" />
+          <Property Name="SubCategory_ID" Type="int" />
+          <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="InsertedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar(max)" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="IsValid" Type="bit" />
+        </EntityType>
+        <EntityType Name="CompetencySubCategory">
+          <Key>
+            <PropertyRef Name="SubCategory_ID" />
+          </Key>
+          <Property Name="SubCategory_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubCategory_Name" Type="nvarchar(max)" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="Inserted_By" Type="nvarchar(max)" />
+          <Property Name="Inserted_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CompetencySubQuestions">
+          <Key>
+            <PropertyRef Name="SubQuestion_ID" />
+          </Key>
+          <Property Name="SubQuestion_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Question_Id" Type="int" />
+          <Property Name="Category_Id" Type="int" />
+          <Property Name="SubCategory_Id" Type="int" />
+          <Property Name="SubQuestionText" Type="nvarchar(max)" />
+          <Property Name="Project_Id" Type="int" />
+          <Property Name="Level_Id" Type="int" />
+          <Property Name="ModifiedBy" Type="nvarchar(max)" />
+          <Property Name="Modified_Date" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="IsChecked" Type="bit" />
+        </EntityType>
+        <EntityType Name="FeatureCycle">
+          <Key>
+            <PropertyRef Name="FeatureCycle_ID" />
+          </Key>
+          <Property Name="FeatureCycle_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FeatureCycle_Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Version_ID" Type="int" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="ModidfiedDate" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="ProjectAssetDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="UserName" Type="nvarchar(max)" />
+          <Property Name="ProjectID" Type="int" />
+          <Property Name="Type" Type="nvarchar(max)" />
+          <Property Name="Manufacturer" Type="nvarchar(max)" />
+          <Property Name="Resources_Class" Type="nvarchar(max)" />
+          <Property Name="Serial_No" Type="nvarchar(max)" />
+          <Property Name="HostName" Type="nvarchar(max)" />
+          <Property Name="SpiridonNo" Type="nvarchar(max)" />
+          <Property Name="Location" Type="nvarchar(max)" />
+          <Property Name="PRNO" Type="nvarchar(max)" />
+          <Property Name="PONO" Type="nvarchar(max)" />
+          <Property Name="WarrantyStartDate" Type="datetime" />
+          <Property Name="AgeOfAsset" Type="nvarchar(max)" />
+          <Property Name="ExpireBy" Type="datetime" />
+          <Property Name="Owner" Type="nvarchar(max)" />
+          <Property Name="RAM" Type="nvarchar(max)" />
+          <Property Name="Storage" Type="nvarchar(max)" />
+          <Property Name="Processor" Type="nvarchar(max)" />
+          <Property Name="CPUClockSpeed" Type="nvarchar(max)" />
+          <Property Name="PhysicalCores" Type="nvarchar(max)" />
+          <Property Name="NIC_Count" Type="nvarchar(max)" />
+          <Property Name="ISActive" Type="bit" />
+          <Property Name="ToBeReplaced" Type="bit" />
+          <Property Name="Acknowledge" Type="bit" />
+          <Property Name="ModifiedBy" Type="nvarchar(max)" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Projects">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectName" Type="nvarchar(max)" />
+          <Property Name="ProjectCategory" Type="nvarchar" MaxLength="100" />
+          <Property Name="Segment" Type="nvarchar" MaxLength="100" />
+          <Property Name="SegmentHead" Type="nvarchar" MaxLength="100" />
+          <Property Name="SegmentHead_ZID" Type="nvarchar" MaxLength="100" />
+          <Property Name="SegmentHead_Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="SubSegment" Type="nvarchar" MaxLength="100" />
+          <Property Name="SubsegmentHead" Type="nvarchar" MaxLength="100" />
+          <Property Name="SubSegmentHead_ZID" Type="nvarchar" MaxLength="100" />
+          <Property Name="SubsegmentHead_Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="ProjectManager" Type="nvarchar" MaxLength="100" />
+          <Property Name="ManagerZID" Type="nvarchar" MaxLength="100" />
+          <Property Name="ManagerEmail" Type="nvarchar" MaxLength="100" />
+          <Property Name="Modified_Date" Type="datetime" />
+          <Property Name="Modified_By" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Role_Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="UserBaseValues">
+          <Key>
+            <PropertyRef Name="BaseID" />
+          </Key>
+          <Property Name="BaseID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="int" />
+          <Property Name="ProjectID" Type="int" Nullable="false" />
+          <Property Name="Category_ID" Type="int" />
+          <Property Name="SubCategory_ID" Type="int" />
+          <Property Name="QuestiionID" Type="int" />
+          <Property Name="BaseFC1" Type="int" />
+          <Property Name="BaseFC2" Type="int" />
+          <Property Name="BaseFC3" Type="int" />
+          <Property Name="BaseFC4" Type="int" />
+          <Property Name="GoalFC1" Type="int" />
+          <Property Name="GoalFC2" Type="int" />
+          <Property Name="GoalFC3" Type="int" />
+          <Property Name="GoalFC4" Type="int" />
+          <Property Name="ModifiedBy" Type="nvarchar(max)" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="Comment" Type="nvarchar(max)" />
+          <Property Name="FinancialYear" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="UserCompetency">
+          <Key>
+            <PropertyRef Name="Competency_ID" />
+          </Key>
+          <Property Name="Competency_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjectId" Type="int" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="Category_ID" Type="int" />
+          <Property Name="SubCategory_ID" Type="int" />
+          <Property Name="QuestionID" Type="int" />
+          <Property Name="Version_ID" Type="int" />
+          <Property Name="FeatureCycleID" Type="int" />
+          <Property Name="QuestionText" Type="nvarchar(max)" />
+          <Property Name="QuestionExplanation" Type="nvarchar(max)" />
+          <Property Name="BaseFC1" Type="int" />
+          <Property Name="BaseFC2" Type="int" />
+          <Property Name="BaseFC3" Type="int" />
+          <Property Name="BaseFC4" Type="int" />
+          <Property Name="GoalFC1" Type="int" />
+          <Property Name="GoalFC2" Type="int" />
+          <Property Name="GoalFC3" Type="int" />
+          <Property Name="GoalFC4" Type="int" />
+          <Property Name="Current_Level" Type="int" />
+          <Property Name="Financial_Year" Type="nvarchar" MaxLength="50" />
+          <Property Name="Comment" Type="nvarchar(max)" />
+          <Property Name="ModifiedBy" Type="nvarchar(max)" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar(max)" />
+          <Property Name="DisplayName" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="ScrumTeam" Type="nchar" MaxLength="10" />
+          <Property Name="GripLevel" Type="nvarchar(max)" />
+          <Property Name="Joining_Date" Type="datetime" />
+          <Property Name="Designation" Type="nvarchar(max)" />
+          <Property Name="Project_ID" Type="int" />
+          <Property Name="Modified_date" Type="datetime" />
+          <Property Name="Modified_By" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="Versions">
+          <Key>
+            <PropertyRef Name="Version_ID" />
+          </Key>
+          <Property Name="Version_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VersionName" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ProjectManagement.dbo.View_Check_Competency_New' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_Check_Competency_New">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+            <PropertyRef Name="Category_ID" />
+            <PropertyRef Name="SubCategory_ID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="ProjectID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="UserName" Type="int" />
+          <Property Name="Category_ID" Type="int" Nullable="false" />
+          <Property Name="SubCategory_ID" Type="int" Nullable="false" />
+          <Property Name="QuestionID" Type="int" Nullable="false" />
+          <Property Name="QuestionText" Type="nvarchar(max)" />
+          <Property Name="QuestionExplanation" Type="nvarchar(max)" />
+          <Property Name="LEVEL_BASE_FC1" Type="nvarchar" MaxLength="100" />
+          <Property Name="LEVEL_BASE_FC2" Type="nvarchar" MaxLength="100" />
+          <Property Name="LEVEL_BASE_FC3" Type="nvarchar" MaxLength="100" />
+          <Property Name="LEVEL_BASE_FC4" Type="nvarchar" MaxLength="100" />
+          <Property Name="LEVEL_GOAL_FC1" Type="nvarchar" MaxLength="100" />
+          <Property Name="LEVEL_GOAL_FC2" Type="nvarchar" MaxLength="100" />
+          <Property Name="LEVEL_GOAL_FC3" Type="nvarchar" MaxLength="100" />
+          <Property Name="LEVEL_GOAL_FC4" Type="nvarchar" MaxLength="100" />
+          <Property Name="Current_Level" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ProjectManagement.dbo.View_CheckCompetecncy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_CheckCompetecncy">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+            <PropertyRef Name="Category_ID" />
+            <PropertyRef Name="SubCategory_ID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="ProjectID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" />
+          <Property Name="UserName" Type="int" />
+          <Property Name="Category_ID" Type="int" Nullable="false" />
+          <Property Name="SubCategory_ID" Type="int" Nullable="false" />
+          <Property Name="QuestionID" Type="int" Nullable="false" />
+          <Property Name="QuestionText" Type="nvarchar(max)" />
+          <Property Name="QuestionExplanation" Type="nvarchar(max)" />
+          <Property Name="LEVEL_BASE_FC1" Type="int" />
+          <Property Name="LEVEL_BASE_FC2" Type="int" />
+          <Property Name="LEVEL_BASE_FC3" Type="int" />
+          <Property Name="LEVEL_BASE_FC4" Type="int" />
+          <Property Name="LEVEL_GOAL_FC1" Type="int" />
+          <Property Name="LEVEL_GOAL_FC2" Type="int" />
+          <Property Name="LEVEL_GOAL_FC3" Type="int" />
+          <Property Name="LEVEL_GOAL_FC4" Type="int" />
+          <Property Name="Current_Level" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ProjectManagement.dbo.View_GetUserCompetency' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_GetUserCompetency">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="Category_ID" />
+            <PropertyRef Name="SubCategory_ID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="ProjectID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="int" />
+          <Property Name="Category_ID" Type="int" Nullable="false" />
+          <Property Name="SubCategory_ID" Type="int" Nullable="false" />
+          <Property Name="QuestionID" Type="int" Nullable="false" />
+          <Property Name="QuestionText" Type="nvarchar(max)" />
+          <Property Name="QuestionExplanation" Type="nvarchar(max)" />
+          <Property Name="LEVEL_BASE_FC1" Type="nvarchar" MaxLength="100" />
+          <Property Name="LEVEL_BASE_FC2" Type="nvarchar" MaxLength="100" />
+          <Property Name="LEVEL_BASE_FC3" Type="nvarchar" MaxLength="100" />
+          <Property Name="LEVEL_BASE_FC4" Type="nvarchar" MaxLength="100" />
+          <Property Name="LEVEL_GOAL_FC1" Type="nvarchar" MaxLength="100" />
+          <Property Name="LEVEL_GOAL_FC2" Type="nvarchar" MaxLength="100" />
+          <Property Name="LEVEL_GOAL_FC3" Type="nvarchar" MaxLength="100" />
+          <Property Name="LEVEL_GOAL_FC4" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ProjectManagement.dbo.View_UserCompetency' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_UserCompetency">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="Category_ID" />
+            <PropertyRef Name="SubCategory_ID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="ProjectID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="int" />
+          <Property Name="Category_ID" Type="int" Nullable="false" />
+          <Property Name="SubCategory_ID" Type="int" Nullable="false" />
+          <Property Name="QuestionID" Type="int" Nullable="false" />
+          <Property Name="QuestionText" Type="nvarchar(max)" />
+          <Property Name="QuestionExplanation" Type="nvarchar(max)" />
+          <Property Name="LEVEL_BASE_FC1" Type="nvarchar" MaxLength="100" />
+          <Property Name="LEVEL_BASE_FC2" Type="nvarchar" MaxLength="100" />
+          <Property Name="LEVEL_BASE_FC3" Type="nvarchar" MaxLength="100" />
+          <Property Name="LEVEL_BASE_FC4" Type="nvarchar" MaxLength="100" />
+          <Property Name="LEVEL_GOAL_FC1" Type="nvarchar" MaxLength="100" />
+          <Property Name="LEVEL_GOAL_FC2" Type="nvarchar" MaxLength="100" />
+          <Property Name="LEVEL_GOAL_FC3" Type="nvarchar" MaxLength="100" />
+          <Property Name="LEVEL_GOAL_FC4" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK_AssetDetails_Projects">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="0..1" />
+          <End Role="AssetDetails" Type="Self.AssetDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="AssetDetails">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AssetDetails_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="AssetDetails" Type="Self.AssetDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="AssetDetails">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Category_CID_Competency_Analysis_CID">
+          <End Role="CompetencyCategory" Type="Self.CompetencyCategory" Multiplicity="0..1" />
+          <End Role="Competency_Analysis" Type="Self.Competency_Analysis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencyCategory">
+              <PropertyRef Name="Category_ID" />
+            </Principal>
+            <Dependent Role="Competency_Analysis">
+              <PropertyRef Name="Category_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Category_CID_CompetencyQuestions_CID">
+          <End Role="CompetencyCategory" Type="Self.CompetencyCategory" Multiplicity="0..1" />
+          <End Role="CompetencyQuestions" Type="Self.CompetencyQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencyCategory">
+              <PropertyRef Name="Category_ID" />
+            </Principal>
+            <Dependent Role="CompetencyQuestions">
+              <PropertyRef Name="Category_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Competency_Analysis_CompetencyQuestions">
+          <End Role="CompetencyQuestions" Type="Self.CompetencyQuestions" Multiplicity="0..1" />
+          <End Role="Competency_Analysis" Type="Self.Competency_Analysis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencyQuestions">
+              <PropertyRef Name="QuestionID" />
+            </Principal>
+            <Dependent Role="Competency_Analysis">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Competency_Analysis_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Competency_Analysis" Type="Self.Competency_Analysis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Competency_Analysis">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Competency_CategoryID_SubCategory">
+          <End Role="CompetencyCategory" Type="Self.CompetencyCategory" Multiplicity="0..1" />
+          <End Role="CompetencySubCategory" Type="Self.CompetencySubCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencyCategory">
+              <PropertyRef Name="Category_ID" />
+            </Principal>
+            <Dependent Role="CompetencySubCategory">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencyMatrix_CompetencyCategory">
+          <End Role="CompetencyCategory" Type="Self.CompetencyCategory" Multiplicity="0..1" />
+          <End Role="CompetencyMatrix" Type="Self.CompetencyMatrix" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencyCategory">
+              <PropertyRef Name="Category_ID" />
+            </Principal>
+            <Dependent Role="CompetencyMatrix">
+              <PropertyRef Name="Category_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencyMatrix_CompetencyQuestions">
+          <End Role="CompetencyQuestions" Type="Self.CompetencyQuestions" Multiplicity="0..1" />
+          <End Role="CompetencyMatrix" Type="Self.CompetencyMatrix" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencyQuestions">
+              <PropertyRef Name="QuestionID" />
+            </Principal>
+            <Dependent Role="CompetencyMatrix">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencyMatrix_CompetencySubCategory">
+          <End Role="CompetencySubCategory" Type="Self.CompetencySubCategory" Multiplicity="0..1" />
+          <End Role="CompetencyMatrix" Type="Self.CompetencyMatrix" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencySubCategory">
+              <PropertyRef Name="SubCategory_ID" />
+            </Principal>
+            <Dependent Role="CompetencyMatrix">
+              <PropertyRef Name="SubCategory_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencyMatrix_FeatureCycle">
+          <End Role="FeatureCycle" Type="Self.FeatureCycle" Multiplicity="0..1" />
+          <End Role="CompetencyMatrix" Type="Self.CompetencyMatrix" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FeatureCycle">
+              <PropertyRef Name="FeatureCycle_ID" />
+            </Principal>
+            <Dependent Role="CompetencyMatrix">
+              <PropertyRef Name="FeatureCycleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencyMatrix_Projects">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="0..1" />
+          <End Role="CompetencyMatrix" Type="Self.CompetencyMatrix" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="CompetencyMatrix">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencyMatrix_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="CompetencyMatrix" Type="Self.CompetencyMatrix" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="CompetencyMatrix">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencyMatrix_Versions">
+          <End Role="Versions" Type="Self.Versions" Multiplicity="0..1" />
+          <End Role="CompetencyMatrix" Type="Self.CompetencyMatrix" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Versions">
+              <PropertyRef Name="Version_ID" />
+            </Principal>
+            <Dependent Role="CompetencyMatrix">
+              <PropertyRef Name="Version_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencySubQuestions_CompetencyCategory">
+          <End Role="CompetencyCategory" Type="Self.CompetencyCategory" Multiplicity="0..1" />
+          <End Role="CompetencySubQuestions" Type="Self.CompetencySubQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencyCategory">
+              <PropertyRef Name="Category_ID" />
+            </Principal>
+            <Dependent Role="CompetencySubQuestions">
+              <PropertyRef Name="Category_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencySubQuestions_CompetencyLevels">
+          <End Role="CompetencyLevels" Type="Self.CompetencyLevels" Multiplicity="0..1" />
+          <End Role="CompetencySubQuestions" Type="Self.CompetencySubQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencyLevels">
+              <PropertyRef Name="Level_ID" />
+            </Principal>
+            <Dependent Role="CompetencySubQuestions">
+              <PropertyRef Name="Level_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencySubQuestions_CompetencyLevels1">
+          <End Role="CompetencyLevels" Type="Self.CompetencyLevels" Multiplicity="0..1" />
+          <End Role="CompetencySubQuestions" Type="Self.CompetencySubQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencyLevels">
+              <PropertyRef Name="Level_ID" />
+            </Principal>
+            <Dependent Role="CompetencySubQuestions">
+              <PropertyRef Name="Level_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencySubQuestions_CompetencyQuestions">
+          <End Role="CompetencyQuestions" Type="Self.CompetencyQuestions" Multiplicity="0..1" />
+          <End Role="CompetencySubQuestions" Type="Self.CompetencySubQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencyQuestions">
+              <PropertyRef Name="QuestionID" />
+            </Principal>
+            <Dependent Role="CompetencySubQuestions">
+              <PropertyRef Name="Question_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencySubQuestions_CompetencySubCategory">
+          <End Role="CompetencySubCategory" Type="Self.CompetencySubCategory" Multiplicity="0..1" />
+          <End Role="CompetencySubQuestions" Type="Self.CompetencySubQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencySubCategory">
+              <PropertyRef Name="SubCategory_ID" />
+            </Principal>
+            <Dependent Role="CompetencySubQuestions">
+              <PropertyRef Name="SubCategory_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencySubQuestions_Projects">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="0..1" />
+          <End Role="CompetencySubQuestions" Type="Self.CompetencySubQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="CompetencySubQuestions">
+              <PropertyRef Name="Project_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FeatureCycle_FID_Competency_Analysis_FID">
+          <End Role="FeatureCycle" Type="Self.FeatureCycle" Multiplicity="0..1" />
+          <End Role="Competency_Analysis" Type="Self.Competency_Analysis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FeatureCycle">
+              <PropertyRef Name="FeatureCycle_ID" />
+            </Principal>
+            <Dependent Role="Competency_Analysis">
+              <PropertyRef Name="FeatureCycle_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FeatureCycle_Versions">
+          <End Role="Versions" Type="Self.Versions" Multiplicity="0..1" />
+          <End Role="FeatureCycle" Type="Self.FeatureCycle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Versions">
+              <PropertyRef Name="Version_ID" />
+            </Principal>
+            <Dependent Role="FeatureCycle">
+              <PropertyRef Name="Version_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Levels_LID_Competency_Analysis_LID">
+          <End Role="CompetencyLevels" Type="Self.CompetencyLevels" Multiplicity="0..1" />
+          <End Role="Competency_Analysis" Type="Self.Competency_Analysis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencyLevels">
+              <PropertyRef Name="Level_ID" />
+            </Principal>
+            <Dependent Role="Competency_Analysis">
+              <PropertyRef Name="Level_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectAssetDetails_Projects">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="0..1" />
+          <End Role="ProjectAssetDetails" Type="Self.ProjectAssetDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="ProjectAssetDetails">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectAssetDetails_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="ProjectAssetDetails" Type="Self.ProjectAssetDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="ProjectAssetDetails">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_ID_Competency_Analysis_ProjectID">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="0..1" />
+          <End Role="Competency_Analysis" Type="Self.Competency_Analysis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="Competency_Analysis">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_PID_CompetencyQuestions_PID">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="0..1" />
+          <End Role="CompetencyQuestions" Type="Self.CompetencyQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="CompetencyQuestions">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_Users">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="Project_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subcategory_SID_Competency_Analysis_SID">
+          <End Role="CompetencySubCategory" Type="Self.CompetencySubCategory" Multiplicity="0..1" />
+          <End Role="Competency_Analysis" Type="Self.Competency_Analysis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencySubCategory">
+              <PropertyRef Name="SubCategory_ID" />
+            </Principal>
+            <Dependent Role="Competency_Analysis">
+              <PropertyRef Name="SubCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubCategory_SID_CompetencyQuestions_SID">
+          <End Role="CompetencySubCategory" Type="Self.CompetencySubCategory" Multiplicity="0..1" />
+          <End Role="CompetencyQuestions" Type="Self.CompetencyQuestions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencySubCategory">
+              <PropertyRef Name="SubCategory_ID" />
+            </Principal>
+            <Dependent Role="CompetencyQuestions">
+              <PropertyRef Name="SubCategory_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCompetency_CompetencyCategory">
+          <End Role="CompetencyCategory" Type="Self.CompetencyCategory" Multiplicity="0..1" />
+          <End Role="UserCompetency" Type="Self.UserCompetency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencyCategory">
+              <PropertyRef Name="Category_ID" />
+            </Principal>
+            <Dependent Role="UserCompetency">
+              <PropertyRef Name="Category_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCompetency_CompetencyQuestions">
+          <End Role="CompetencyQuestions" Type="Self.CompetencyQuestions" Multiplicity="0..1" />
+          <End Role="UserCompetency" Type="Self.UserCompetency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencyQuestions">
+              <PropertyRef Name="QuestionID" />
+            </Principal>
+            <Dependent Role="UserCompetency">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCompetency_CompetencySubCategory">
+          <End Role="CompetencySubCategory" Type="Self.CompetencySubCategory" Multiplicity="0..1" />
+          <End Role="UserCompetency" Type="Self.UserCompetency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencySubCategory">
+              <PropertyRef Name="SubCategory_ID" />
+            </Principal>
+            <Dependent Role="UserCompetency">
+              <PropertyRef Name="SubCategory_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCompetency_FeatureCycle">
+          <End Role="FeatureCycle" Type="Self.FeatureCycle" Multiplicity="0..1" />
+          <End Role="UserCompetency" Type="Self.UserCompetency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FeatureCycle">
+              <PropertyRef Name="FeatureCycle_ID" />
+            </Principal>
+            <Dependent Role="UserCompetency">
+              <PropertyRef Name="FeatureCycleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCompetency_Projects">
+          <End Role="Projects" Type="Self.Projects" Multiplicity="0..1" />
+          <End Role="UserCompetency" Type="Self.UserCompetency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="UserCompetency">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCompetency_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="UserCompetency" Type="Self.UserCompetency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserCompetency">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCompetency_Versions">
+          <End Role="Versions" Type="Self.Versions" Multiplicity="0..1" />
+          <End Role="UserCompetency" Type="Self.UserCompetency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Versions">
+              <PropertyRef Name="Version_ID" />
+            </Principal>
+            <Dependent Role="UserCompetency">
+              <PropertyRef Name="Version_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Roles">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="SP_ExpiredNotification" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_GETCOMPETENCY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="USERID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_GETCOMPETENCY_QUESTIONS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProjectID" Type="int" Mode="In" />
+          <Parameter Name="CaseId" Type="int" Mode="In" />
+          <Parameter Name="UserID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="Sp_ImportUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RoleID" Type="int" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="DisplayName" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Email" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="ScrumTeam" Type="nvarchar" Mode="In" />
+          <Parameter Name="GripLevel" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Joining_Date" Type="datetime" Mode="In" />
+          <Parameter Name="Designation" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Project_ID" Type="int" Mode="In" />
+          <Parameter Name="Modified_date" Type="datetime" Mode="In" />
+          <Parameter Name="Modified_By" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="SP_TransferAssets" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="ProjectID" Type="int" Mode="In" />
+          <Parameter Name="Type" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Manufacturer" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Resources_Class" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Serial_No" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="HostName" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="SpiridonNo" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Location" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="PRNO" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="PONO" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="WarrantyStartDate" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="AgeOfAsset" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="ExpireBy" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Owner" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="RAM" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Storage" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Processor" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="CPUClockSpeed" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="PhysicalCores" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="NIC_Count" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="SP_TransferProjectAssets" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserID" Type="int" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="ProjectID" Type="int" Mode="In" />
+          <Parameter Name="Type" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Manufacturer" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Resources_Class" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Serial_No" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="HostName" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="SpiridonNo" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Location" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="PRNO" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="PONO" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="WarrantyStartDate" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="AgeOfAsset" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="ExpireBy" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Owner" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="RAM" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Storage" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="Processor" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="CPUClockSpeed" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="PhysicalCores" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="NIC_Count" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="ModifiedBy" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <EntityContainer Name="ProjectManagementModelStoreContainer">
+          <EntitySet Name="AssetDetails" EntityType="Self.AssetDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Competency_Analysis" EntityType="Self.Competency_Analysis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompetencyCategory" EntityType="Self.CompetencyCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompetencyLevels" EntityType="Self.CompetencyLevels" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompetencyMatrix" EntityType="Self.CompetencyMatrix" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompetencyQuestions" EntityType="Self.CompetencyQuestions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompetencySubCategory" EntityType="Self.CompetencySubCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CompetencySubQuestions" EntityType="Self.CompetencySubQuestions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FeatureCycle" EntityType="Self.FeatureCycle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectAssetDetails" EntityType="Self.ProjectAssetDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserBaseValues" EntityType="Self.UserBaseValues" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserCompetency" EntityType="Self.UserCompetency" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Versions" EntityType="Self.Versions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="View_Check_Competency_New" EntityType="Self.View_Check_Competency_New" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_Check_Competency_New].[ProjectID] AS [ProjectID], 
+    [View_Check_Competency_New].[UserID] AS [UserID], 
+    [View_Check_Competency_New].[UserName] AS [UserName], 
+    [View_Check_Competency_New].[Category_ID] AS [Category_ID], 
+    [View_Check_Competency_New].[SubCategory_ID] AS [SubCategory_ID], 
+    [View_Check_Competency_New].[QuestionID] AS [QuestionID], 
+    [View_Check_Competency_New].[QuestionText] AS [QuestionText], 
+    [View_Check_Competency_New].[QuestionExplanation] AS [QuestionExplanation], 
+    [View_Check_Competency_New].[LEVEL_BASE_FC1] AS [LEVEL_BASE_FC1], 
+    [View_Check_Competency_New].[LEVEL_BASE_FC2] AS [LEVEL_BASE_FC2], 
+    [View_Check_Competency_New].[LEVEL_BASE_FC3] AS [LEVEL_BASE_FC3], 
+    [View_Check_Competency_New].[LEVEL_BASE_FC4] AS [LEVEL_BASE_FC4], 
+    [View_Check_Competency_New].[LEVEL_GOAL_FC1] AS [LEVEL_GOAL_FC1], 
+    [View_Check_Competency_New].[LEVEL_GOAL_FC2] AS [LEVEL_GOAL_FC2], 
+    [View_Check_Competency_New].[LEVEL_GOAL_FC3] AS [LEVEL_GOAL_FC3], 
+    [View_Check_Competency_New].[LEVEL_GOAL_FC4] AS [LEVEL_GOAL_FC4], 
+    [View_Check_Competency_New].[Current_Level] AS [Current_Level]
+    FROM [dbo].[View_Check_Competency_New] AS [View_Check_Competency_New]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_CheckCompetecncy" EntityType="Self.View_CheckCompetecncy" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_CheckCompetecncy].[ProjectID] AS [ProjectID], 
+    [View_CheckCompetecncy].[UserID] AS [UserID], 
+    [View_CheckCompetecncy].[UserName] AS [UserName], 
+    [View_CheckCompetecncy].[Category_ID] AS [Category_ID], 
+    [View_CheckCompetecncy].[SubCategory_ID] AS [SubCategory_ID], 
+    [View_CheckCompetecncy].[QuestionID] AS [QuestionID], 
+    [View_CheckCompetecncy].[QuestionText] AS [QuestionText], 
+    [View_CheckCompetecncy].[QuestionExplanation] AS [QuestionExplanation], 
+    [View_CheckCompetecncy].[LEVEL_BASE_FC1] AS [LEVEL_BASE_FC1], 
+    [View_CheckCompetecncy].[LEVEL_BASE_FC2] AS [LEVEL_BASE_FC2], 
+    [View_CheckCompetecncy].[LEVEL_BASE_FC3] AS [LEVEL_BASE_FC3], 
+    [View_CheckCompetecncy].[LEVEL_BASE_FC4] AS [LEVEL_BASE_FC4], 
+    [View_CheckCompetecncy].[LEVEL_GOAL_FC1] AS [LEVEL_GOAL_FC1], 
+    [View_CheckCompetecncy].[LEVEL_GOAL_FC2] AS [LEVEL_GOAL_FC2], 
+    [View_CheckCompetecncy].[LEVEL_GOAL_FC3] AS [LEVEL_GOAL_FC3], 
+    [View_CheckCompetecncy].[LEVEL_GOAL_FC4] AS [LEVEL_GOAL_FC4], 
+    [View_CheckCompetecncy].[Current_Level] AS [Current_Level]
+    FROM [dbo].[View_CheckCompetecncy] AS [View_CheckCompetecncy]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_GetUserCompetency" EntityType="Self.View_GetUserCompetency" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_GetUserCompetency].[ProjectID] AS [ProjectID], 
+    [View_GetUserCompetency].[UserID] AS [UserID], 
+    [View_GetUserCompetency].[UserName] AS [UserName], 
+    [View_GetUserCompetency].[Category_ID] AS [Category_ID], 
+    [View_GetUserCompetency].[SubCategory_ID] AS [SubCategory_ID], 
+    [View_GetUserCompetency].[QuestionID] AS [QuestionID], 
+    [View_GetUserCompetency].[QuestionText] AS [QuestionText], 
+    [View_GetUserCompetency].[QuestionExplanation] AS [QuestionExplanation], 
+    [View_GetUserCompetency].[LEVEL_BASE_FC1] AS [LEVEL_BASE_FC1], 
+    [View_GetUserCompetency].[LEVEL_BASE_FC2] AS [LEVEL_BASE_FC2], 
+    [View_GetUserCompetency].[LEVEL_BASE_FC3] AS [LEVEL_BASE_FC3], 
+    [View_GetUserCompetency].[LEVEL_BASE_FC4] AS [LEVEL_BASE_FC4], 
+    [View_GetUserCompetency].[LEVEL_GOAL_FC1] AS [LEVEL_GOAL_FC1], 
+    [View_GetUserCompetency].[LEVEL_GOAL_FC2] AS [LEVEL_GOAL_FC2], 
+    [View_GetUserCompetency].[LEVEL_GOAL_FC3] AS [LEVEL_GOAL_FC3], 
+    [View_GetUserCompetency].[LEVEL_GOAL_FC4] AS [LEVEL_GOAL_FC4]
+    FROM [dbo].[View_GetUserCompetency] AS [View_GetUserCompetency]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_UserCompetency" EntityType="Self.View_UserCompetency" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_UserCompetency].[ProjectID] AS [ProjectID], 
+    [View_UserCompetency].[UserID] AS [UserID], 
+    [View_UserCompetency].[UserName] AS [UserName], 
+    [View_UserCompetency].[Category_ID] AS [Category_ID], 
+    [View_UserCompetency].[SubCategory_ID] AS [SubCategory_ID], 
+    [View_UserCompetency].[QuestionID] AS [QuestionID], 
+    [View_UserCompetency].[QuestionText] AS [QuestionText], 
+    [View_UserCompetency].[QuestionExplanation] AS [QuestionExplanation], 
+    [View_UserCompetency].[LEVEL_BASE_FC1] AS [LEVEL_BASE_FC1], 
+    [View_UserCompetency].[LEVEL_BASE_FC2] AS [LEVEL_BASE_FC2], 
+    [View_UserCompetency].[LEVEL_BASE_FC3] AS [LEVEL_BASE_FC3], 
+    [View_UserCompetency].[LEVEL_BASE_FC4] AS [LEVEL_BASE_FC4], 
+    [View_UserCompetency].[LEVEL_GOAL_FC1] AS [LEVEL_GOAL_FC1], 
+    [View_UserCompetency].[LEVEL_GOAL_FC2] AS [LEVEL_GOAL_FC2], 
+    [View_UserCompetency].[LEVEL_GOAL_FC3] AS [LEVEL_GOAL_FC3], 
+    [View_UserCompetency].[LEVEL_GOAL_FC4] AS [LEVEL_GOAL_FC4]
+    FROM [dbo].[View_UserCompetency] AS [View_UserCompetency]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_AssetDetails_Projects" Association="Self.FK_AssetDetails_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="AssetDetails" EntitySet="AssetDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AssetDetails_Users" Association="Self.FK_AssetDetails_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="AssetDetails" EntitySet="AssetDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Category_CID_Competency_Analysis_CID" Association="Self.FK_Category_CID_Competency_Analysis_CID">
+            <End Role="CompetencyCategory" EntitySet="CompetencyCategory" />
+            <End Role="Competency_Analysis" EntitySet="Competency_Analysis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Category_CID_CompetencyQuestions_CID" Association="Self.FK_Category_CID_CompetencyQuestions_CID">
+            <End Role="CompetencyCategory" EntitySet="CompetencyCategory" />
+            <End Role="CompetencyQuestions" EntitySet="CompetencyQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Competency_Analysis_CompetencyQuestions" Association="Self.FK_Competency_Analysis_CompetencyQuestions">
+            <End Role="CompetencyQuestions" EntitySet="CompetencyQuestions" />
+            <End Role="Competency_Analysis" EntitySet="Competency_Analysis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Competency_Analysis_Users" Association="Self.FK_Competency_Analysis_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Competency_Analysis" EntitySet="Competency_Analysis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Competency_CategoryID_SubCategory" Association="Self.FK_Competency_CategoryID_SubCategory">
+            <End Role="CompetencyCategory" EntitySet="CompetencyCategory" />
+            <End Role="CompetencySubCategory" EntitySet="CompetencySubCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencyMatrix_CompetencyCategory" Association="Self.FK_CompetencyMatrix_CompetencyCategory">
+            <End Role="CompetencyCategory" EntitySet="CompetencyCategory" />
+            <End Role="CompetencyMatrix" EntitySet="CompetencyMatrix" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencyMatrix_CompetencyQuestions" Association="Self.FK_CompetencyMatrix_CompetencyQuestions">
+            <End Role="CompetencyQuestions" EntitySet="CompetencyQuestions" />
+            <End Role="CompetencyMatrix" EntitySet="CompetencyMatrix" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencyMatrix_CompetencySubCategory" Association="Self.FK_CompetencyMatrix_CompetencySubCategory">
+            <End Role="CompetencySubCategory" EntitySet="CompetencySubCategory" />
+            <End Role="CompetencyMatrix" EntitySet="CompetencyMatrix" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencyMatrix_FeatureCycle" Association="Self.FK_CompetencyMatrix_FeatureCycle">
+            <End Role="FeatureCycle" EntitySet="FeatureCycle" />
+            <End Role="CompetencyMatrix" EntitySet="CompetencyMatrix" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencyMatrix_Projects" Association="Self.FK_CompetencyMatrix_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="CompetencyMatrix" EntitySet="CompetencyMatrix" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencyMatrix_Users" Association="Self.FK_CompetencyMatrix_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="CompetencyMatrix" EntitySet="CompetencyMatrix" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencyMatrix_Versions" Association="Self.FK_CompetencyMatrix_Versions">
+            <End Role="Versions" EntitySet="Versions" />
+            <End Role="CompetencyMatrix" EntitySet="CompetencyMatrix" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencySubQuestions_CompetencyCategory" Association="Self.FK_CompetencySubQuestions_CompetencyCategory">
+            <End Role="CompetencyCategory" EntitySet="CompetencyCategory" />
+            <End Role="CompetencySubQuestions" EntitySet="CompetencySubQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencySubQuestions_CompetencyLevels" Association="Self.FK_CompetencySubQuestions_CompetencyLevels">
+            <End Role="CompetencyLevels" EntitySet="CompetencyLevels" />
+            <End Role="CompetencySubQuestions" EntitySet="CompetencySubQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencySubQuestions_CompetencyLevels1" Association="Self.FK_CompetencySubQuestions_CompetencyLevels1">
+            <End Role="CompetencyLevels" EntitySet="CompetencyLevels" />
+            <End Role="CompetencySubQuestions" EntitySet="CompetencySubQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencySubQuestions_CompetencyQuestions" Association="Self.FK_CompetencySubQuestions_CompetencyQuestions">
+            <End Role="CompetencyQuestions" EntitySet="CompetencyQuestions" />
+            <End Role="CompetencySubQuestions" EntitySet="CompetencySubQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencySubQuestions_CompetencySubCategory" Association="Self.FK_CompetencySubQuestions_CompetencySubCategory">
+            <End Role="CompetencySubCategory" EntitySet="CompetencySubCategory" />
+            <End Role="CompetencySubQuestions" EntitySet="CompetencySubQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencySubQuestions_Projects" Association="Self.FK_CompetencySubQuestions_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="CompetencySubQuestions" EntitySet="CompetencySubQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FeatureCycle_FID_Competency_Analysis_FID" Association="Self.FK_FeatureCycle_FID_Competency_Analysis_FID">
+            <End Role="FeatureCycle" EntitySet="FeatureCycle" />
+            <End Role="Competency_Analysis" EntitySet="Competency_Analysis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FeatureCycle_Versions" Association="Self.FK_FeatureCycle_Versions">
+            <End Role="Versions" EntitySet="Versions" />
+            <End Role="FeatureCycle" EntitySet="FeatureCycle" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Levels_LID_Competency_Analysis_LID" Association="Self.FK_Levels_LID_Competency_Analysis_LID">
+            <End Role="CompetencyLevels" EntitySet="CompetencyLevels" />
+            <End Role="Competency_Analysis" EntitySet="Competency_Analysis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectAssetDetails_Projects" Association="Self.FK_ProjectAssetDetails_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="ProjectAssetDetails" EntitySet="ProjectAssetDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectAssetDetails_Users" Association="Self.FK_ProjectAssetDetails_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ProjectAssetDetails" EntitySet="ProjectAssetDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_ID_Competency_Analysis_ProjectID" Association="Self.FK_Projects_ID_Competency_Analysis_ProjectID">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="Competency_Analysis" EntitySet="Competency_Analysis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_PID_CompetencyQuestions_PID" Association="Self.FK_Projects_PID_CompetencyQuestions_PID">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="CompetencyQuestions" EntitySet="CompetencyQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_Users" Association="Self.FK_Projects_Users">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subcategory_SID_Competency_Analysis_SID" Association="Self.FK_Subcategory_SID_Competency_Analysis_SID">
+            <End Role="CompetencySubCategory" EntitySet="CompetencySubCategory" />
+            <End Role="Competency_Analysis" EntitySet="Competency_Analysis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubCategory_SID_CompetencyQuestions_SID" Association="Self.FK_SubCategory_SID_CompetencyQuestions_SID">
+            <End Role="CompetencySubCategory" EntitySet="CompetencySubCategory" />
+            <End Role="CompetencyQuestions" EntitySet="CompetencyQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCompetency_CompetencyCategory" Association="Self.FK_UserCompetency_CompetencyCategory">
+            <End Role="CompetencyCategory" EntitySet="CompetencyCategory" />
+            <End Role="UserCompetency" EntitySet="UserCompetency" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCompetency_CompetencyQuestions" Association="Self.FK_UserCompetency_CompetencyQuestions">
+            <End Role="CompetencyQuestions" EntitySet="CompetencyQuestions" />
+            <End Role="UserCompetency" EntitySet="UserCompetency" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCompetency_CompetencySubCategory" Association="Self.FK_UserCompetency_CompetencySubCategory">
+            <End Role="CompetencySubCategory" EntitySet="CompetencySubCategory" />
+            <End Role="UserCompetency" EntitySet="UserCompetency" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCompetency_FeatureCycle" Association="Self.FK_UserCompetency_FeatureCycle">
+            <End Role="FeatureCycle" EntitySet="FeatureCycle" />
+            <End Role="UserCompetency" EntitySet="UserCompetency" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCompetency_Projects" Association="Self.FK_UserCompetency_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="UserCompetency" EntitySet="UserCompetency" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCompetency_Users" Association="Self.FK_UserCompetency_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserCompetency" EntitySet="UserCompetency" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCompetency_Versions" Association="Self.FK_UserCompetency_Versions">
+            <End Role="Versions" EntitySet="Versions" />
+            <End Role="UserCompetency" EntitySet="UserCompetency" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Roles" Association="Self.FK_Users_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProjectManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AssetDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectID" Type="Int32" />
+          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Manufacturer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Resources_Class" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Serial_No" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HostName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SpiridonNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PRNO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PONO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WarrantyStartDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AgeOfAsset" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ExpireBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Owner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RAM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Storage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Processor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CPUClockSpeed" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhysicalCores" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NIC_Count" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ISActive" Type="Boolean" />
+          <Property Name="ToBeReplaced" Type="Boolean" />
+          <Property Name="Acknowledge" Type="Boolean" />
+          <NavigationProperty Name="Project" Relationship="Self.FK_AssetDetails_Projects" FromRole="AssetDetails" ToRole="Projects" />
+          <NavigationProperty Name="User" Relationship="Self.FK_AssetDetails_Users" FromRole="AssetDetails" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Competency_Analysis">
+          <Key>
+            <PropertyRef Name="CompetencyID" />
+          </Key>
+          <Property Name="CompetencyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="ProjectID" Type="Int32" />
+          <Property Name="FeatureCycle_ID" Type="Int32" />
+          <Property Name="QuestionID" Type="Int32" />
+          <Property Name="Category_ID" Type="Int32" />
+          <Property Name="SubCategoryID" Type="Int32" />
+          <Property Name="Level_ID" Type="Int32" />
+          <Property Name="Base_Value" Type="Int32" />
+          <Property Name="Goal" Type="Int32" />
+          <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="InsertedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsValid" Type="Boolean" />
+          <NavigationProperty Name="CompetencyCategory" Relationship="Self.FK_Category_CID_Competency_Analysis_CID" FromRole="Competency_Analysis" ToRole="CompetencyCategory" />
+          <NavigationProperty Name="CompetencyQuestion" Relationship="Self.FK_Competency_Analysis_CompetencyQuestions" FromRole="Competency_Analysis" ToRole="CompetencyQuestions" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Competency_Analysis_Users" FromRole="Competency_Analysis" ToRole="Users" />
+          <NavigationProperty Name="FeatureCycle" Relationship="Self.FK_FeatureCycle_FID_Competency_Analysis_FID" FromRole="Competency_Analysis" ToRole="FeatureCycle" />
+          <NavigationProperty Name="CompetencyLevel" Relationship="Self.FK_Levels_LID_Competency_Analysis_LID" FromRole="Competency_Analysis" ToRole="CompetencyLevels" />
+          <NavigationProperty Name="Project" Relationship="Self.FK_Projects_ID_Competency_Analysis_ProjectID" FromRole="Competency_Analysis" ToRole="Projects" />
+          <NavigationProperty Name="CompetencySubCategory" Relationship="Self.FK_Subcategory_SID_Competency_Analysis_SID" FromRole="Competency_Analysis" ToRole="CompetencySubCategory" />
+        </EntityType>
+        <EntityType Name="CompetencyCategory">
+          <Key>
+            <PropertyRef Name="Category_ID" />
+          </Key>
+          <Property Name="Category_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Inserted_By" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Inserted_Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Competency_Analysis" Relationship="Self.FK_Category_CID_Competency_Analysis_CID" FromRole="CompetencyCategory" ToRole="Competency_Analysis" />
+          <NavigationProperty Name="CompetencyQuestions" Relationship="Self.FK_Category_CID_CompetencyQuestions_CID" FromRole="CompetencyCategory" ToRole="CompetencyQuestions" />
+          <NavigationProperty Name="CompetencySubCategories" Relationship="Self.FK_Competency_CategoryID_SubCategory" FromRole="CompetencyCategory" ToRole="CompetencySubCategory" />
+          <NavigationProperty Name="CompetencyMatrices" Relationship="Self.FK_CompetencyMatrix_CompetencyCategory" FromRole="CompetencyCategory" ToRole="CompetencyMatrix" />
+          <NavigationProperty Name="UserCompetencies" Relationship="ProjectManagementModel.FK_UserCompetency_CompetencyCategory" FromRole="CompetencyCategory" ToRole="UserCompetency" />
+          <NavigationProperty Name="CompetencySubQuestions" Relationship="ProjectManagementModel.FK_CompetencySubQuestions_CompetencyCategory" FromRole="CompetencyCategory" ToRole="CompetencySubQuestion" />
+        </EntityType>
+        <EntityType Name="CompetencyLevel">
+          <Key>
+            <PropertyRef Name="Level_ID" />
+          </Key>
+          <Property Name="Level_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Level_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="InsterDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Competency_Analysis" Relationship="Self.FK_Levels_LID_Competency_Analysis_LID" FromRole="CompetencyLevels" ToRole="Competency_Analysis" />
+          <NavigationProperty Name="CompetencySubQuestions" Relationship="ProjectManagementModel.FK_CompetencySubQuestions_CompetencyLevels" FromRole="CompetencyLevel" ToRole="CompetencySubQuestion" />
+          <NavigationProperty Name="CompetencySubQuestions1" Relationship="ProjectManagementModel.FK_CompetencySubQuestions_CompetencyLevels1" FromRole="CompetencyLevel" ToRole="CompetencySubQuestion" />
+        </EntityType>
+        <EntityType Name="CompetencyMatrix">
+          <Key>
+            <PropertyRef Name="Competency_ID" />
+          </Key>
+          <Property Name="Competency_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectId" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="Category_ID" Type="Int32" />
+          <Property Name="SubCategory_ID" Type="Int32" />
+          <Property Name="QuestionID" Type="Int32" />
+          <Property Name="Version_ID" Type="Int32" />
+          <Property Name="FeatureCycleID" Type="Int32" />
+          <Property Name="QuestionText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="QuestionExplanation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BaseValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GoalValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FC1_LevelID" Type="Int32" />
+          <Property Name="FC2_LevelID" Type="Int32" />
+          <Property Name="FC3_LevelID" Type="Int32" />
+          <Property Name="FC4_LevelID" Type="Int32" />
+          <Property Name="Financial_Year" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="CompetencyCategory" Relationship="Self.FK_CompetencyMatrix_CompetencyCategory" FromRole="CompetencyMatrix" ToRole="CompetencyCategory" />
+          <NavigationProperty Name="CompetencyQuestion" Relationship="Self.FK_CompetencyMatrix_CompetencyQuestions" FromRole="CompetencyMatrix" ToRole="CompetencyQuestions" />
+          <NavigationProperty Name="CompetencySubCategory" Relationship="Self.FK_CompetencyMatrix_CompetencySubCategory" FromRole="CompetencyMatrix" ToRole="CompetencySubCategory" />
+          <NavigationProperty Name="FeatureCycle" Relationship="Self.FK_CompetencyMatrix_FeatureCycle" FromRole="CompetencyMatrix" ToRole="FeatureCycle" />
+          <NavigationProperty Name="Project" Relationship="Self.FK_CompetencyMatrix_Projects" FromRole="CompetencyMatrix" ToRole="Projects" />
+          <NavigationProperty Name="User" Relationship="Self.FK_CompetencyMatrix_Users" FromRole="CompetencyMatrix" ToRole="Users" />
+          <NavigationProperty Name="Version" Relationship="Self.FK_CompetencyMatrix_Versions" FromRole="CompetencyMatrix" ToRole="Versions" />
+        </EntityType>
+        <EntityType Name="CompetencyQuestion">
+          <Key>
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="QuestionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QuestionText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="QuestionExplanation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectID" Type="Int32" />
+          <Property Name="Category_ID" Type="Int32" />
+          <Property Name="SubCategory_ID" Type="Int32" />
+          <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="InsertedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsValid" Type="Boolean" />
+          <NavigationProperty Name="Competency_Analysis" Relationship="Self.FK_Competency_Analysis_CompetencyQuestions" FromRole="CompetencyQuestions" ToRole="Competency_Analysis" />
+          <NavigationProperty Name="CompetencyCategory" Relationship="Self.FK_Category_CID_CompetencyQuestions_CID" FromRole="CompetencyQuestions" ToRole="CompetencyCategory" />
+          <NavigationProperty Name="CompetencyMatrices" Relationship="Self.FK_CompetencyMatrix_CompetencyQuestions" FromRole="CompetencyQuestions" ToRole="CompetencyMatrix" />
+          <NavigationProperty Name="Project" Relationship="Self.FK_Projects_PID_CompetencyQuestions_PID" FromRole="CompetencyQuestions" ToRole="Projects" />
+          <NavigationProperty Name="CompetencySubCategory" Relationship="Self.FK_SubCategory_SID_CompetencyQuestions_SID" FromRole="CompetencyQuestions" ToRole="CompetencySubCategory" />
+          <NavigationProperty Name="UserCompetencies" Relationship="ProjectManagementModel.FK_UserCompetency_CompetencyQuestions" FromRole="CompetencyQuestion" ToRole="UserCompetency" />
+          <NavigationProperty Name="CompetencySubQuestions" Relationship="ProjectManagementModel.FK_CompetencySubQuestions_CompetencyQuestions" FromRole="CompetencyQuestion" ToRole="CompetencySubQuestion" />
+        </EntityType>
+        <EntityType Name="CompetencySubCategory">
+          <Key>
+            <PropertyRef Name="SubCategory_ID" />
+          </Key>
+          <Property Name="SubCategory_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubCategory_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="Inserted_By" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Inserted_Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Competency_Analysis" Relationship="Self.FK_Subcategory_SID_Competency_Analysis_SID" FromRole="CompetencySubCategory" ToRole="Competency_Analysis" />
+          <NavigationProperty Name="CompetencyCategory" Relationship="Self.FK_Competency_CategoryID_SubCategory" FromRole="CompetencySubCategory" ToRole="CompetencyCategory" />
+          <NavigationProperty Name="CompetencyMatrices" Relationship="Self.FK_CompetencyMatrix_CompetencySubCategory" FromRole="CompetencySubCategory" ToRole="CompetencyMatrix" />
+          <NavigationProperty Name="CompetencyQuestions" Relationship="Self.FK_SubCategory_SID_CompetencyQuestions_SID" FromRole="CompetencySubCategory" ToRole="CompetencyQuestions" />
+          <NavigationProperty Name="UserCompetencies" Relationship="ProjectManagementModel.FK_UserCompetency_CompetencySubCategory" FromRole="CompetencySubCategory" ToRole="UserCompetency" />
+          <NavigationProperty Name="CompetencySubQuestions" Relationship="ProjectManagementModel.FK_CompetencySubQuestions_CompetencySubCategory" FromRole="CompetencySubCategory" ToRole="CompetencySubQuestion" />
+        </EntityType>
+        <EntityType Name="FeatureCycle">
+          <Key>
+            <PropertyRef Name="FeatureCycle_ID" />
+          </Key>
+          <Property Name="FeatureCycle_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FeatureCycle_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Version_ID" Type="Int32" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ModidfiedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="Competency_Analysis" Relationship="Self.FK_FeatureCycle_FID_Competency_Analysis_FID" FromRole="FeatureCycle" ToRole="Competency_Analysis" />
+          <NavigationProperty Name="CompetencyMatrices" Relationship="Self.FK_CompetencyMatrix_FeatureCycle" FromRole="FeatureCycle" ToRole="CompetencyMatrix" />
+          <NavigationProperty Name="Version" Relationship="Self.FK_FeatureCycle_Versions" FromRole="FeatureCycle" ToRole="Versions" />
+          <NavigationProperty Name="UserCompetencies" Relationship="ProjectManagementModel.FK_UserCompetency_FeatureCycle" FromRole="FeatureCycle" ToRole="UserCompetency" />
+        </EntityType>
+        <EntityType Name="ProjectAssetDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectID" Type="Int32" />
+          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Manufacturer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Resources_Class" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Serial_No" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HostName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SpiridonNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Location" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PRNO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PONO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="WarrantyStartDate" Type="DateTime" Precision="3" />
+          <Property Name="AgeOfAsset" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ExpireBy" Type="DateTime" Precision="3" />
+          <Property Name="Owner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RAM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Storage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Processor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CPUClockSpeed" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhysicalCores" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NIC_Count" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ISActive" Type="Boolean" />
+          <Property Name="ToBeReplaced" Type="Boolean" />
+          <Property Name="Acknowledge" Type="Boolean" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Project" Relationship="Self.FK_ProjectAssetDetails_Projects" FromRole="ProjectAssetDetails" ToRole="Projects" />
+          <NavigationProperty Name="User" Relationship="Self.FK_ProjectAssetDetails_Users" FromRole="ProjectAssetDetails" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+          </Key>
+          <Property Name="ProjectID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectCategory" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Segment" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SegmentHead" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SegmentHead_ZID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SegmentHead_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SubSegment" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SubsegmentHead" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SubSegmentHead_ZID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SubsegmentHead_Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectManager" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ManagerZID" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ManagerEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Modified_Date" Type="DateTime" Precision="3" />
+          <Property Name="Modified_By" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="AssetDetails" Relationship="Self.FK_AssetDetails_Projects" FromRole="Projects" ToRole="AssetDetails" />
+          <NavigationProperty Name="Competency_Analysis" Relationship="Self.FK_Projects_ID_Competency_Analysis_ProjectID" FromRole="Projects" ToRole="Competency_Analysis" />
+          <NavigationProperty Name="CompetencyMatrices" Relationship="Self.FK_CompetencyMatrix_Projects" FromRole="Projects" ToRole="CompetencyMatrix" />
+          <NavigationProperty Name="CompetencyQuestions" Relationship="Self.FK_Projects_PID_CompetencyQuestions_PID" FromRole="Projects" ToRole="CompetencyQuestions" />
+          <NavigationProperty Name="ProjectAssetDetails" Relationship="Self.FK_ProjectAssetDetails_Projects" FromRole="Projects" ToRole="ProjectAssetDetails" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Projects_Users" FromRole="Projects" ToRole="Users" />
+          <NavigationProperty Name="UserCompetencies" Relationship="ProjectManagementModel.FK_UserCompetency_Projects" FromRole="Project" ToRole="UserCompetency" />
+          <NavigationProperty Name="CompetencySubQuestions" Relationship="ProjectManagementModel.FK_CompetencySubQuestions_Projects" FromRole="Project" ToRole="CompetencySubQuestion" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Role_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_Roles" FromRole="Roles" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="UserBaseValue">
+          <Key>
+            <PropertyRef Name="BaseID" />
+          </Key>
+          <Property Name="BaseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="Int32" />
+          <Property Name="ProjectID" Type="Int32" Nullable="false" />
+          <Property Name="Category_ID" Type="Int32" />
+          <Property Name="SubCategory_ID" Type="Int32" />
+          <Property Name="QuestiionID" Type="Int32" />
+          <Property Name="BaseFC1" Type="Int32" />
+          <Property Name="BaseFC2" Type="Int32" />
+          <Property Name="BaseFC3" Type="Int32" />
+          <Property Name="BaseFC4" Type="Int32" />
+          <Property Name="GoalFC1" Type="Int32" />
+          <Property Name="GoalFC2" Type="Int32" />
+          <Property Name="GoalFC3" Type="Int32" />
+          <Property Name="GoalFC4" Type="Int32" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FinancialYear" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ScrumTeam" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="GripLevel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Joining_Date" Type="DateTime" Precision="3" />
+          <Property Name="Designation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Project_ID" Type="Int32" />
+          <Property Name="Modified_date" Type="DateTime" Precision="3" />
+          <Property Name="Modified_By" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="AssetDetails" Relationship="Self.FK_AssetDetails_Users" FromRole="Users" ToRole="AssetDetails" />
+          <NavigationProperty Name="Competency_Analysis" Relationship="Self.FK_Competency_Analysis_Users" FromRole="Users" ToRole="Competency_Analysis" />
+          <NavigationProperty Name="CompetencyMatrices" Relationship="Self.FK_CompetencyMatrix_Users" FromRole="Users" ToRole="CompetencyMatrix" />
+          <NavigationProperty Name="ProjectAssetDetails" Relationship="Self.FK_ProjectAssetDetails_Users" FromRole="Users" ToRole="ProjectAssetDetails" />
+          <NavigationProperty Name="Project" Relationship="Self.FK_Projects_Users" FromRole="Users" ToRole="Projects" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Users_Roles" FromRole="Users" ToRole="Roles" />
+          <NavigationProperty Name="UserCompetencies" Relationship="ProjectManagementModel.FK_UserCompetency_Users" FromRole="User" ToRole="UserCompetency" />
+        </EntityType>
+        <EntityType Name="Version">
+          <Key>
+            <PropertyRef Name="Version_ID" />
+          </Key>
+          <Property Name="Version_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VersionName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CompetencyMatrices" Relationship="Self.FK_CompetencyMatrix_Versions" FromRole="Versions" ToRole="CompetencyMatrix" />
+          <NavigationProperty Name="FeatureCycles" Relationship="Self.FK_FeatureCycle_Versions" FromRole="Versions" ToRole="FeatureCycle" />
+          <NavigationProperty Name="UserCompetencies" Relationship="ProjectManagementModel.FK_UserCompetency_Versions" FromRole="Version" ToRole="UserCompetency" />
+        </EntityType>
+        <Association Name="FK_AssetDetails_Projects">
+          <End Role="Projects" Type="Self.Project" Multiplicity="0..1" />
+          <End Role="AssetDetails" Type="Self.AssetDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="AssetDetails">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AssetDetails_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="AssetDetails" Type="Self.AssetDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="AssetDetails">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Category_CID_Competency_Analysis_CID">
+          <End Role="CompetencyCategory" Type="Self.CompetencyCategory" Multiplicity="0..1" />
+          <End Role="Competency_Analysis" Type="Self.Competency_Analysis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencyCategory">
+              <PropertyRef Name="Category_ID" />
+            </Principal>
+            <Dependent Role="Competency_Analysis">
+              <PropertyRef Name="Category_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Competency_Analysis_CompetencyQuestions">
+          <End Role="CompetencyQuestions" Type="Self.CompetencyQuestion" Multiplicity="0..1" />
+          <End Role="Competency_Analysis" Type="Self.Competency_Analysis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencyQuestions">
+              <PropertyRef Name="QuestionID" />
+            </Principal>
+            <Dependent Role="Competency_Analysis">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Competency_Analysis_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Competency_Analysis" Type="Self.Competency_Analysis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Competency_Analysis">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FeatureCycle_FID_Competency_Analysis_FID">
+          <End Role="FeatureCycle" Type="Self.FeatureCycle" Multiplicity="0..1" />
+          <End Role="Competency_Analysis" Type="Self.Competency_Analysis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FeatureCycle">
+              <PropertyRef Name="FeatureCycle_ID" />
+            </Principal>
+            <Dependent Role="Competency_Analysis">
+              <PropertyRef Name="FeatureCycle_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Levels_LID_Competency_Analysis_LID">
+          <End Role="CompetencyLevels" Type="Self.CompetencyLevel" Multiplicity="0..1" />
+          <End Role="Competency_Analysis" Type="Self.Competency_Analysis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencyLevels">
+              <PropertyRef Name="Level_ID" />
+            </Principal>
+            <Dependent Role="Competency_Analysis">
+              <PropertyRef Name="Level_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_ID_Competency_Analysis_ProjectID">
+          <End Role="Projects" Type="Self.Project" Multiplicity="0..1" />
+          <End Role="Competency_Analysis" Type="Self.Competency_Analysis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="Competency_Analysis">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subcategory_SID_Competency_Analysis_SID">
+          <End Role="CompetencySubCategory" Type="Self.CompetencySubCategory" Multiplicity="0..1" />
+          <End Role="Competency_Analysis" Type="Self.Competency_Analysis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencySubCategory">
+              <PropertyRef Name="SubCategory_ID" />
+            </Principal>
+            <Dependent Role="Competency_Analysis">
+              <PropertyRef Name="SubCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Category_CID_CompetencyQuestions_CID">
+          <End Role="CompetencyCategory" Type="Self.CompetencyCategory" Multiplicity="0..1" />
+          <End Role="CompetencyQuestions" Type="Self.CompetencyQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencyCategory">
+              <PropertyRef Name="Category_ID" />
+            </Principal>
+            <Dependent Role="CompetencyQuestions">
+              <PropertyRef Name="Category_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Competency_CategoryID_SubCategory">
+          <End Role="CompetencyCategory" Type="Self.CompetencyCategory" Multiplicity="0..1" />
+          <End Role="CompetencySubCategory" Type="Self.CompetencySubCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencyCategory">
+              <PropertyRef Name="Category_ID" />
+            </Principal>
+            <Dependent Role="CompetencySubCategory">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencyMatrix_CompetencyCategory">
+          <End Role="CompetencyCategory" Type="Self.CompetencyCategory" Multiplicity="0..1" />
+          <End Role="CompetencyMatrix" Type="Self.CompetencyMatrix" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencyCategory">
+              <PropertyRef Name="Category_ID" />
+            </Principal>
+            <Dependent Role="CompetencyMatrix">
+              <PropertyRef Name="Category_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencyMatrix_CompetencyQuestions">
+          <End Role="CompetencyQuestions" Type="Self.CompetencyQuestion" Multiplicity="0..1" />
+          <End Role="CompetencyMatrix" Type="Self.CompetencyMatrix" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencyQuestions">
+              <PropertyRef Name="QuestionID" />
+            </Principal>
+            <Dependent Role="CompetencyMatrix">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencyMatrix_CompetencySubCategory">
+          <End Role="CompetencySubCategory" Type="Self.CompetencySubCategory" Multiplicity="0..1" />
+          <End Role="CompetencyMatrix" Type="Self.CompetencyMatrix" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencySubCategory">
+              <PropertyRef Name="SubCategory_ID" />
+            </Principal>
+            <Dependent Role="CompetencyMatrix">
+              <PropertyRef Name="SubCategory_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencyMatrix_FeatureCycle">
+          <End Role="FeatureCycle" Type="Self.FeatureCycle" Multiplicity="0..1" />
+          <End Role="CompetencyMatrix" Type="Self.CompetencyMatrix" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FeatureCycle">
+              <PropertyRef Name="FeatureCycle_ID" />
+            </Principal>
+            <Dependent Role="CompetencyMatrix">
+              <PropertyRef Name="FeatureCycleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencyMatrix_Projects">
+          <End Role="Projects" Type="Self.Project" Multiplicity="0..1" />
+          <End Role="CompetencyMatrix" Type="Self.CompetencyMatrix" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="CompetencyMatrix">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencyMatrix_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="CompetencyMatrix" Type="Self.CompetencyMatrix" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="CompetencyMatrix">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencyMatrix_Versions">
+          <End Role="Versions" Type="Self.Version" Multiplicity="0..1" />
+          <End Role="CompetencyMatrix" Type="Self.CompetencyMatrix" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Versions">
+              <PropertyRef Name="Version_ID" />
+            </Principal>
+            <Dependent Role="CompetencyMatrix">
+              <PropertyRef Name="Version_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_PID_CompetencyQuestions_PID">
+          <End Role="Projects" Type="Self.Project" Multiplicity="0..1" />
+          <End Role="CompetencyQuestions" Type="Self.CompetencyQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="CompetencyQuestions">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubCategory_SID_CompetencyQuestions_SID">
+          <End Role="CompetencySubCategory" Type="Self.CompetencySubCategory" Multiplicity="0..1" />
+          <End Role="CompetencyQuestions" Type="Self.CompetencyQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencySubCategory">
+              <PropertyRef Name="SubCategory_ID" />
+            </Principal>
+            <Dependent Role="CompetencyQuestions">
+              <PropertyRef Name="SubCategory_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FeatureCycle_Versions">
+          <End Role="Versions" Type="Self.Version" Multiplicity="0..1" />
+          <End Role="FeatureCycle" Type="Self.FeatureCycle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Versions">
+              <PropertyRef Name="Version_ID" />
+            </Principal>
+            <Dependent Role="FeatureCycle">
+              <PropertyRef Name="Version_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectAssetDetails_Projects">
+          <End Role="Projects" Type="Self.Project" Multiplicity="0..1" />
+          <End Role="ProjectAssetDetails" Type="Self.ProjectAssetDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="ProjectAssetDetails">
+              <PropertyRef Name="ProjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProjectAssetDetails_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="ProjectAssetDetails" Type="Self.ProjectAssetDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="ProjectAssetDetails">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Projects_Users">
+          <End Role="Projects" Type="Self.Project" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projects">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="Project_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Roles">
+          <End Role="Roles" Type="Self.Role" Multiplicity="1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProjectManagementEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AssetDetails" EntityType="Self.AssetDetail" />
+          <EntitySet Name="Competency_Analysis" EntityType="Self.Competency_Analysis" />
+          <EntitySet Name="CompetencyCategories" EntityType="Self.CompetencyCategory" />
+          <EntitySet Name="CompetencyLevels" EntityType="Self.CompetencyLevel" />
+          <EntitySet Name="CompetencyMatrices" EntityType="Self.CompetencyMatrix" />
+          <EntitySet Name="CompetencyQuestions" EntityType="Self.CompetencyQuestion" />
+          <EntitySet Name="CompetencySubCategories" EntityType="Self.CompetencySubCategory" />
+          <EntitySet Name="FeatureCycles" EntityType="Self.FeatureCycle" />
+          <EntitySet Name="ProjectAssetDetails" EntityType="Self.ProjectAssetDetail" />
+          <EntitySet Name="Projects" EntityType="Self.Project" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="UserBaseValues" EntityType="Self.UserBaseValue" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Versions" EntityType="Self.Version" />
+          <AssociationSet Name="FK_AssetDetails_Projects" Association="Self.FK_AssetDetails_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="AssetDetails" EntitySet="AssetDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AssetDetails_Users" Association="Self.FK_AssetDetails_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="AssetDetails" EntitySet="AssetDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Category_CID_Competency_Analysis_CID" Association="Self.FK_Category_CID_Competency_Analysis_CID">
+            <End Role="CompetencyCategory" EntitySet="CompetencyCategories" />
+            <End Role="Competency_Analysis" EntitySet="Competency_Analysis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Competency_Analysis_CompetencyQuestions" Association="Self.FK_Competency_Analysis_CompetencyQuestions">
+            <End Role="CompetencyQuestions" EntitySet="CompetencyQuestions" />
+            <End Role="Competency_Analysis" EntitySet="Competency_Analysis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Competency_Analysis_Users" Association="Self.FK_Competency_Analysis_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Competency_Analysis" EntitySet="Competency_Analysis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FeatureCycle_FID_Competency_Analysis_FID" Association="Self.FK_FeatureCycle_FID_Competency_Analysis_FID">
+            <End Role="FeatureCycle" EntitySet="FeatureCycles" />
+            <End Role="Competency_Analysis" EntitySet="Competency_Analysis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Levels_LID_Competency_Analysis_LID" Association="Self.FK_Levels_LID_Competency_Analysis_LID">
+            <End Role="CompetencyLevels" EntitySet="CompetencyLevels" />
+            <End Role="Competency_Analysis" EntitySet="Competency_Analysis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_ID_Competency_Analysis_ProjectID" Association="Self.FK_Projects_ID_Competency_Analysis_ProjectID">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="Competency_Analysis" EntitySet="Competency_Analysis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subcategory_SID_Competency_Analysis_SID" Association="Self.FK_Subcategory_SID_Competency_Analysis_SID">
+            <End Role="CompetencySubCategory" EntitySet="CompetencySubCategories" />
+            <End Role="Competency_Analysis" EntitySet="Competency_Analysis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Category_CID_CompetencyQuestions_CID" Association="Self.FK_Category_CID_CompetencyQuestions_CID">
+            <End Role="CompetencyCategory" EntitySet="CompetencyCategories" />
+            <End Role="CompetencyQuestions" EntitySet="CompetencyQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Competency_CategoryID_SubCategory" Association="Self.FK_Competency_CategoryID_SubCategory">
+            <End Role="CompetencyCategory" EntitySet="CompetencyCategories" />
+            <End Role="CompetencySubCategory" EntitySet="CompetencySubCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencyMatrix_CompetencyCategory" Association="Self.FK_CompetencyMatrix_CompetencyCategory">
+            <End Role="CompetencyCategory" EntitySet="CompetencyCategories" />
+            <End Role="CompetencyMatrix" EntitySet="CompetencyMatrices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencyMatrix_CompetencyQuestions" Association="Self.FK_CompetencyMatrix_CompetencyQuestions">
+            <End Role="CompetencyQuestions" EntitySet="CompetencyQuestions" />
+            <End Role="CompetencyMatrix" EntitySet="CompetencyMatrices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencyMatrix_CompetencySubCategory" Association="Self.FK_CompetencyMatrix_CompetencySubCategory">
+            <End Role="CompetencySubCategory" EntitySet="CompetencySubCategories" />
+            <End Role="CompetencyMatrix" EntitySet="CompetencyMatrices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencyMatrix_FeatureCycle" Association="Self.FK_CompetencyMatrix_FeatureCycle">
+            <End Role="FeatureCycle" EntitySet="FeatureCycles" />
+            <End Role="CompetencyMatrix" EntitySet="CompetencyMatrices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencyMatrix_Projects" Association="Self.FK_CompetencyMatrix_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="CompetencyMatrix" EntitySet="CompetencyMatrices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencyMatrix_Users" Association="Self.FK_CompetencyMatrix_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="CompetencyMatrix" EntitySet="CompetencyMatrices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencyMatrix_Versions" Association="Self.FK_CompetencyMatrix_Versions">
+            <End Role="Versions" EntitySet="Versions" />
+            <End Role="CompetencyMatrix" EntitySet="CompetencyMatrices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_PID_CompetencyQuestions_PID" Association="Self.FK_Projects_PID_CompetencyQuestions_PID">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="CompetencyQuestions" EntitySet="CompetencyQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubCategory_SID_CompetencyQuestions_SID" Association="Self.FK_SubCategory_SID_CompetencyQuestions_SID">
+            <End Role="CompetencySubCategory" EntitySet="CompetencySubCategories" />
+            <End Role="CompetencyQuestions" EntitySet="CompetencyQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FeatureCycle_Versions" Association="Self.FK_FeatureCycle_Versions">
+            <End Role="Versions" EntitySet="Versions" />
+            <End Role="FeatureCycle" EntitySet="FeatureCycles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectAssetDetails_Projects" Association="Self.FK_ProjectAssetDetails_Projects">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="ProjectAssetDetails" EntitySet="ProjectAssetDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProjectAssetDetails_Users" Association="Self.FK_ProjectAssetDetails_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ProjectAssetDetails" EntitySet="ProjectAssetDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Projects_Users" Association="Self.FK_Projects_Users">
+            <End Role="Projects" EntitySet="Projects" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Roles" Association="Self.FK_Users_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <EntitySet Name="View_UserCompetency" EntityType="ProjectManagementModel.View_UserCompetency" />
+          <EntitySet Name="UserCompetencies" EntityType="ProjectManagementModel.UserCompetency" />
+          <AssociationSet Name="FK_UserCompetency_CompetencyCategory" Association="ProjectManagementModel.FK_UserCompetency_CompetencyCategory">
+            <End Role="CompetencyCategory" EntitySet="CompetencyCategories" />
+            <End Role="UserCompetency" EntitySet="UserCompetencies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCompetency_CompetencyQuestions" Association="ProjectManagementModel.FK_UserCompetency_CompetencyQuestions">
+            <End Role="CompetencyQuestion" EntitySet="CompetencyQuestions" />
+            <End Role="UserCompetency" EntitySet="UserCompetencies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCompetency_CompetencySubCategory" Association="ProjectManagementModel.FK_UserCompetency_CompetencySubCategory">
+            <End Role="CompetencySubCategory" EntitySet="CompetencySubCategories" />
+            <End Role="UserCompetency" EntitySet="UserCompetencies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCompetency_FeatureCycle" Association="ProjectManagementModel.FK_UserCompetency_FeatureCycle">
+            <End Role="FeatureCycle" EntitySet="FeatureCycles" />
+            <End Role="UserCompetency" EntitySet="UserCompetencies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCompetency_Projects" Association="ProjectManagementModel.FK_UserCompetency_Projects">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="UserCompetency" EntitySet="UserCompetencies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCompetency_Users" Association="ProjectManagementModel.FK_UserCompetency_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserCompetency" EntitySet="UserCompetencies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserCompetency_Versions" Association="ProjectManagementModel.FK_UserCompetency_Versions">
+            <End Role="Version" EntitySet="Versions" />
+            <End Role="UserCompetency" EntitySet="UserCompetencies" />
+          </AssociationSet>
+          <FunctionImport Name="SP_ExpiredNotification" ReturnType="Collection(ProjectManagementModel.SP_ExpiredNotification_Result)" />
+          <FunctionImport Name="SP_GETCOMPETENCY" ReturnType="Collection(ProjectManagementModel.SP_GETCOMPETENCY_Result)">
+          <Parameter Name="USERID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_GETCOMPETENCY_QUESTIONS" ReturnType="Collection(ProjectManagementModel.SP_GETCOMPETENCY_QUESTIONS_Result)">
+            <Parameter Name="ProjectID" Mode="In" Type="Int32" />
+            <Parameter Name="CaseId" Mode="In" Type="Int32" />
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_ImportUsers">
+            <Parameter Name="RoleID" Mode="In" Type="Int32" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="DisplayName" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="ScrumTeam" Mode="In" Type="String" />
+            <Parameter Name="GripLevel" Mode="In" Type="String" />
+            <Parameter Name="Joining_Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Designation" Mode="In" Type="String" />
+            <Parameter Name="Project_ID" Mode="In" Type="Int32" />
+            <Parameter Name="Modified_date" Mode="In" Type="DateTime" />
+            <Parameter Name="Modified_By" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_TransferAssets">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="ProjectID" Mode="In" Type="Int32" />
+            <Parameter Name="Type" Mode="In" Type="String" />
+            <Parameter Name="Manufacturer" Mode="In" Type="String" />
+            <Parameter Name="Resources_Class" Mode="In" Type="String" />
+            <Parameter Name="Serial_No" Mode="In" Type="String" />
+            <Parameter Name="HostName" Mode="In" Type="String" />
+            <Parameter Name="SpiridonNo" Mode="In" Type="String" />
+            <Parameter Name="Location" Mode="In" Type="String" />
+            <Parameter Name="PRNO" Mode="In" Type="String" />
+            <Parameter Name="PONO" Mode="In" Type="String" />
+            <Parameter Name="WarrantyStartDate" Mode="In" Type="String" />
+            <Parameter Name="AgeOfAsset" Mode="In" Type="String" />
+            <Parameter Name="ExpireBy" Mode="In" Type="String" />
+            <Parameter Name="Owner" Mode="In" Type="String" />
+            <Parameter Name="RAM" Mode="In" Type="String" />
+            <Parameter Name="Storage" Mode="In" Type="String" />
+            <Parameter Name="Processor" Mode="In" Type="String" />
+            <Parameter Name="CPUClockSpeed" Mode="In" Type="String" />
+            <Parameter Name="PhysicalCores" Mode="In" Type="String" />
+            <Parameter Name="NIC_Count" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_TransferProjectAssets">
+            <Parameter Name="UserID" Mode="In" Type="Int32" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="ProjectID" Mode="In" Type="Int32" />
+            <Parameter Name="Type" Mode="In" Type="String" />
+            <Parameter Name="Manufacturer" Mode="In" Type="String" />
+            <Parameter Name="Resources_Class" Mode="In" Type="String" />
+            <Parameter Name="Serial_No" Mode="In" Type="String" />
+            <Parameter Name="HostName" Mode="In" Type="String" />
+            <Parameter Name="SpiridonNo" Mode="In" Type="String" />
+            <Parameter Name="Location" Mode="In" Type="String" />
+            <Parameter Name="PRNO" Mode="In" Type="String" />
+            <Parameter Name="PONO" Mode="In" Type="String" />
+            <Parameter Name="WarrantyStartDate" Mode="In" Type="String" />
+            <Parameter Name="AgeOfAsset" Mode="In" Type="String" />
+            <Parameter Name="ExpireBy" Mode="In" Type="String" />
+            <Parameter Name="Owner" Mode="In" Type="String" />
+            <Parameter Name="RAM" Mode="In" Type="String" />
+            <Parameter Name="Storage" Mode="In" Type="String" />
+            <Parameter Name="Processor" Mode="In" Type="String" />
+            <Parameter Name="CPUClockSpeed" Mode="In" Type="String" />
+            <Parameter Name="PhysicalCores" Mode="In" Type="String" />
+            <Parameter Name="NIC_Count" Mode="In" Type="String" />
+            <Parameter Name="ModifiedBy" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="View_GetUserCompetency" EntityType="ProjectManagementModel.View_GetUserCompetency" />
+          <EntitySet Name="View_CheckCompetecncy" EntityType="ProjectManagementModel.View_CheckCompetecncy" />
+          <EntitySet Name="View_Check_Competency_New" EntityType="ProjectManagementModel.View_Check_Competency_New" />
+          <EntitySet Name="CompetencySubQuestions" EntityType="ProjectManagementModel.CompetencySubQuestion" />
+          <AssociationSet Name="FK_CompetencySubQuestions_CompetencyCategory" Association="ProjectManagementModel.FK_CompetencySubQuestions_CompetencyCategory">
+            <End Role="CompetencyCategory" EntitySet="CompetencyCategories" />
+            <End Role="CompetencySubQuestion" EntitySet="CompetencySubQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencySubQuestions_CompetencyLevels" Association="ProjectManagementModel.FK_CompetencySubQuestions_CompetencyLevels">
+            <End Role="CompetencyLevel" EntitySet="CompetencyLevels" />
+            <End Role="CompetencySubQuestion" EntitySet="CompetencySubQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencySubQuestions_CompetencyLevels1" Association="ProjectManagementModel.FK_CompetencySubQuestions_CompetencyLevels1">
+            <End Role="CompetencyLevel" EntitySet="CompetencyLevels" />
+            <End Role="CompetencySubQuestion" EntitySet="CompetencySubQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencySubQuestions_CompetencyQuestions" Association="ProjectManagementModel.FK_CompetencySubQuestions_CompetencyQuestions">
+            <End Role="CompetencyQuestion" EntitySet="CompetencyQuestions" />
+            <End Role="CompetencySubQuestion" EntitySet="CompetencySubQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencySubQuestions_CompetencySubCategory" Association="ProjectManagementModel.FK_CompetencySubQuestions_CompetencySubCategory">
+            <End Role="CompetencySubCategory" EntitySet="CompetencySubCategories" />
+            <End Role="CompetencySubQuestion" EntitySet="CompetencySubQuestions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CompetencySubQuestions_Projects" Association="ProjectManagementModel.FK_CompetencySubQuestions_Projects">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="CompetencySubQuestion" EntitySet="CompetencySubQuestions" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="View_UserCompetency">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="Category_ID" />
+            <PropertyRef Name="SubCategory_ID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="ProjectID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="Int32" />
+          <Property Name="Category_ID" Type="Int32" Nullable="false" />
+          <Property Name="SubCategory_ID" Type="Int32" Nullable="false" />
+          <Property Name="QuestionID" Type="Int32" Nullable="false" />
+          <Property Name="QuestionText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="QuestionExplanation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LEVEL_BASE_FC1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LEVEL_BASE_FC2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LEVEL_BASE_FC3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LEVEL_BASE_FC4" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LEVEL_GOAL_FC1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LEVEL_GOAL_FC2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LEVEL_GOAL_FC3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LEVEL_GOAL_FC4" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserCompetency">
+          <Key>
+            <PropertyRef Name="Competency_ID" />
+          </Key>
+          <Property Name="Competency_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjectId" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="Category_ID" Type="Int32" />
+          <Property Name="SubCategory_ID" Type="Int32" />
+          <Property Name="QuestionID" Type="Int32" />
+          <Property Name="Version_ID" Type="Int32" />
+          <Property Name="FeatureCycleID" Type="Int32" />
+          <Property Name="QuestionText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="QuestionExplanation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BaseFC1" Type="Int32" />
+          <Property Name="BaseFC2" Type="Int32" />
+          <Property Name="BaseFC3" Type="Int32" />
+          <Property Name="BaseFC4" Type="Int32" />
+          <Property Name="GoalFC1" Type="Int32" />
+          <Property Name="GoalFC2" Type="Int32" />
+          <Property Name="GoalFC3" Type="Int32" />
+          <Property Name="GoalFC4" Type="Int32" />
+          <Property Name="Current_Level" Type="Int32" />
+          <Property Name="Financial_Year" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="CompetencyCategory" Relationship="ProjectManagementModel.FK_UserCompetency_CompetencyCategory" FromRole="UserCompetency" ToRole="CompetencyCategory" />
+          <NavigationProperty Name="CompetencyQuestion" Relationship="ProjectManagementModel.FK_UserCompetency_CompetencyQuestions" FromRole="UserCompetency" ToRole="CompetencyQuestion" />
+          <NavigationProperty Name="CompetencySubCategory" Relationship="ProjectManagementModel.FK_UserCompetency_CompetencySubCategory" FromRole="UserCompetency" ToRole="CompetencySubCategory" />
+          <NavigationProperty Name="FeatureCycle" Relationship="ProjectManagementModel.FK_UserCompetency_FeatureCycle" FromRole="UserCompetency" ToRole="FeatureCycle" />
+          <NavigationProperty Name="Project" Relationship="ProjectManagementModel.FK_UserCompetency_Projects" FromRole="UserCompetency" ToRole="Project" />
+          <NavigationProperty Name="User" Relationship="ProjectManagementModel.FK_UserCompetency_Users" FromRole="UserCompetency" ToRole="User" />
+          <NavigationProperty Name="Version" Relationship="ProjectManagementModel.FK_UserCompetency_Versions" FromRole="UserCompetency" ToRole="Version" />
+        </EntityType>
+        <Association Name="FK_UserCompetency_CompetencyCategory">
+          <End Type="ProjectManagementModel.CompetencyCategory" Role="CompetencyCategory" Multiplicity="0..1" />
+          <End Type="ProjectManagementModel.UserCompetency" Role="UserCompetency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencyCategory">
+              <PropertyRef Name="Category_ID" />
+            </Principal>
+            <Dependent Role="UserCompetency">
+              <PropertyRef Name="Category_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCompetency_CompetencyQuestions">
+          <End Type="ProjectManagementModel.CompetencyQuestion" Role="CompetencyQuestion" Multiplicity="0..1" />
+          <End Type="ProjectManagementModel.UserCompetency" Role="UserCompetency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencyQuestion">
+              <PropertyRef Name="QuestionID" />
+            </Principal>
+            <Dependent Role="UserCompetency">
+              <PropertyRef Name="QuestionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCompetency_CompetencySubCategory">
+          <End Type="ProjectManagementModel.CompetencySubCategory" Role="CompetencySubCategory" Multiplicity="0..1" />
+          <End Type="ProjectManagementModel.UserCompetency" Role="UserCompetency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencySubCategory">
+              <PropertyRef Name="SubCategory_ID" />
+            </Principal>
+            <Dependent Role="UserCompetency">
+              <PropertyRef Name="SubCategory_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCompetency_FeatureCycle">
+          <End Type="ProjectManagementModel.FeatureCycle" Role="FeatureCycle" Multiplicity="0..1" />
+          <End Type="ProjectManagementModel.UserCompetency" Role="UserCompetency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FeatureCycle">
+              <PropertyRef Name="FeatureCycle_ID" />
+            </Principal>
+            <Dependent Role="UserCompetency">
+              <PropertyRef Name="FeatureCycleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCompetency_Projects">
+          <End Type="ProjectManagementModel.Project" Role="Project" Multiplicity="0..1" />
+          <End Type="ProjectManagementModel.UserCompetency" Role="UserCompetency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="UserCompetency">
+              <PropertyRef Name="ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCompetency_Users">
+          <End Type="ProjectManagementModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="ProjectManagementModel.UserCompetency" Role="UserCompetency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserCompetency">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserCompetency_Versions">
+          <End Type="ProjectManagementModel.Version" Role="Version" Multiplicity="0..1" />
+          <End Type="ProjectManagementModel.UserCompetency" Role="UserCompetency" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Version">
+              <PropertyRef Name="Version_ID" />
+            </Principal>
+            <Dependent Role="UserCompetency">
+              <PropertyRef Name="Version_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="SP_ExpiredNotification_Result">
+          <Property Type="String" Name="UserName" Nullable="true" />
+          <Property Type="String" Name="type" Nullable="true" />
+          <Property Type="String" Name="Manufacturer" Nullable="true" />
+          <Property Type="String" Name="Serial_No" Nullable="true" />
+          <Property Type="String" Name="HostName" Nullable="true" />
+          <Property Type="String" Name="Owner" Nullable="true" />
+          <Property Type="String" Name="DisplayName" Nullable="true" />
+          <Property Type="String" Name="Email" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_GETCOMPETENCY_Result">
+          <Property Type="String" Name="UserName" Nullable="true" />
+          <Property Type="String" Name="DisplayName" Nullable="true" />
+          <Property Type="String" Name="Email" Nullable="true" />
+          <Property Type="DateTime" Name="Joining_Date" Nullable="true" Precision="23" />
+          <Property Type="String" Name="ProjectName" Nullable="true" />
+          <Property Type="String" Name="ProjectManager" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ManagerEmail" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="CategoryName" Nullable="true" />
+          <Property Type="String" Name="SubCategory_Name" Nullable="true" />
+          <Property Type="String" Name="QuestionText" Nullable="true" />
+          <Property Type="String" Name="QuestionExplanation" Nullable="true" />
+          <Property Type="String" Name="Level_Name" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="SP_GETCOMPETENCY_QUESTIONS_Result">
+          <Property Type="Int32" Name="QuestionID" Nullable="false" />
+          <Property Type="String" Name="QuestionText" Nullable="true" />
+          <Property Type="String" Name="QuestionExplanation" Nullable="true" />
+          <Property Type="Int32" Name="ProjectID" Nullable="false" />
+          <Property Type="String" Name="ProjectName" Nullable="true" />
+          <Property Type="String" Name="ProjectManager" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="Category_ID" Nullable="false" />
+          <Property Type="String" Name="CategoryName" Nullable="true" />
+          <Property Type="Int32" Name="SubCategory_ID" Nullable="false" />
+          <Property Type="String" Name="SubCategory_Name" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="View_GetUserCompetency">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="Category_ID" />
+            <PropertyRef Name="SubCategory_ID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="ProjectID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="Int32" />
+          <Property Name="Category_ID" Type="Int32" Nullable="false" />
+          <Property Name="SubCategory_ID" Type="Int32" Nullable="false" />
+          <Property Name="QuestionID" Type="Int32" Nullable="false" />
+          <Property Name="QuestionText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="QuestionExplanation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LEVEL_BASE_FC1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LEVEL_BASE_FC2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LEVEL_BASE_FC3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LEVEL_BASE_FC4" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LEVEL_GOAL_FC1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LEVEL_GOAL_FC2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LEVEL_GOAL_FC3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LEVEL_GOAL_FC4" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="View_CheckCompetecncy">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+            <PropertyRef Name="Category_ID" />
+            <PropertyRef Name="SubCategory_ID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="ProjectID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="UserName" Type="Int32" />
+          <Property Name="Category_ID" Type="Int32" Nullable="false" />
+          <Property Name="SubCategory_ID" Type="Int32" Nullable="false" />
+          <Property Name="QuestionID" Type="Int32" Nullable="false" />
+          <Property Name="QuestionText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="QuestionExplanation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LEVEL_BASE_FC1" Type="Int32" />
+          <Property Name="LEVEL_BASE_FC2" Type="Int32" />
+          <Property Name="LEVEL_BASE_FC3" Type="Int32" />
+          <Property Name="LEVEL_BASE_FC4" Type="Int32" />
+          <Property Name="LEVEL_GOAL_FC1" Type="Int32" />
+          <Property Name="LEVEL_GOAL_FC2" Type="Int32" />
+          <Property Name="LEVEL_GOAL_FC3" Type="Int32" />
+          <Property Name="LEVEL_GOAL_FC4" Type="Int32" />
+          <Property Name="Current_Level" Type="Int32" />
+        </EntityType>
+        <EntityType Name="View_Check_Competency_New">
+          <Key>
+            <PropertyRef Name="ProjectID" />
+            <PropertyRef Name="Category_ID" />
+            <PropertyRef Name="SubCategory_ID" />
+            <PropertyRef Name="QuestionID" />
+          </Key>
+          <Property Name="ProjectID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" />
+          <Property Name="UserName" Type="Int32" />
+          <Property Name="Category_ID" Type="Int32" Nullable="false" />
+          <Property Name="SubCategory_ID" Type="Int32" Nullable="false" />
+          <Property Name="QuestionID" Type="Int32" Nullable="false" />
+          <Property Name="QuestionText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="QuestionExplanation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LEVEL_BASE_FC1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LEVEL_BASE_FC2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LEVEL_BASE_FC3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LEVEL_BASE_FC4" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LEVEL_GOAL_FC1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LEVEL_GOAL_FC2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LEVEL_GOAL_FC3" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="LEVEL_GOAL_FC4" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Current_Level" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CompetencySubQuestion">
+          <Key>
+            <PropertyRef Name="SubQuestion_ID" />
+          </Key>
+          <Property Name="SubQuestion_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Question_Id" Type="Int32" />
+          <Property Name="Category_Id" Type="Int32" />
+          <Property Name="SubCategory_Id" Type="Int32" />
+          <Property Name="SubQuestionText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Project_Id" Type="Int32" />
+          <Property Name="Level_Id" Type="Int32" />
+          <Property Name="ModifiedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Modified_Date" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="IsChecked" Type="Boolean" />
+          <NavigationProperty Name="CompetencyCategory" Relationship="ProjectManagementModel.FK_CompetencySubQuestions_CompetencyCategory" FromRole="CompetencySubQuestion" ToRole="CompetencyCategory" />
+          <NavigationProperty Name="CompetencyLevel" Relationship="ProjectManagementModel.FK_CompetencySubQuestions_CompetencyLevels" FromRole="CompetencySubQuestion" ToRole="CompetencyLevel" />
+          <NavigationProperty Name="CompetencyLevel1" Relationship="ProjectManagementModel.FK_CompetencySubQuestions_CompetencyLevels1" FromRole="CompetencySubQuestion" ToRole="CompetencyLevel" />
+          <NavigationProperty Name="CompetencyQuestion" Relationship="ProjectManagementModel.FK_CompetencySubQuestions_CompetencyQuestions" FromRole="CompetencySubQuestion" ToRole="CompetencyQuestion" />
+          <NavigationProperty Name="CompetencySubCategory" Relationship="ProjectManagementModel.FK_CompetencySubQuestions_CompetencySubCategory" FromRole="CompetencySubQuestion" ToRole="CompetencySubCategory" />
+          <NavigationProperty Name="Project" Relationship="ProjectManagementModel.FK_CompetencySubQuestions_Projects" FromRole="CompetencySubQuestion" ToRole="Project" />
+        </EntityType>
+        <Association Name="FK_CompetencySubQuestions_CompetencyCategory">
+          <End Type="ProjectManagementModel.CompetencyCategory" Role="CompetencyCategory" Multiplicity="0..1" />
+          <End Type="ProjectManagementModel.CompetencySubQuestion" Role="CompetencySubQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencyCategory">
+              <PropertyRef Name="Category_ID" />
+            </Principal>
+            <Dependent Role="CompetencySubQuestion">
+              <PropertyRef Name="Category_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencySubQuestions_CompetencyLevels">
+          <End Type="ProjectManagementModel.CompetencyLevel" Role="CompetencyLevel" Multiplicity="0..1" />
+          <End Type="ProjectManagementModel.CompetencySubQuestion" Role="CompetencySubQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencyLevel">
+              <PropertyRef Name="Level_ID" />
+            </Principal>
+            <Dependent Role="CompetencySubQuestion">
+              <PropertyRef Name="Level_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencySubQuestions_CompetencyLevels1">
+          <End Type="ProjectManagementModel.CompetencyLevel" Role="CompetencyLevel" Multiplicity="0..1" />
+          <End Type="ProjectManagementModel.CompetencySubQuestion" Role="CompetencySubQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencyLevel">
+              <PropertyRef Name="Level_ID" />
+            </Principal>
+            <Dependent Role="CompetencySubQuestion">
+              <PropertyRef Name="Level_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencySubQuestions_CompetencyQuestions">
+          <End Type="ProjectManagementModel.CompetencyQuestion" Role="CompetencyQuestion" Multiplicity="0..1" />
+          <End Type="ProjectManagementModel.CompetencySubQuestion" Role="CompetencySubQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencyQuestion">
+              <PropertyRef Name="QuestionID" />
+            </Principal>
+            <Dependent Role="CompetencySubQuestion">
+              <PropertyRef Name="Question_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencySubQuestions_CompetencySubCategory">
+          <End Type="ProjectManagementModel.CompetencySubCategory" Role="CompetencySubCategory" Multiplicity="0..1" />
+          <End Type="ProjectManagementModel.CompetencySubQuestion" Role="CompetencySubQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CompetencySubCategory">
+              <PropertyRef Name="SubCategory_ID" />
+            </Principal>
+            <Dependent Role="CompetencySubQuestion">
+              <PropertyRef Name="SubCategory_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CompetencySubQuestions_Projects">
+          <End Type="ProjectManagementModel.Project" Role="Project" Multiplicity="0..1" />
+          <End Type="ProjectManagementModel.CompetencySubQuestion" Role="CompetencySubQuestion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="ProjectID" />
+            </Principal>
+            <Dependent Role="CompetencySubQuestion">
+              <PropertyRef Name="Project_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProjectManagementModelStoreContainer" CdmEntityContainer="ProjectManagementEntities">
+          <EntitySetMapping Name="AssetDetails">
+            <EntityTypeMapping TypeName="ProjectManagementModel.AssetDetail">
+              <MappingFragment StoreEntitySet="AssetDetails">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+                <ScalarProperty Name="Resources_Class" ColumnName="Resources_Class" />
+                <ScalarProperty Name="Serial_No" ColumnName="Serial_No" />
+                <ScalarProperty Name="HostName" ColumnName="HostName" />
+                <ScalarProperty Name="SpiridonNo" ColumnName="SpiridonNo" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="PRNO" ColumnName="PRNO" />
+                <ScalarProperty Name="PONO" ColumnName="PONO" />
+                <ScalarProperty Name="WarrantyStartDate" ColumnName="WarrantyStartDate" />
+                <ScalarProperty Name="AgeOfAsset" ColumnName="AgeOfAsset" />
+                <ScalarProperty Name="ExpireBy" ColumnName="ExpireBy" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="RAM" ColumnName="RAM" />
+                <ScalarProperty Name="Storage" ColumnName="Storage" />
+                <ScalarProperty Name="Processor" ColumnName="Processor" />
+                <ScalarProperty Name="CPUClockSpeed" ColumnName="CPUClockSpeed" />
+                <ScalarProperty Name="PhysicalCores" ColumnName="PhysicalCores" />
+                <ScalarProperty Name="NIC_Count" ColumnName="NIC_Count" />
+                <ScalarProperty Name="ISActive" ColumnName="ISActive" />
+                <ScalarProperty Name="ToBeReplaced" ColumnName="ToBeReplaced" />
+                <ScalarProperty Name="Acknowledge" ColumnName="Acknowledge" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Competency_Analysis">
+            <EntityTypeMapping TypeName="ProjectManagementModel.Competency_Analysis">
+              <MappingFragment StoreEntitySet="Competency_Analysis">
+                <ScalarProperty Name="CompetencyID" ColumnName="CompetencyID" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="FeatureCycle_ID" ColumnName="FeatureCycle_ID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+                <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+                <ScalarProperty Name="Level_ID" ColumnName="Level_ID" />
+                <ScalarProperty Name="Base_Value" ColumnName="Base_Value" />
+                <ScalarProperty Name="Goal" ColumnName="Goal" />
+                <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+                <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="IsValid" ColumnName="IsValid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompetencyCategories">
+            <EntityTypeMapping TypeName="ProjectManagementModel.CompetencyCategory">
+              <MappingFragment StoreEntitySet="CompetencyCategory">
+                <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="Inserted_By" ColumnName="Inserted_By" />
+                <ScalarProperty Name="Inserted_Date" ColumnName="Inserted_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompetencyLevels">
+            <EntityTypeMapping TypeName="ProjectManagementModel.CompetencyLevel">
+              <MappingFragment StoreEntitySet="CompetencyLevels">
+                <ScalarProperty Name="Level_ID" ColumnName="Level_ID" />
+                <ScalarProperty Name="Level_Name" ColumnName="Level_Name" />
+                <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+                <ScalarProperty Name="InsterDate" ColumnName="InsterDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompetencyMatrices">
+            <EntityTypeMapping TypeName="ProjectManagementModel.CompetencyMatrix">
+              <MappingFragment StoreEntitySet="CompetencyMatrix">
+                <ScalarProperty Name="Competency_ID" ColumnName="Competency_ID" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+                <ScalarProperty Name="SubCategory_ID" ColumnName="SubCategory_ID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="Version_ID" ColumnName="Version_ID" />
+                <ScalarProperty Name="FeatureCycleID" ColumnName="FeatureCycleID" />
+                <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+                <ScalarProperty Name="QuestionExplanation" ColumnName="QuestionExplanation" />
+                <ScalarProperty Name="BaseValue" ColumnName="BaseValue" />
+                <ScalarProperty Name="GoalValue" ColumnName="GoalValue" />
+                <ScalarProperty Name="FC1_LevelID" ColumnName="FC1_LevelID" />
+                <ScalarProperty Name="FC2_LevelID" ColumnName="FC2_LevelID" />
+                <ScalarProperty Name="FC3_LevelID" ColumnName="FC3_LevelID" />
+                <ScalarProperty Name="FC4_LevelID" ColumnName="FC4_LevelID" />
+                <ScalarProperty Name="Financial_Year" ColumnName="Financial_Year" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompetencyQuestions">
+            <EntityTypeMapping TypeName="ProjectManagementModel.CompetencyQuestion">
+              <MappingFragment StoreEntitySet="CompetencyQuestions">
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+                <ScalarProperty Name="QuestionExplanation" ColumnName="QuestionExplanation" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+                <ScalarProperty Name="SubCategory_ID" ColumnName="SubCategory_ID" />
+                <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+                <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="IsValid" ColumnName="IsValid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompetencySubCategories">
+            <EntityTypeMapping TypeName="ProjectManagementModel.CompetencySubCategory">
+              <MappingFragment StoreEntitySet="CompetencySubCategory">
+                <ScalarProperty Name="SubCategory_ID" ColumnName="SubCategory_ID" />
+                <ScalarProperty Name="SubCategory_Name" ColumnName="SubCategory_Name" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="Inserted_By" ColumnName="Inserted_By" />
+                <ScalarProperty Name="Inserted_Date" ColumnName="Inserted_Date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FeatureCycles">
+            <EntityTypeMapping TypeName="ProjectManagementModel.FeatureCycle">
+              <MappingFragment StoreEntitySet="FeatureCycle">
+                <ScalarProperty Name="FeatureCycle_ID" ColumnName="FeatureCycle_ID" />
+                <ScalarProperty Name="FeatureCycle_Name" ColumnName="FeatureCycle_Name" />
+                <ScalarProperty Name="Version_ID" ColumnName="Version_ID" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModidfiedDate" ColumnName="ModidfiedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectAssetDetails">
+            <EntityTypeMapping TypeName="ProjectManagementModel.ProjectAssetDetail">
+              <MappingFragment StoreEntitySet="ProjectAssetDetails">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+                <ScalarProperty Name="Resources_Class" ColumnName="Resources_Class" />
+                <ScalarProperty Name="Serial_No" ColumnName="Serial_No" />
+                <ScalarProperty Name="HostName" ColumnName="HostName" />
+                <ScalarProperty Name="SpiridonNo" ColumnName="SpiridonNo" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="PRNO" ColumnName="PRNO" />
+                <ScalarProperty Name="PONO" ColumnName="PONO" />
+                <ScalarProperty Name="WarrantyStartDate" ColumnName="WarrantyStartDate" />
+                <ScalarProperty Name="AgeOfAsset" ColumnName="AgeOfAsset" />
+                <ScalarProperty Name="ExpireBy" ColumnName="ExpireBy" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="RAM" ColumnName="RAM" />
+                <ScalarProperty Name="Storage" ColumnName="Storage" />
+                <ScalarProperty Name="Processor" ColumnName="Processor" />
+                <ScalarProperty Name="CPUClockSpeed" ColumnName="CPUClockSpeed" />
+                <ScalarProperty Name="PhysicalCores" ColumnName="PhysicalCores" />
+                <ScalarProperty Name="NIC_Count" ColumnName="NIC_Count" />
+                <ScalarProperty Name="ISActive" ColumnName="ISActive" />
+                <ScalarProperty Name="ToBeReplaced" ColumnName="ToBeReplaced" />
+                <ScalarProperty Name="Acknowledge" ColumnName="Acknowledge" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="ProjectManagementModel.Project">
+              <MappingFragment StoreEntitySet="Projects">
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="ProjectCategory" ColumnName="ProjectCategory" />
+                <ScalarProperty Name="Segment" ColumnName="Segment" />
+                <ScalarProperty Name="SegmentHead" ColumnName="SegmentHead" />
+                <ScalarProperty Name="SegmentHead_ZID" ColumnName="SegmentHead_ZID" />
+                <ScalarProperty Name="SegmentHead_Email" ColumnName="SegmentHead_Email" />
+                <ScalarProperty Name="SubSegment" ColumnName="SubSegment" />
+                <ScalarProperty Name="SubsegmentHead" ColumnName="SubsegmentHead" />
+                <ScalarProperty Name="SubSegmentHead_ZID" ColumnName="SubSegmentHead_ZID" />
+                <ScalarProperty Name="SubsegmentHead_Email" ColumnName="SubsegmentHead_Email" />
+                <ScalarProperty Name="ProjectManager" ColumnName="ProjectManager" />
+                <ScalarProperty Name="ManagerZID" ColumnName="ManagerZID" />
+                <ScalarProperty Name="ManagerEmail" ColumnName="ManagerEmail" />
+                <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+                <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="ProjectManagementModel.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="Role_Name" ColumnName="Role_Name" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserBaseValues">
+            <EntityTypeMapping TypeName="ProjectManagementModel.UserBaseValue">
+              <MappingFragment StoreEntitySet="UserBaseValues">
+                <ScalarProperty Name="BaseID" ColumnName="BaseID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+                <ScalarProperty Name="SubCategory_ID" ColumnName="SubCategory_ID" />
+                <ScalarProperty Name="QuestiionID" ColumnName="QuestiionID" />
+                <ScalarProperty Name="BaseFC1" ColumnName="BaseFC1" />
+                <ScalarProperty Name="BaseFC2" ColumnName="BaseFC2" />
+                <ScalarProperty Name="BaseFC3" ColumnName="BaseFC3" />
+                <ScalarProperty Name="BaseFC4" ColumnName="BaseFC4" />
+                <ScalarProperty Name="GoalFC1" ColumnName="GoalFC1" />
+                <ScalarProperty Name="GoalFC2" ColumnName="GoalFC2" />
+                <ScalarProperty Name="GoalFC3" ColumnName="GoalFC3" />
+                <ScalarProperty Name="GoalFC4" ColumnName="GoalFC4" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="FinancialYear" ColumnName="FinancialYear" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ProjectManagementModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ScrumTeam" ColumnName="ScrumTeam" />
+                <ScalarProperty Name="GripLevel" ColumnName="GripLevel" />
+                <ScalarProperty Name="Joining_Date" ColumnName="Joining_Date" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="Project_ID" ColumnName="Project_ID" />
+                <ScalarProperty Name="Modified_date" ColumnName="Modified_date" />
+                <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Versions">
+            <EntityTypeMapping TypeName="ProjectManagementModel.Version">
+              <MappingFragment StoreEntitySet="Versions">
+                <ScalarProperty Name="Version_ID" ColumnName="Version_ID" />
+                <ScalarProperty Name="VersionName" ColumnName="VersionName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_UserCompetency">
+            <EntityTypeMapping TypeName="ProjectManagementModel.View_UserCompetency">
+              <MappingFragment StoreEntitySet="View_UserCompetency">
+                <ScalarProperty Name="LEVEL_GOAL_FC4" ColumnName="LEVEL_GOAL_FC4" />
+                <ScalarProperty Name="LEVEL_GOAL_FC3" ColumnName="LEVEL_GOAL_FC3" />
+                <ScalarProperty Name="LEVEL_GOAL_FC2" ColumnName="LEVEL_GOAL_FC2" />
+                <ScalarProperty Name="LEVEL_GOAL_FC1" ColumnName="LEVEL_GOAL_FC1" />
+                <ScalarProperty Name="LEVEL_BASE_FC4" ColumnName="LEVEL_BASE_FC4" />
+                <ScalarProperty Name="LEVEL_BASE_FC3" ColumnName="LEVEL_BASE_FC3" />
+                <ScalarProperty Name="LEVEL_BASE_FC2" ColumnName="LEVEL_BASE_FC2" />
+                <ScalarProperty Name="LEVEL_BASE_FC1" ColumnName="LEVEL_BASE_FC1" />
+                <ScalarProperty Name="QuestionExplanation" ColumnName="QuestionExplanation" />
+                <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="SubCategory_ID" ColumnName="SubCategory_ID" />
+                <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserCompetencies">
+            <EntityTypeMapping TypeName="ProjectManagementModel.UserCompetency">
+              <MappingFragment StoreEntitySet="UserCompetency">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Financial_Year" ColumnName="Financial_Year" />
+                <ScalarProperty Name="Current_Level" ColumnName="Current_Level" />
+                <ScalarProperty Name="GoalFC4" ColumnName="GoalFC4" />
+                <ScalarProperty Name="GoalFC3" ColumnName="GoalFC3" />
+                <ScalarProperty Name="GoalFC2" ColumnName="GoalFC2" />
+                <ScalarProperty Name="GoalFC1" ColumnName="GoalFC1" />
+                <ScalarProperty Name="BaseFC4" ColumnName="BaseFC4" />
+                <ScalarProperty Name="BaseFC3" ColumnName="BaseFC3" />
+                <ScalarProperty Name="BaseFC2" ColumnName="BaseFC2" />
+                <ScalarProperty Name="BaseFC1" ColumnName="BaseFC1" />
+                <ScalarProperty Name="QuestionExplanation" ColumnName="QuestionExplanation" />
+                <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+                <ScalarProperty Name="FeatureCycleID" ColumnName="FeatureCycleID" />
+                <ScalarProperty Name="Version_ID" ColumnName="Version_ID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="SubCategory_ID" ColumnName="SubCategory_ID" />
+                <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+                <ScalarProperty Name="Competency_ID" ColumnName="Competency_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_ExpiredNotification" FunctionName="ProjectManagementModel.Store.SP_ExpiredNotification">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProjectManagementModel.SP_ExpiredNotification_Result">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+                <ScalarProperty Name="Serial_No" ColumnName="Serial_No" />
+                <ScalarProperty Name="HostName" ColumnName="HostName" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_GETCOMPETENCY" FunctionName="ProjectManagementModel.Store.SP_GETCOMPETENCY">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProjectManagementModel.SP_GETCOMPETENCY_Result">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Joining_Date" ColumnName="Joining_Date" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="ProjectManager" ColumnName="ProjectManager" />
+                <ScalarProperty Name="ManagerEmail" ColumnName="ManagerEmail" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="SubCategory_Name" ColumnName="SubCategory_Name" />
+                <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+                <ScalarProperty Name="QuestionExplanation" ColumnName="QuestionExplanation" />
+                <ScalarProperty Name="Level_Name" ColumnName="Level_Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_GETCOMPETENCY_QUESTIONS" FunctionName="ProjectManagementModel.Store.SP_GETCOMPETENCY_QUESTIONS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProjectManagementModel.SP_GETCOMPETENCY_QUESTIONS_Result">
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+                <ScalarProperty Name="QuestionExplanation" ColumnName="QuestionExplanation" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="ProjectManager" ColumnName="ProjectManager" />
+                <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="SubCategory_ID" ColumnName="SubCategory_ID" />
+                <ScalarProperty Name="SubCategory_Name" ColumnName="SubCategory_Name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_ImportUsers" FunctionName="ProjectManagementModel.Store.Sp_ImportUsers" />
+          <FunctionImportMapping FunctionImportName="SP_TransferAssets" FunctionName="ProjectManagementModel.Store.SP_TransferAssets" />
+          <FunctionImportMapping FunctionImportName="SP_TransferProjectAssets" FunctionName="ProjectManagementModel.Store.SP_TransferProjectAssets" />
+          <EntitySetMapping Name="View_GetUserCompetency">
+            <EntityTypeMapping TypeName="ProjectManagementModel.View_GetUserCompetency">
+              <MappingFragment StoreEntitySet="View_GetUserCompetency">
+                <ScalarProperty Name="LEVEL_GOAL_FC4" ColumnName="LEVEL_GOAL_FC4" />
+                <ScalarProperty Name="LEVEL_GOAL_FC3" ColumnName="LEVEL_GOAL_FC3" />
+                <ScalarProperty Name="LEVEL_GOAL_FC2" ColumnName="LEVEL_GOAL_FC2" />
+                <ScalarProperty Name="LEVEL_GOAL_FC1" ColumnName="LEVEL_GOAL_FC1" />
+                <ScalarProperty Name="LEVEL_BASE_FC4" ColumnName="LEVEL_BASE_FC4" />
+                <ScalarProperty Name="LEVEL_BASE_FC3" ColumnName="LEVEL_BASE_FC3" />
+                <ScalarProperty Name="LEVEL_BASE_FC2" ColumnName="LEVEL_BASE_FC2" />
+                <ScalarProperty Name="LEVEL_BASE_FC1" ColumnName="LEVEL_BASE_FC1" />
+                <ScalarProperty Name="QuestionExplanation" ColumnName="QuestionExplanation" />
+                <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="SubCategory_ID" ColumnName="SubCategory_ID" />
+                <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_CheckCompetecncy">
+            <EntityTypeMapping TypeName="ProjectManagementModel.View_CheckCompetecncy">
+              <MappingFragment StoreEntitySet="View_CheckCompetecncy">
+                <ScalarProperty Name="Current_Level" ColumnName="Current_Level" />
+                <ScalarProperty Name="LEVEL_GOAL_FC4" ColumnName="LEVEL_GOAL_FC4" />
+                <ScalarProperty Name="LEVEL_GOAL_FC3" ColumnName="LEVEL_GOAL_FC3" />
+                <ScalarProperty Name="LEVEL_GOAL_FC2" ColumnName="LEVEL_GOAL_FC2" />
+                <ScalarProperty Name="LEVEL_GOAL_FC1" ColumnName="LEVEL_GOAL_FC1" />
+                <ScalarProperty Name="LEVEL_BASE_FC4" ColumnName="LEVEL_BASE_FC4" />
+                <ScalarProperty Name="LEVEL_BASE_FC3" ColumnName="LEVEL_BASE_FC3" />
+                <ScalarProperty Name="LEVEL_BASE_FC2" ColumnName="LEVEL_BASE_FC2" />
+                <ScalarProperty Name="LEVEL_BASE_FC1" ColumnName="LEVEL_BASE_FC1" />
+                <ScalarProperty Name="QuestionExplanation" ColumnName="QuestionExplanation" />
+                <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="SubCategory_ID" ColumnName="SubCategory_ID" />
+                <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_Check_Competency_New">
+            <EntityTypeMapping TypeName="ProjectManagementModel.View_Check_Competency_New">
+              <MappingFragment StoreEntitySet="View_Check_Competency_New">
+                <ScalarProperty Name="Current_Level" ColumnName="Current_Level" />
+                <ScalarProperty Name="LEVEL_GOAL_FC4" ColumnName="LEVEL_GOAL_FC4" />
+                <ScalarProperty Name="LEVEL_GOAL_FC3" ColumnName="LEVEL_GOAL_FC3" />
+                <ScalarProperty Name="LEVEL_GOAL_FC2" ColumnName="LEVEL_GOAL_FC2" />
+                <ScalarProperty Name="LEVEL_GOAL_FC1" ColumnName="LEVEL_GOAL_FC1" />
+                <ScalarProperty Name="LEVEL_BASE_FC4" ColumnName="LEVEL_BASE_FC4" />
+                <ScalarProperty Name="LEVEL_BASE_FC3" ColumnName="LEVEL_BASE_FC3" />
+                <ScalarProperty Name="LEVEL_BASE_FC2" ColumnName="LEVEL_BASE_FC2" />
+                <ScalarProperty Name="LEVEL_BASE_FC1" ColumnName="LEVEL_BASE_FC1" />
+                <ScalarProperty Name="QuestionExplanation" ColumnName="QuestionExplanation" />
+                <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="SubCategory_ID" ColumnName="SubCategory_ID" />
+                <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CompetencySubQuestions">
+            <EntityTypeMapping TypeName="ProjectManagementModel.CompetencySubQuestion">
+              <MappingFragment StoreEntitySet="CompetencySubQuestions">
+                <ScalarProperty Name="IsChecked" ColumnName="IsChecked" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="Level_Id" ColumnName="Level_Id" />
+                <ScalarProperty Name="Project_Id" ColumnName="Project_Id" />
+                <ScalarProperty Name="SubQuestionText" ColumnName="SubQuestionText" />
+                <ScalarProperty Name="SubCategory_Id" ColumnName="SubCategory_Id" />
+                <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+                <ScalarProperty Name="Question_Id" ColumnName="Question_Id" />
+                <ScalarProperty Name="SubQuestion_ID" ColumnName="SubQuestion_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

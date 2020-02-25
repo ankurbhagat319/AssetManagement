@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProjectManagementModelStoreContainer" CdmEntityContainer="ProjectManagementEntities1">
+    <EntitySetMapping Name="AssetDetails">
+      <EntityTypeMapping TypeName="ProjectManagementModel.AssetDetail">
+        <MappingFragment StoreEntitySet="AssetDetails">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="Resources_Class" ColumnName="Resources_Class" />
+          <ScalarProperty Name="Serial_No" ColumnName="Serial_No" />
+          <ScalarProperty Name="HostName" ColumnName="HostName" />
+          <ScalarProperty Name="SpiridonNo" ColumnName="SpiridonNo" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="PRNO" ColumnName="PRNO" />
+          <ScalarProperty Name="PONO" ColumnName="PONO" />
+          <ScalarProperty Name="WarrantyStartDate" ColumnName="WarrantyStartDate" />
+          <ScalarProperty Name="AgeOfAsset" ColumnName="AgeOfAsset" />
+          <ScalarProperty Name="ExpireBy" ColumnName="ExpireBy" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="RAM" ColumnName="RAM" />
+          <ScalarProperty Name="Storage" ColumnName="Storage" />
+          <ScalarProperty Name="Processor" ColumnName="Processor" />
+          <ScalarProperty Name="CPUClockSpeed" ColumnName="CPUClockSpeed" />
+          <ScalarProperty Name="PhysicalCores" ColumnName="PhysicalCores" />
+          <ScalarProperty Name="NIC_Count" ColumnName="NIC_Count" />
+          <ScalarProperty Name="ISActive" ColumnName="ISActive" />
+          <ScalarProperty Name="ToBeReplaced" ColumnName="ToBeReplaced" />
+          <ScalarProperty Name="Acknowledge" ColumnName="Acknowledge" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Competency_Analysis">
+      <EntityTypeMapping TypeName="ProjectManagementModel.Competency_Analysis">
+        <MappingFragment StoreEntitySet="Competency_Analysis">
+          <ScalarProperty Name="CompetencyID" ColumnName="CompetencyID" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="FeatureCycle_ID" ColumnName="FeatureCycle_ID" />
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+          <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+          <ScalarProperty Name="SubCategoryID" ColumnName="SubCategoryID" />
+          <ScalarProperty Name="Level_ID" ColumnName="Level_ID" />
+          <ScalarProperty Name="Base_Value" ColumnName="Base_Value" />
+          <ScalarProperty Name="Goal" ColumnName="Goal" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="IsValid" ColumnName="IsValid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompetencyCategories">
+      <EntityTypeMapping TypeName="ProjectManagementModel.CompetencyCategory">
+        <MappingFragment StoreEntitySet="CompetencyCategory">
+          <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="Inserted_By" ColumnName="Inserted_By" />
+          <ScalarProperty Name="Inserted_Date" ColumnName="Inserted_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompetencyLevels">
+      <EntityTypeMapping TypeName="ProjectManagementModel.CompetencyLevel">
+        <MappingFragment StoreEntitySet="CompetencyLevels">
+          <ScalarProperty Name="Level_ID" ColumnName="Level_ID" />
+          <ScalarProperty Name="Level_Name" ColumnName="Level_Name" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="InsterDate" ColumnName="InsterDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompetencyMatrices">
+      <EntityTypeMapping TypeName="ProjectManagementModel.CompetencyMatrix">
+        <MappingFragment StoreEntitySet="CompetencyMatrix">
+          <ScalarProperty Name="Competency_ID" ColumnName="Competency_ID" />
+          <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+          <ScalarProperty Name="SubCategory_ID" ColumnName="SubCategory_ID" />
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+          <ScalarProperty Name="Version_ID" ColumnName="Version_ID" />
+          <ScalarProperty Name="FeatureCycleID" ColumnName="FeatureCycleID" />
+          <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+          <ScalarProperty Name="QuestionExplanation" ColumnName="QuestionExplanation" />
+          <ScalarProperty Name="BaseValue" ColumnName="BaseValue" />
+          <ScalarProperty Name="GoalValue" ColumnName="GoalValue" />
+          <ScalarProperty Name="FC1_LevelID" ColumnName="FC1_LevelID" />
+          <ScalarProperty Name="FC2_LevelID" ColumnName="FC2_LevelID" />
+          <ScalarProperty Name="FC3_LevelID" ColumnName="FC3_LevelID" />
+          <ScalarProperty Name="FC4_LevelID" ColumnName="FC4_LevelID" />
+          <ScalarProperty Name="Financial_Year" ColumnName="Financial_Year" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompetencyQuestions">
+      <EntityTypeMapping TypeName="ProjectManagementModel.CompetencyQuestion">
+        <MappingFragment StoreEntitySet="CompetencyQuestions">
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+          <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+          <ScalarProperty Name="QuestionExplanation" ColumnName="QuestionExplanation" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+          <ScalarProperty Name="SubCategory_ID" ColumnName="SubCategory_ID" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="IsValid" ColumnName="IsValid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompetencySubCategories">
+      <EntityTypeMapping TypeName="ProjectManagementModel.CompetencySubCategory">
+        <MappingFragment StoreEntitySet="CompetencySubCategory">
+          <ScalarProperty Name="SubCategory_ID" ColumnName="SubCategory_ID" />
+          <ScalarProperty Name="SubCategory_Name" ColumnName="SubCategory_Name" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="Inserted_By" ColumnName="Inserted_By" />
+          <ScalarProperty Name="Inserted_Date" ColumnName="Inserted_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeatureCycles">
+      <EntityTypeMapping TypeName="ProjectManagementModel.FeatureCycle">
+        <MappingFragment StoreEntitySet="FeatureCycle">
+          <ScalarProperty Name="FeatureCycle_ID" ColumnName="FeatureCycle_ID" />
+          <ScalarProperty Name="FeatureCycle_Name" ColumnName="FeatureCycle_Name" />
+          <ScalarProperty Name="Version_ID" ColumnName="Version_ID" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModidfiedDate" ColumnName="ModidfiedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectAssetDetails">
+      <EntityTypeMapping TypeName="ProjectManagementModel.ProjectAssetDetail">
+        <MappingFragment StoreEntitySet="ProjectAssetDetails">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="Resources_Class" ColumnName="Resources_Class" />
+          <ScalarProperty Name="Serial_No" ColumnName="Serial_No" />
+          <ScalarProperty Name="HostName" ColumnName="HostName" />
+          <ScalarProperty Name="SpiridonNo" ColumnName="SpiridonNo" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="PRNO" ColumnName="PRNO" />
+          <ScalarProperty Name="PONO" ColumnName="PONO" />
+          <ScalarProperty Name="WarrantyStartDate" ColumnName="WarrantyStartDate" />
+          <ScalarProperty Name="AgeOfAsset" ColumnName="AgeOfAsset" />
+          <ScalarProperty Name="ExpireBy" ColumnName="ExpireBy" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="RAM" ColumnName="RAM" />
+          <ScalarProperty Name="Storage" ColumnName="Storage" />
+          <ScalarProperty Name="Processor" ColumnName="Processor" />
+          <ScalarProperty Name="CPUClockSpeed" ColumnName="CPUClockSpeed" />
+          <ScalarProperty Name="PhysicalCores" ColumnName="PhysicalCores" />
+          <ScalarProperty Name="NIC_Count" ColumnName="NIC_Count" />
+          <ScalarProperty Name="ISActive" ColumnName="ISActive" />
+          <ScalarProperty Name="ToBeReplaced" ColumnName="ToBeReplaced" />
+          <ScalarProperty Name="Acknowledge" ColumnName="Acknowledge" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="ProjectManagementModel.Project">
+        <MappingFragment StoreEntitySet="Projects">
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ProjectCategory" ColumnName="ProjectCategory" />
+          <ScalarProperty Name="Segment" ColumnName="Segment" />
+          <ScalarProperty Name="SegmentHead" ColumnName="SegmentHead" />
+          <ScalarProperty Name="SegmentHead_ZID" ColumnName="SegmentHead_ZID" />
+          <ScalarProperty Name="SegmentHead_Email" ColumnName="SegmentHead_Email" />
+          <ScalarProperty Name="SubSegment" ColumnName="SubSegment" />
+          <ScalarProperty Name="SubsegmentHead" ColumnName="SubsegmentHead" />
+          <ScalarProperty Name="SubSegmentHead_ZID" ColumnName="SubSegmentHead_ZID" />
+          <ScalarProperty Name="SubsegmentHead_Email" ColumnName="SubsegmentHead_Email" />
+          <ScalarProperty Name="ProjectManager" ColumnName="ProjectManager" />
+          <ScalarProperty Name="ManagerZID" ColumnName="ManagerZID" />
+          <ScalarProperty Name="ManagerEmail" ColumnName="ManagerEmail" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="ProjectManagementModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="Role_Name" ColumnName="Role_Name" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ProjectManagementModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ScrumTeam" ColumnName="ScrumTeam" />
+          <ScalarProperty Name="GripLevel" ColumnName="GripLevel" />
+          <ScalarProperty Name="Joining_Date" ColumnName="Joining_Date" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Project_ID" ColumnName="Project_ID" />
+          <ScalarProperty Name="Modified_date" ColumnName="Modified_date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Versions">
+      <EntityTypeMapping TypeName="ProjectManagementModel.Version">
+        <MappingFragment StoreEntitySet="Versions">
+          <ScalarProperty Name="Version_ID" ColumnName="Version_ID" />
+          <ScalarProperty Name="VersionName" ColumnName="VersionName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserBaseValues">
+      <EntityTypeMapping TypeName="ProjectManagementModel.UserBaseValue">
+        <MappingFragment StoreEntitySet="UserBaseValues">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+          <ScalarProperty Name="SubCategory_ID" ColumnName="SubCategory_ID" />
+          <ScalarProperty Name="QuestiionID" ColumnName="QuestiionID" />
+          <ScalarProperty Name="BaseFC1" ColumnName="BaseFC1" />
+          <ScalarProperty Name="BaseFC2" ColumnName="BaseFC2" />
+          <ScalarProperty Name="BaseFC3" ColumnName="BaseFC3" />
+          <ScalarProperty Name="BaseFC4" ColumnName="BaseFC4" />
+          <ScalarProperty Name="GoalFC1" ColumnName="GoalFC1" />
+          <ScalarProperty Name="GoalFC2" ColumnName="GoalFC2" />
+          <ScalarProperty Name="GoalFC3" ColumnName="GoalFC3" />
+          <ScalarProperty Name="GoalFC4" ColumnName="GoalFC4" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="FinancialYear" ColumnName="FinancialYear" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_ExpiredNotification" FunctionName="ProjectManagementModel.Store.SP_ExpiredNotification">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProjectManagementModel.SP_ExpiredNotification_Result">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="Serial_No" ColumnName="Serial_No" />
+          <ScalarProperty Name="HostName" ColumnName="HostName" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GETCOMPETENCY" FunctionName="ProjectManagementModel.Store.SP_GETCOMPETENCY">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProjectManagementModel.SP_GETCOMPETENCY_Result">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Joining_Date" ColumnName="Joining_Date" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ProjectManager" ColumnName="ProjectManager" />
+          <ScalarProperty Name="ManagerEmail" ColumnName="ManagerEmail" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="SubCategory_Name" ColumnName="SubCategory_Name" />
+          <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+          <ScalarProperty Name="QuestionExplanation" ColumnName="QuestionExplanation" />
+          <ScalarProperty Name="Level_Name" ColumnName="Level_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GETCOMPETENCY_QUESTIONS" FunctionName="ProjectManagementModel.Store.SP_GETCOMPETENCY_QUESTIONS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ProjectManagementModel.SP_GETCOMPETENCY_QUESTIONS_Result">
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+          <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+          <ScalarProperty Name="QuestionExplanation" ColumnName="QuestionExplanation" />
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+          <ScalarProperty Name="ProjectManager" ColumnName="ProjectManager" />
+          <ScalarProperty Name="Category_ID" ColumnName="Category_ID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="SubCategory_ID" ColumnName="SubCategory_ID" />
+          <ScalarProperty Name="SubCategory_Name" ColumnName="SubCategory_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_ImportUsers" FunctionName="ProjectManagementModel.Store.Sp_ImportUsers" />
+    <FunctionImportMapping FunctionImportName="SP_TransferAssets" FunctionName="ProjectManagementModel.Store.SP_TransferAssets" />
+    <FunctionImportMapping FunctionImportName="SP_TransferProjectAssets" FunctionName="ProjectManagementModel.Store.SP_TransferProjectAssets" />
+  </EntityContainerMapping>
+</Mapping>

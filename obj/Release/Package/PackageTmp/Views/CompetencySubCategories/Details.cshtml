@@ -1,0 +1,51 @@
+﻿@model AssetManagement.Models.CompetencySubCategory
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CompetencySubCategory</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SubCategory_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubCategory_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Inserted_By)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Inserted_By)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Inserted_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Inserted_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompetencyCategory.CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompetencyCategory.CategoryName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SubCategory_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

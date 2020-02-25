@@ -1,0 +1,93 @@
+﻿<style>
+
+    .div{
+        padding-left:30px;
+    }
+    .dropdown{
+        padding-left:10px;
+    }
+   .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: solid;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1 !important; color:white !important;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: white;
+}
+   nav .navbar-nav li a{
+  color: white !important;
+  }
+   .navbar-brand {
+  color: white !important;
+   }
+ 
+</style>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-secondary static-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+        Product Management
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="dropdown" >@Html.ActionLink("Home", "Index", "AssetDetails")</li>
+                <li class="dropdown">@Html.ActionLink("Asset Mangement", "Index", "AssetDetails")</li>
+
+
+                @*<li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin View <span class="caret"></span></a>
+                    <ul class="dropdown-menu bg-secondary">
+                        <li class="dropdown">@Html.ActionLink("Versions", "Index", "Versions")</li>
+                        <li class="dropdown">@Html.ActionLink("Users", "Index", "Users")</li>
+                        <li class="dropdown">@Html.ActionLink("Roles", "Index", "Roles")</li>
+                        <li class="dropdown">@Html.ActionLink("Projects", "Index", "Projects")</li>
+                        <li class="dropdown">@Html.ActionLink("Feature Cycles", "Index", "FeatureCycles")</li>
+                        <li class="dropdown">@Html.ActionLink("Competency SubCategories", "Index", "CompetencySubCategories")</li>
+                        <li class="dropdown">@Html.ActionLink("Competency Questions", "Index", "CompetencyQuestions")</li>
+                        <li class="dropdown">@Html.ActionLink("Competency Levels", "Index", "CompetencyLevels")</li>
+                        <li class="dropdown">@Html.ActionLink("Competency Categories", "Index", "CompetencyCategories")</li>
+                        <li class="dropdown">@Html.ActionLink("Competency Analysis", "Index", "Competency_Analysis")</li>
+                        <li class="dropdown">@Html.ActionLink("Asset Details", "Index", "AssetDetails")</li>
+                    </ul>
+                </li>*@
+
+                @*<li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Competency <span class="caret"></span></a>
+                    <ul class="dropdown-menu bg-secondary">
+                        <li class="dropdown">@Html.ActionLink("User Base Values", "UserBaseValues", "Competency")</li>
+                        <li class="dropdown">@Html.ActionLink("User Competency", "UserCompetency", "Competency")</li>
+
+                    </ul>
+                </li>*@
+
+            </ul>
+
+
+
+        </div>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<body>
+    @RenderBody()
+</body>
+<!-- /.container -->

@@ -1,0 +1,113 @@
+﻿@model AssetManagement.Models.CompetencySubQuestion
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CompetencySubQuestion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SubQuestionText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SubQuestionText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modified_Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modified_Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsActive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsChecked)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsChecked)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompetencyCategory.CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompetencyCategory.CategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompetencyLevel.Level_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompetencyLevel.Level_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompetencyLevel1.Level_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompetencyLevel1.Level_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompetencyQuestion.QuestionText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompetencyQuestion.QuestionText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompetencySubCategory.SubCategory_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompetencySubCategory.SubCategory_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.ProjectName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.ProjectName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

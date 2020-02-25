@@ -1,0 +1,888 @@
+﻿@model AssetManagement.Models.UserCompetency
+@{
+    ViewBag.Title = "UserCompetency";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/rowreorder/1.2.0/js/dataTables.rowReorder.min.js"></script>
+<link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/rowreorder/1.2.0/css/rowReorder.dataTables.min.css" rel="stylesheet" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.18/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.18/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+@*<script src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+     <script src="https//cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+     <script src="https//cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+           <script src="https//cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>*@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.51.1/plotly.min.js"></script>
+
+
+<style>
+    .form-horizontal{
+        padding-top:20px;
+    }
+    td.details-control {
+        background: url('../Images/expand.png') no-repeat center center;
+        cursor: pointer;
+    }
+
+    tr.shown td.details-control {
+        background: url('../Images/collapse.png') no-repeat center center;
+    }
+</style>
+<div class="col-md-12"><img src="~/Images/c1.PNG" width="1500" height="200" ></div>
+<div class="col-md-12"><label id="lblmsg" style="color:green;font-size:medium;"></label></div>
+    <div class="col-md-12 form-horizontal">
+
+        @Html.ValidationSummary(true, "", new
+   {
+       @class = "text-danger"
+   })
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProjectId, "ProjectId", htmlAttributes: new
+       {
+           @class = "col-md-1"
+       })
+            <div class="col-md-5">
+                @Html.DropDownList("ProjectId", null, htmlAttributes: new
+           {
+               @class = "form-control",
+               //@onchange = "fnGetQuestions()"
+           })
+                @Html.ValidationMessageFor(model => model.ProjectId, "", new
+           {
+               @class = "text-danger"
+           })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserID, "UserID", htmlAttributes: new
+       {
+           @class = "col-md-1"
+       })
+            <div class="col-md-5">
+                @Html.DropDownList("UserID", null, htmlAttributes: new
+           {
+               @class = "form-control",
+               @onchange = "fnGetDispalyname()"
+           })
+                @Html.ValidationMessageFor(model => model.UserID, "", new
+           {
+               @class = "text-danger"
+           })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-1" for="UserName">UserName</label>
+            <div class="col-md-5">
+
+                <input class="form-control text-box single-line" id="UserName" name="UserName" type="text" value=""><span class="field-validation-valid text-danger" data-valmsg-for="UserName" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FeatureCycleID, "FeatureCycleID", htmlAttributes: new
+       {
+           @class = "col-md-1"
+       })
+            <div class="col-md-5">
+                @Html.DropDownList("FeatureCycleID", null, htmlAttributes: new
+           {
+               @class = "form-control",
+
+           })
+                @Html.ValidationMessageFor(model => model.FeatureCycleID, "", new
+           {
+               @class = "text-danger"
+           })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-1"></label>
+            <div class="col-md-5">
+                <button class="btn-success" id="btnsave" value="Submit" onclick="fnSaveCompetencyValues()">Submit</button>
+                <button class="btn-outline-info" id="btnclear" value="Submit">Clear</button>
+            </div>
+        </div>
+    </div>
+
+ 
+
+
+<div class="col-md-12">
+    <div class="col-md-6">
+        <div id="myChart"></div>
+    </div>
+    <div class="col-md-6">
+        <div id="myChart1"></div>
+    </div>
+</div>
+<div class="col-md-12">
+    <div class="container-fluid ">
+        <div class="row">
+
+        </div>
+       
+        <table class="table-bordered" id="tblquestions">
+            <thead style="background-color:HighlightText">
+                <tr>
+                    <th></th>
+                    <th>Category Id</th>
+                    <th>Sub Category ID</th>
+                    <th>Question ID</th>
+                    <th>Question Text</th>
+                    <th>Question Expalnation</th>
+                    <th>BaseValue</th>
+                    <th>GoalValue</th>
+                    <th>FC1 Competency</th>
+                    <th>FC2 Competency</th>
+                    <th>FC3 Competency</th>
+                    <th>FC4 Competency</th>
+
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+</div>
+
+<script>
+
+    function fnGetDispalyname() {
+
+        var UserID = $('#UserID').val();
+        var FeatureCycleID = $('#FeatureCycleID').find(':selected').text();
+        $.getJSON("@Url.Action("GetUserName", "Competency")", { UserID: UserID }, function (data) {
+            var UserName = data[0];
+            $('#UserName').val(UserName);
+
+            var ProjectID = $('#ProjectId').val();
+
+            $.getJSON("@Url.Action("GetUserQuestions", "Competency")", { ProjectID: ProjectID, UserID: UserID }, function (data) {
+                var ds = [];
+                fnUserGraph(data);
+                for (var i = 0; i < data.data.length; i++) {
+
+                    //var baseVal = 0;
+                    //if (data.data[i].LEVEL_BASE_FC1 === 4) {
+                    //    baseVal = "Basic"
+                    //}
+                    //if (data.data[i].LEVEL_BASE_FC1 === 5) {
+                    //    baseVal = "Advanced"
+                    //}
+                    //if (data.data[i].LEVEL_BASE_FC1 === 6) {
+                    //    baseVal = "Expert"
+                    //}
+                    //var goalVal = 0;
+                    //if (data.data[i].LEVEL_GOAL_FC1 === 4) {
+                    //    goalVal = "Basic"
+                    //}
+                    //if (data.data[i].LEVEL_GOAL_FC1 === 5) {
+                    //    goalVal = "Advanced"
+                    //}
+                    //if (data.data[i].LEVEL_GOAL_FC1 === 6) {
+                    //    goalVal = "Expert"
+                    //}
+                    ds.push(['',data.data[i].Category_ID,
+                        data.data[i].SubCategory_ID,
+                        data.data[i].QuestionID,
+                        data.data[i].QuestionText,
+                        data.data[i].QuestionExplanation,
+                    data.data[i].LEVEL_BASE_FC1,
+                        data.data[i].LEVEL_GOAL_FC1,
+                       data.data[i].Current_Level,
+                       data.data[i].Current_Level,
+                       data.data[i].Current_Level,
+                       data.data[i].Current_Level
+                    ]);
+                }
+                console.log(ds);
+                $('#tblquestions').DataTable().clear().destroy();
+                var table = $("#tblquestions").DataTable({
+
+                    data: ds,
+                    processing: true,
+                    "lengthMenu": [[10, 20, 50, -1], [10, 20, 50, "All"]],
+                    "pageLength": 20,
+                    'columnDefs': [{
+                        'targets': 0,
+                        'searchable': false,
+                        "orderable": true,
+                        "data": null,
+                        "defaultContent": '',
+                        'className': 'details-control',
+                        
+                    },
+                    {
+                        'targets': 8,
+                        'searchable': false,
+                        'orderable': false,
+                        'className': 'dt-body-center',
+                        'render': function (data, type, full, meta) {
+                            if (FeatureCycleID.indexOf('FC1') !== -1) {
+
+                                if (data === "Basic") {
+                                    return '<select id ="ddlcompetencyFc1"><option selected>Basic<option>Advanced<option>Expert</select>';
+
+                                }
+                                else if (data === "Advanced") {
+                                    return '<select id ="ddlcompetencyFc1"><option">Basic<option selected>Advanced<option>Expert</select>';
+                                }
+                                else if (data === "Expert") {
+                                    return '<select id ="ddlcompetencyFc1"><option>Basic<option>Advanced<option selected>Expert</select>';
+                                }
+                                else {
+                                    return '<select id ="ddlcompetencyFc1"><option>Basic<option>Advanced<option>Expert</select>';
+                                }
+
+                            }
+                            else {
+
+                                if (data === "Basic") {
+                                    return '<select id ="ddlcompetencyFc1"  style="background-color:lightgrey" disabled=true><option selected>Basic<option>Advanced<option>Expert</select>';
+
+                                }
+                                else if (data === "Advanced") {
+                                    return '<select id ="ddlcompetencyFc1"  style="background-color:lightgrey" disabled=true><option">Basic<option selected>Advanced<option>Expert</select>';
+                                }
+                                else if (data === "Expert") {
+                                    return '<select id ="ddlcompetencyFc1"  style="background-color:lightgrey" disabled=true><option>Basic<option>Advanced<option selected>Expert</select>';
+                                }
+                                else {
+                                    return '<select id ="ddlcompetencyFc1"  style="background-color:lightgrey" disabled=true><option>Basic<option>Advanced<option>Expert</select>';
+                                }
+
+                            }
+                        },
+                    },
+                    {
+                        'targets': 9,
+
+                        'searchable': false,
+                        'orderable': false,
+                        'className': 'dt-body-center',
+                        'render': function (data, type, full, meta) {
+                            if (FeatureCycleID.indexOf('FC2') !== -1) {
+                                if (data === "Basic") {
+                                    return '<select id ="ddlcompetencyFc2"><option selected>Basic<option>Advanced<option>Expert</select>';
+
+                                }
+                                else if (data === "Advanced") {
+                                    return '<select id ="ddlcompetencyFc2"><option">Basic<option selected>Advanced<option>Expert</select>';
+                                }
+                                else if (data === "Expert") {
+                                    return '<select id ="ddlcompetencyFc2"><option>Basic<option>Advanced<option selected>Expert</select>';
+                                }
+                                else {
+                                    return '<select id ="ddlcompetencyFc2"><option>Basic<option>Advanced<option>Expert</select>';
+                                }
+                            }
+                            else {
+                                if (data === "Basic") {
+                                    return '<select id ="ddlcompetencyFc2" style="background-color:lightgrey" disabled=true><option selected>Basic<option>Advanced<option>Expert</select>';
+
+                                }
+                                else if (data === "Advanced") {
+                                    return '<select id ="ddlcompetencyFc2" style="background-color:lightgrey" disabled=true><option">Basic<option selected>Advanced<option>Expert</select>';
+                                }
+                                else if (data === "Expert") {
+                                    return '<select id ="ddlcompetencyFc2" style="background-color:lightgrey" disabled=true><option>Basic<option>Advanced<option selected>Expert</select>';
+                                }
+                                else {
+                                    return '<select id ="ddlcompetencyFc2" style="background-color:lightgrey" disabled=true><option>Basic<option>Advanced<option>Expert</select>';
+                                }
+
+                            }
+                        },
+
+                    }, {
+                        'targets': 10,
+
+                        'searchable': false,
+                        'orderable': false,
+                        'className': 'dt-body-center',
+                        'render': function (data, type, full, meta) {
+
+                            if (FeatureCycleID.indexOf('FC3') !== -1) {
+                                if (data === "Basic") {
+                                    return '<select id ="ddlcompetencyFc3"><option selected>Basic<option>Advanced<option>Expert</select>';
+
+                                }
+                                else if (data === "Advanced") {
+                                    return '<select id ="ddlcompetencyFc3"><option">Basic<option selected>Advanced<option>Expert</select>';
+                                }
+                                else if (data === "Expert") {
+                                    return '<select id ="ddlcompetencyFc3"><option>Basic<option>Advanced<option selected>Expert</select>';
+                                }
+                                else {
+                                    return '<select id ="ddlcompetencyFc3"><option>Basic<option>Advanced<option>Expert</select>';
+                                }
+                            }
+                            else {
+                                if (data === "Basic") {
+                                    return '<select id ="ddlcompetencyFc3" style="background-color:lightgrey" disabled=true><option selected>Basic<option>Advanced<option>Expert</select>';
+
+                                }
+                                else if (data === "Advanced") {
+                                    return '<select id ="ddlcompetencyFc3" style="background-color:lightgrey" disabled=true><option">Basic<option selected>Advanced<option>Expert</select>';
+                                }
+                                else if (data === "Expert") {
+                                    return '<select id ="ddlcompetencyFc3" style="background-color:lightgrey" disabled=true><option>Basic<option>Advanced<option selected>Expert</select>';
+                                }
+                                else {
+                                    return '<select id ="ddlcompetencyFc3" style="background-color:lightgrey" disabled=true><option>Basic<option>Advanced<option>Expert</select>';
+                                }
+
+                            }
+                        },
+
+                    }, {
+                        'targets': 11,
+
+                        'searchable': false,
+                        'orderable': false,
+                        'className': 'dt-body-center',
+                        'render': function (data, type, full, meta) {
+
+                            if (FeatureCycleID.indexOf('FC4') !== -1) {
+                                if (data === "Basic") {
+                                    return '<select id ="ddlcompetencyFc4"><option selected>Basic<option>Advanced<option>Expert</select>';
+
+                                }
+                                else if (data === "Advanced") {
+                                    return '<select id ="ddlcompetencyFc4"><option">Basic<option selected>Advanced<option>Expert</select>';
+                                }
+                                else if (data === "Expert") {
+                                    return '<select id ="ddlcompetencyFc4"><option>Basic<option>Advanced<option selected>Expert</select>';
+                                }
+                                else {
+                                    return '<select id ="ddlcompetencyFc4"><option>Basic<option>Advanced<option>Expert</select>';
+                                }
+                            }
+                            else {
+                                if (data === "Basic") {
+                                    return '<select id ="ddlcompetencyFc4" style="background-color:lightgrey" disabled=true><option selected>Basic<option>Advanced<option>Expert</select>';
+
+                                }
+                                else if (data === "Advanced") {
+                                    return '<select id ="ddlcompetencyFc4" style="background-color:lightgrey" disabled=true><option">Basic<option selected>Advanced<option>Expert</select>';
+                                }
+                                else if (data === "Expert") {
+                                    return '<select id ="ddlcompetencyFc4" style="background-color:lightgrey" disabled=true><option>Basic<option>Advanced<option selected>Expert</select>';
+                                }
+                                else {
+                                    return '<select id ="ddlcompetencyFc4" style="background-color:lightgrey" disabled=true><option>Basic<option>Advanced<option>Expert</select>';
+                                }
+
+                            }
+                        },
+
+                    }],
+                    dom: 'Bfrtip',
+                    buttons: [
+                      'copyHtml5', 'excelHtml5', 'pdfHtml5', 'csvHtml5'
+                    ],
+
+                    "fnRowCallback": function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+                        $(nRow).find('td:eq(4)').css('background-color', 'antiquewhite');
+                        $(nRow).find('td:eq(5)').css('background-color', 'antiquewhite');
+                        $(nRow).find('td:eq(6)').css('background-color', 'antiquewhite');
+                        $(nRow).find('td:eq(7)').css('background-color', 'antiquewhite');
+
+                        if (FeatureCycleID.indexOf('FC1') === -1) {
+                            $(nRow).find('td:eq(8)').css('background-color', 'lightgrey');
+                        }
+                        if (FeatureCycleID.indexOf('FC2') === -1) {
+                            $(nRow).find('td:eq(9)').css('background-color', 'lightgrey');
+                        }
+                        if (FeatureCycleID.indexOf('FC3') === -1) {
+                            $(nRow).find('td:eq(10)').css('background-color', 'lightgrey');
+                        }
+                        if (FeatureCycleID.indexOf('FC4') === -1) {
+                            $(nRow).find('td:eq(11)').css('background-color', 'lightgrey');
+                        }
+
+                    }
+                }).order([0, 'asc']).draw();
+                table.columns([ 1, 2,3]).visible(false);
+            });
+        });
+    }
+
+
+    function fnSaveCompetencyValues() {
+        var fID = $('#FeatureCycleID').val();
+        var table = $("#tblquestions").DataTable();
+        table.columns([0, 1, 2]).visible(true);
+        //Loop through the Table rows and build a JSON array.
+        var userValues = new Array();
+        $("#tblquestions TBODY TR").each(function () {
+
+            /////////////////////Save to User Competency Table/////////////////////////////////
+            var row = $(this);
+            var userValue = {};
+            userValue.ProjectId = $('#ProjectId').val();
+            userValue.UserID = $('#UserID').val();
+            userValue.Category_ID = row.find("TD").eq(0).html();
+            userValue.SubCategory_ID = row.find("TD").eq(1).html();
+            userValue.QuestionID = row.find("TD").eq(2).html();
+            userValue.Version_ID = 3;
+            userValue.FeatureCycleID = fID;
+            userValue.QuestionText = row.find("TD").eq(3).html();
+            userValue.QuestionExplanation = row.find("TD").eq(4).html();
+            var baseVal = row.find("TD").eq(5).html();
+            var BaseFC1 = 0;
+            if (baseVal === "Basic") {
+                BaseFC1 = 4
+            }
+            if (baseVal === "Advanced") {
+                BaseFC1 = 5
+            }
+            if (baseVal === "Expert") {
+                BaseFC1 = 6
+            }
+            userValue.BaseFC1 = BaseFC1;
+            userValue.BaseFC2 = BaseFC1;
+            userValue.BaseFC3 = BaseFC1;
+            userValue.BaseFC4 = BaseFC1;
+            var goalVal = row.find("TD").eq(6).html();
+            var GoalFC1 = 0;
+            if (goalVal === "Basic") {
+                GoalFC1 = 4
+            }
+            if (goalVal === "Advanced") {
+                GoalFC1 = 5
+            }
+            if (goalVal === "Expert") {
+                GoalFC1 = 6
+            }
+            userValue.GoalFC1 = GoalFC1;
+            userValue.GoalFC2 = GoalFC1;
+            userValue.GoalFC3 = GoalFC1;
+            userValue.GoalFC4 = GoalFC1;
+            userValue.Current_Level = row.find("TD").eq(7).html();
+            var current_Level = row.find("TD").eq(7);
+            var currentValue = current_Level.find(':selected').text();
+            var current_Competency = 0;
+            if (currentValue === "Basic") {
+                current_Competency = 4
+            }
+            if (currentValue === "Advanced") {
+                current_Competency = 5
+            }
+            if (currentValue === "Expert") {
+                current_Competency = 6
+            }
+            userValue.Current_Level = current_Competency
+            userValue.BaseFC2 = current_Competency;
+            userValue.BaseFC3 = current_Competency;
+            userValue.BaseFC4 = current_Competency;
+            userValue.ModifiedBy = "Admin";
+            userValue.ModifiedDate = new Date();
+            userValue.Comment = "NA";
+            userValue.Financial_Year = "2019-2020";
+            userValue.IsActive = 1;
+            userValues.push(userValue);
+        });
+        //Send the JSON array to Controller using AJAX.
+        $.ajax({
+            type: "POST",
+            url: "/Competency/SaveUserCompetency",
+            data: JSON.stringify(userValues),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (r) {
+                alert(r + " record(s) inserted.");
+                fnSaveBaseValues();
+      
+                var x = document.getElementById("lblmsg");
+                x.innerHTML = "Competency sent for Manager Approval";
+                fnGetDispalyname();
+
+            }
+        });
+
+
+
+
+    }
+
+    function fnSaveBaseValues() {
+        debugger;
+        var table = $("#tblquestions").DataTable();
+        table.columns([ 1, 2,3]).visible(true);
+
+        //Loop through the Table rows and build a JSON array.
+        var userValues = new Array();
+        $("#tblquestions TBODY TR").each(function () {
+            var row = $(this);
+            var userValue = {};
+            userValue.UserID = $('#UserID').val();
+            userValue.UserName = $('#UserID').val();
+            userValue.ProjectID = $('#ProjectId').val();
+
+            userValue.Category_ID = row.find("TD").eq(0).html();
+            userValue.SubCategory_ID = row.find("TD").eq(1).html();
+            userValue.QuestiionID = row.find("TD").eq(2).html();
+
+            var baseVal = row.find("TD").eq(6).html();
+            var BaseFC1 = 0;
+            if (baseVal === "Basic") {
+                BaseFC1 = 4
+            }
+            if (baseVal === "Advanced") {
+                BaseFC1 = 5
+            }
+            if (baseVal === "Expert") {
+                BaseFC1 = 6
+            }
+            userValue.BaseFC1 = BaseFC1
+
+
+            var goalVal = row.find("TD").eq(7).html();
+            var GoalFC1 = 0;
+            if (goalVal === "Basic") {
+                GoalFC1 = 4
+            }
+            if (goalVal === "Advanced") {
+                GoalFC1 = 5
+            }
+            if (goalVal === "Expert") {
+                GoalFC1 = 6
+            }
+
+            userValue.GoalFC1 = GoalFC1
+            var current_Level = row.find("TD").eq(8);
+            var currentValue = current_Level.find(':selected').text();
+            var current_Competency = 0;
+            if (currentValue === "Basic") {
+                current_Competency = 4
+            }
+            if (currentValue === "Advanced") {
+                current_Competency = 5
+            }
+            if (currentValue === "Expert") {
+                current_Competency = 6
+            }
+            userValue.Current_Level = current_Competency
+            userValue.BaseFC2 = current_Competency;
+            userValue.BaseFC3 = current_Competency;
+            userValue.BaseFC4 = current_Competency;
+
+            userValue.ModifiedBy = "Admin";
+            userValue.ModifiedDate = new Date();
+            userValue.Comment = "NA";
+            userValue.FinancialYear = "2019-2020";
+            userValue.IsActive = 1;
+            userValues.push(userValue);
+        });
+
+        //Send the JSON array to Controller using AJAX.
+        $.ajax({
+            type: "POST",
+            url: "/AssetManagement/Competency/UpdateBaseValues",
+            data: JSON.stringify(userValues),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (r) {
+                alert(r + " record(s) inserted.");
+                table.columns([0, 1, 2]).visible(false);
+            }
+        });
+
+
+
+
+    }
+
+    function fnUserGraph(data) {
+        var QuestionID = _.chain(data.data).filter(function (item) {
+            return item.QuestionText;
+        }).pluck("QuestionText").value();
+        var Current_Level = _.chain(data.data).filter(function (item) {
+            return item.Current_Level;
+        }).pluck("Current_Level").value();
+        var userName = $('#UserName').val();
+
+        var Base = _.chain(data.data).filter(function (item) {
+            return item.LEVEL_BASE_FC1;
+        }).pluck("LEVEL_BASE_FC1").value();
+
+        var Goal = _.chain(data.data).filter(function (item) {
+            return item.LEVEL_GOAL_FC1;
+        }).pluck("LEVEL_GOAL_FC1").value();
+
+        var userName = $('#UserName').val();
+    
+        trace1 = {
+            type: 'scatter',
+            x: QuestionID,
+            y: Current_Level,
+       
+            name: 'Current Competency',
+            type: 'scatter',
+            mode: 'lines+markers',
+
+            line: {
+                shape: 'spline',
+                width: 3
+            }
+        };
+
+        trace2 = {
+            type: 'scatter',
+            x: QuestionID,
+            y: Base,
+         
+            name: 'Base Competency',
+
+            type: 'scatter',
+            mode: 'lines+markers',
+
+            line: {
+                shape: 'spline',
+                width: 2,
+                dash: 'dot'
+            }
+        };
+
+        trace3 = {
+            type: 'scatter',
+            x: QuestionID,
+            y: Goal,
+
+            name: 'Goal Competency',
+
+            type: 'scatter',
+            mode: 'lines+markers',
+
+            line: {
+                shape: 'spline',
+                width: 2
+            }
+        };
+
+        var layout = {
+            width: 800,
+            height: 550,
+            margin: {
+                b: 270
+            },
+            title: userName + ' Competency',
+            xaxis: {
+                linecolor: 'black',
+                linewidth: 0.5,
+                mirror: true,
+                tickfont: { size: 12 },
+                title: 'Questions',
+                titlefont: {
+                    family: 'Droid Sans Mono',
+                    size: 14
+                }
+            },
+
+            yaxis: {
+                title: 'Competency Level',
+                linecolor: 'black',
+                linewidth: 0.5,
+                mirror: true,
+                titlefont: {
+                    family: 'Droid Sans Mono',
+                    size: 14
+                }
+            }
+        };
+
+        var data = [trace1, trace2,trace3];
+
+        Plotly.newPlot('myChart', data, layout);
+
+
+
+      
+        trace1 = {
+            type: 'scatter',
+            x: QuestionID,
+            y: Current_Level,
+
+            name: 'Current Competency',
+            type: 'scatter',
+            type: 'bar',
+
+            line: {
+                shape: 'spline',
+                width: 3
+            }
+        };
+
+        trace2 = {
+            type: 'scatter',
+            x: QuestionID,
+            y: Base,
+
+            name: 'Base Competency',
+
+ 
+            type: 'bar',
+
+            line: {
+                shape: 'spline',
+                width: 2,
+                dash: 'dot'
+            }
+        };
+
+        trace3 = {
+            type: 'scatter',
+            x: QuestionID,
+            y: Goal,
+
+            name: 'Goal Competency',
+
+            type: 'bar',
+            type: 'lines+markers',
+
+            line: {
+                shape: 'spline',
+                width: 2
+            }
+        };
+
+        trace4 = {
+            type: 'scatter',
+            x: QuestionID,
+            y: Base,
+
+            name: 'Ref-Base Competency',
+
+            type: 'scatter',
+            type: 'lines+markers',
+
+            line: {
+                shape: 'spline',
+                width: 2
+            }
+        };
+
+        var layout = {
+            width: 800,
+            height: 550,
+            title: userName + ' Competency',
+            margin: {
+                b: 270
+            },
+            xaxis: {
+                linecolor: 'black',
+                linewidth: 0.5,
+                mirror: true,
+                tickfont: { size: 12 },
+                title: 'Questions',
+                titlefont: {
+                    family: 'Droid Sans Mono',
+                    size: 14
+                }
+            },
+
+            yaxis: {
+                title: 'Competency Level',
+                linecolor: 'black',
+                linewidth: 0.5,
+                mirror: true,
+                titlefont: {
+                    family: 'Droid Sans Mono',
+                    size: 14
+                }
+            }
+        };
+
+        var data = [trace1, trace2, trace3];
+        Plotly.newPlot('myChart1', data, layout);
+
+    }
+
+ 
+    ////////////////////SubQuestion append to parent td///////////////////
+    $('#tblquestions tbody').on('click', 'td.details-control', function () {
+
+        var table = $('#tblquestions').DataTable();
+        var data = table.row(this).data();
+        var tr = $(this).closest('tr');
+        var row = table.row(tr);
+        if (row.child.isShown()) {
+            // This row is already open - close it
+            row.child.hide();
+            tr.removeClass('shown');
+        }
+        else {
+            tr.removeClass('shown');
+
+            //ResultArray = [];
+            //reqcount++;
+            //ExecutedId = data[18];
+            //TestId = data[19];
+
+            var req = $.getJSON("@Url.Action("GetSubQuestions", "Competency")",
+            { Category_Id: data[1], SubCategory_Id: data[2], Question_Id: data[3] },
+            function (resp) {
+                if (resp !== null) {
+                    $.each(resp, function (index, item) {
+                        ResultArray = item;
+                        let nTable = '<table "class="table table-striped table-bordered">' +
+                              '<thead>' +
+                                  '<tr>' +
+                                  ' <th>Name</th>' +
+                                      '<th>Result</th>' +
+                                   '<th>Duration [hh:mm:ss:ms]</th>' +
+                                  '</tr>' +
+                              '</thead>' +
+                              '<tbody>';
+                        let totalDuration = '00:00:00:00';
+                        for (var i = 0; i < ResultArray.length; i++) {
+                            let tr = '<tr Id="' + ResultArray[i].Name + '>';
+                            var tdClass = "";
+                            var tdValue = "";
+                            if (ResultArray[i].Result === 2) {
+                                tdClass = "label-success";
+                                tdValue = "Successful";
+                            } else if (ResultArray[i].Result === 1 || ResultArray[i].Result === 3) {
+                                tdClass = "label-danger";
+                                tdValue = "Failed";
+                            } else if (ResultArray[i].Result === 8) {
+                                tdClass = "label-warning";
+                                tdValue = "NotApplicable";
+                            } else {
+                                tdClass = "label-default";
+                                tdValue = "None";
+                            }
+
+                            nTable += '<tr>' +
+                               '<td>' + ResultArray[i].Name + '</td>' +
+                               '<td>' + '<span class="label ' + tdClass + '"' + '>' + tdValue + '</span></td>' +
+                                 '<td>' + ResultArray[i].Duration + '</td>' +
+                                     '</tr>';
+                            totalDuration = addDurations(totalDuration, ResultArray[i].Duration && ResultArray[i].Duration.length > 0 ? ResultArray[i].Duration : '00:00:00:00');
+                        }
+                        nTable += '<tr><td><b>Total Duration</b></td><td></td><td><b>' + totalDuration.toString() + '</b></td></tr>'
+                        nTable += '</tbody></table>';
+
+                        row.child(nTable).show();
+                        tr.addClass('shown');
+
+                    });
+                }
+
+
+            });
+        }
+
+    });
+  
+</script>

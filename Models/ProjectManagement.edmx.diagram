@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="080b37e6d671468191f493b014b853b7" Name="Diagram1">
+        <EntityTypeShape EntityType="ProjectManagementModel.AssetDetail" Width="1.5" PointX="3" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagementModel.Competency_Analysis" Width="1.5" PointX="6" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagementModel.CompetencyCategory" Width="1.5" PointX="0.75" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagementModel.CompetencyLevel" Width="1.5" PointX="3.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagementModel.CompetencyMatrix" Width="1.5" PointX="9" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagementModel.CompetencyQuestion" Width="1.5" PointX="3" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagementModel.CompetencySubCategory" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagementModel.FeatureCycle" Width="1.5" PointX="3.75" PointY="29.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagementModel.ProjectAssetDetail" Width="1.5" PointX="6" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagementModel.Project" Width="1.5" PointX="0.75" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagementModel.Role" Width="1.5" PointX="3.75" PointY="26.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagementModel.UserBaseValue" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagementModel.User" Width="1.5" PointX="6" PointY="25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProjectManagementModel.Version" Width="1.5" PointX="1.5" PointY="29.875" IsExpanded="true" />
+        <AssociationConnector Association="ProjectManagementModel.FK_AssetDetails_Projects" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_AssetDetails_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_Category_CID_Competency_Analysis_CID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_Competency_Analysis_CompetencyQuestions" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_Competency_Analysis_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_FeatureCycle_FID_Competency_Analysis_FID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_Levels_LID_Competency_Analysis_LID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_Projects_ID_Competency_Analysis_ProjectID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_Subcategory_SID_Competency_Analysis_SID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_Category_CID_CompetencyQuestions_CID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_Competency_CategoryID_SubCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_CompetencyMatrix_CompetencyCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_CompetencyMatrix_CompetencyQuestions" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_CompetencyMatrix_CompetencySubCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_CompetencyMatrix_FeatureCycle" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_CompetencyMatrix_Projects" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_CompetencyMatrix_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_CompetencyMatrix_Versions" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_Projects_PID_CompetencyQuestions_PID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_SubCategory_SID_CompetencyQuestions_SID" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_FeatureCycle_Versions" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_ProjectAssetDetails_Projects" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_ProjectAssetDetails_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_Projects_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="ProjectManagementModel.FK_Users_Roles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ProjectManagementModel.View_UserCompetency" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ProjectManagementModel.UserCompetency" Width="1.5" PointX="11.25" PointY="17" />
+        <AssociationConnector Association="ProjectManagementModel.FK_UserCompetency_CompetencyCategory" />
+        <AssociationConnector Association="ProjectManagementModel.FK_UserCompetency_CompetencyQuestions" />
+        <AssociationConnector Association="ProjectManagementModel.FK_UserCompetency_CompetencySubCategory" />
+        <AssociationConnector Association="ProjectManagementModel.FK_UserCompetency_FeatureCycle" />
+        <AssociationConnector Association="ProjectManagementModel.FK_UserCompetency_Projects" />
+        <AssociationConnector Association="ProjectManagementModel.FK_UserCompetency_Users" />
+        <AssociationConnector Association="ProjectManagementModel.FK_UserCompetency_Versions" />
+        <EntityTypeShape EntityType="ProjectManagementModel.View_GetUserCompetency" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ProjectManagementModel.View_CheckCompetecncy" Width="1.5" PointX="6.375" PointY="5.75" />
+        <EntityTypeShape EntityType="ProjectManagementModel.View_Check_Competency_New" Width="1.5" PointX="8.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ProjectManagementModel.CompetencySubQuestion" Width="1.5" PointX="9" PointY="12.375" />
+        <AssociationConnector Association="ProjectManagementModel.FK_CompetencySubQuestions_CompetencyCategory" />
+        <AssociationConnector Association="ProjectManagementModel.FK_CompetencySubQuestions_CompetencyLevels" />
+        <AssociationConnector Association="ProjectManagementModel.FK_CompetencySubQuestions_CompetencyLevels1" />
+        <AssociationConnector Association="ProjectManagementModel.FK_CompetencySubQuestions_CompetencyQuestions" />
+        <AssociationConnector Association="ProjectManagementModel.FK_CompetencySubQuestions_CompetencySubCategory" />
+        <AssociationConnector Association="ProjectManagementModel.FK_CompetencySubQuestions_Projects" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

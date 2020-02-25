@@ -1,0 +1,236 @@
+﻿@model AssetManagement.Models.Competency
+@{
+    ViewBag.Title = "Competency";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/rowreorder/1.2.0/js/dataTables.rowReorder.min.js"></script>
+<link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/rowreorder/1.2.0/css/rowReorder.dataTables.min.css" rel="stylesheet" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<h2>Competency</h2>
+
+<div class="form-horizontal">
+    @Html.ValidationSummary(true, "", new
+{
+    @class = "text-danger"
+})
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ProjectID, "ProjectID", htmlAttributes: new
+   {
+       @class = "control-label col-md-2"
+   })
+        <div class="col-md-10">
+            @Html.DropDownList("ProjectID", null, htmlAttributes: new
+       {
+           @class = "form-control",
+           //@onchange = "fnGetQuestions()"
+       })
+            @Html.ValidationMessageFor(model => model.ProjectID, "", new
+       {
+           @class = "text-danger"
+       })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UserId, "UserID", htmlAttributes: new
+   {
+       @class = "control-label col-md-2"
+   })
+        <div class="col-md-10">
+            @Html.DropDownList("UserID", null, htmlAttributes: new
+       {
+           @class = "form-control",
+           @onchange = "fnGetDispalyname()"
+       })
+            @Html.ValidationMessageFor(model => model.UserId, "", new
+       {
+           @class = "text-danger"
+       })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UserName, htmlAttributes: new
+   {
+       @class = "control-label col-md-2"
+   })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.UserName, new
+       {
+           htmlAttributes = new
+           {
+               @class = "form-control",
+             
+           }
+       })
+            @Html.ValidationMessageFor(model => model.UserName, "", new
+       {
+           @class = "text-danger"
+       })
+        </div>
+    </div>
+
+
+    
+</div>
+<div class="container-fluid">
+    <table class="table-bordered" id="tblquestions">
+        <thead>
+            <tr>
+               <th>User Id</th> 
+                <th>User Name</th> 
+                <th>Question ID</th>
+                <th>Question Text</th>
+                <th>Question Expalnation</th>
+                <th>Project Id</th>
+                <th>Project Name</th>
+                <th>Project Manager</th>
+                <th>Category Id</th>
+                <th>Category Name</th>
+                <th>Sub Category ID</th>
+                <th>Sub Category Name</th>
+                <th>Competency Level FC1</th>
+                <th>Competency Level FC2</th>
+                <th>Competency Level FC3</th>
+                <th>Competency Level FC4</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+
+<script>
+
+    $(document).ready(function () {
+        var UserID = $('#UserID').val();
+        $.getJSON("@Url.Action("GetUserName", "AssetDetails")", { UserID: UserID }, function (data) {
+            var UserName = data[0];
+            $('#UserName').val(UserName);
+        });
+    
+        $('a.toggle-vis').on('click', function (e) {
+            e.preventDefault();
+
+            // Get the column API object
+            var column = table.column($(this).attr('data-column'));
+
+            // Toggle the visibility
+            column.visible(!column.visible());
+        });
+    });
+
+    function fnGetDispalyname()
+    {
+        debugger;
+        var UserID = $('#UserID').val();
+        $.getJSON("@Url.Action("GetUserName", "AssetDetails")", { UserID: UserID }, function (data) {
+            var UserName = data[0];
+            $('#UserName').val(UserName);
+            var ProjectID = $('#ProjectID').val();
+            $.getJSON("@Url.Action("GetQuestions", "Competency")", { ProjectID: ProjectID}, function (data) {
+                var ds = [];
+          
+                for (var i = 0; i < data.data.length; i++) {
+                    ds.push([data.data[i].UserId,
+                        data.data[i].UserName,
+                        data.data[i].QuestionID,
+                        data.data[i].QuestionText,
+                        data.data[i].QuestionExplanation,
+                       data.data[i].ProjectID,
+                       data.data[i].ProjectName,
+                       data.data[i].ProjectManager,
+                       data.data[i].Category_ID,
+                       data.data[i].CategoryName,
+                       data.data[i].SubCategory_ID,
+                       data.data[i].SubCategory_Name]);
+                }
+
+                console.log(ds);
+                $('#tblquestions').DataTable().clear().destroy();
+                var table = $("#tblquestions").DataTable({
+                    data: ds,
+                    processing: true,
+              
+                    "lengthMenu": [[10, 20, 50, -1], [10, 20, 50, "All"]],
+                    "pageLength": 20,
+                    'columnDefs': [ {
+               'targets': 12,
+         
+                        'searchable': false,
+                        'orderable': false,
+                        'className': 'dt-body-center',
+                        'render': function (data, type, full, meta) {
+
+                      
+                            return '<select id ="ddlcompetencyFc1"><option val=\"1\">Basic<option>Advanced<option>Expert</select>';
+                         
+                          
+                        },
+
+                    },
+                    {
+                        'targets': 13,
+
+                        'searchable': false,
+                        'orderable': false,
+                        'className': 'dt-body-center',
+                        'render': function (data, type, full, meta) {
+
+
+                            return '<select id ="ddlcompetencyFc2" disabled=true><option val=\"1\">Basic<option>Advanced<option>Expert</select>';
+
+
+                        },
+
+                    }, {
+                        'targets': 14,
+
+                        'searchable': false,
+                        'orderable': false,
+                        'className': 'dt-body-center',
+                        'render': function (data, type, full, meta) {
+
+
+                            return '<select id ="ddlcompetencyFc3" disabled=true><option val=\"1\">Basic<option>Advanced<option>Expert</select>';
+
+
+                        },
+
+                    }, {
+                        'targets': 15,
+
+                        'searchable': false,
+                        'orderable': false,
+                        'className': 'dt-body-center',
+                        'render': function (data, type, full, meta) {
+
+
+                            return '<select id ="ddlcompetencyFc3" disabled=true><option val=\"1\">Basic<option>Advanced<option>Expert</select>';
+
+
+                        },
+
+                    }],
+                    dom: 'Bfrtip',
+                    buttons: [
+                      'copyHtml5', 'excelHtml5', 'pdfHtml5', 'csvHtml5'
+                    ]
+                }).order([0, 'asc']).draw();
+                table.columns([0,1,2,5,8,10]).visible(false);
+            });
+        });
+
+    }
+
+    function fnGetQuestions()
+    {
+        debugger;
+     
+    }
+
+</script>

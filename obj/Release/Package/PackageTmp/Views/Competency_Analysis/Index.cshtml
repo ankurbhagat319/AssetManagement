@@ -1,0 +1,124 @@
+﻿@model IEnumerable<AssetManagement.Models.Competency_Analysis>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Base_Value)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Goal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InsertedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InsertedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsValid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompetencyCategory.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompetencyQuestion.QuestionText)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FeatureCycle.FeatureCycle_Name)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Competency_Analysis1.InsertedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Competency_Analysis2.InsertedBy)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.CompetencyLevel.Level_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Project.ProjectName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CompetencySubCategory.SubCategory_Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Base_Value)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Goal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InsertedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InsertedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModifiedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsValid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompetencyCategory.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompetencyQuestion.QuestionText)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FeatureCycle.FeatureCycle_Name)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Competency_Analysis1.InsertedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Competency_Analysis2.InsertedBy)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.CompetencyLevel.Level_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Project.ProjectName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompetencySubCategory.SubCategory_Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CompetencyID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CompetencyID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CompetencyID })
+        </td>
+    </tr>
+}
+
+</table>

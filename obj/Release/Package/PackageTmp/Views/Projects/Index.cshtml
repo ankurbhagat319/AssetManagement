@@ -1,0 +1,124 @@
+﻿@model IEnumerable<AssetManagement.Models.Project>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectCategory)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Segment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SegmentHead)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SegmentHead_ZID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SegmentHead_Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubSegment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubsegmentHead)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubSegmentHead_ZID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SubsegmentHead_Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectManager)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ManagerZID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ManagerEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Modified_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Modified_By)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectCategory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Segment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SegmentHead)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SegmentHead_ZID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SegmentHead_Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubSegment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubsegmentHead)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubSegmentHead_ZID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SubsegmentHead_Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectManager)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ManagerZID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ManagerEmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Modified_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Modified_By)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProjectID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProjectID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProjectID })
+        </td>
+    </tr>
+}
+
+</table>

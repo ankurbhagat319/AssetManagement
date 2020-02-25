@@ -1,0 +1,352 @@
+﻿@model AssetManagement.Models.Competency
+@{
+    ViewBag.Title = "UserBaseValues";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>UserBaseValues</h2>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/rowreorder/1.2.0/js/dataTables.rowReorder.min.js"></script>
+<link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/rowreorder/1.2.0/css/rowReorder.dataTables.min.css" rel="stylesheet" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<style>
+    .container-fluid{
+        padding-left:10px;
+    }
+</style>
+<div class="form-horizontal">
+    @Html.ValidationSummary(true, "", new
+{
+    @class = "text-danger"
+})
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ProjectID, "ProjectID", htmlAttributes: new
+   {
+       @class = "control-label col-md-2"
+   })
+        <div class="col-md-10">
+            @Html.DropDownList("ProjectID", null, htmlAttributes: new
+       {
+           @class = "form-control",
+           //@onchange = "fnGetQuestions()"
+       })
+            @Html.ValidationMessageFor(model => model.ProjectID, "", new
+       {
+           @class = "text-danger"
+       })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UserId, "UserID", htmlAttributes: new
+   {
+       @class = "control-label col-md-2"
+   })
+        <div class="col-md-10">
+            @Html.DropDownList("UserID", null, htmlAttributes: new
+       {
+           @class = "form-control",
+           @onchange = "fnGetDispalyname()"
+       })
+            @Html.ValidationMessageFor(model => model.UserId, "", new
+       {
+           @class = "text-danger"
+       })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UserName, htmlAttributes: new
+   {
+       @class = "control-label col-md-2"
+   })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.UserName, new
+       {
+           htmlAttributes = new
+           {
+               @class = "form-control",
+
+           }
+       })
+            @Html.ValidationMessageFor(model => model.UserName, "", new
+       {
+           @class = "text-danger"
+       })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.FeatureCycleID, "FeatureCycleID", htmlAttributes: new
+   {
+       @class = "control-label col-md-2"
+   })
+        <div class="col-md-10">
+            @Html.DropDownList("FeatureCycleID", null, htmlAttributes: new
+       {
+           @class = "form-control",
+
+       })
+            @Html.ValidationMessageFor(model => model.FeatureCycleID, "", new
+       {
+           @class = "text-danger"
+       })
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <button class="btn-success" id="btnsave" value="Submit" onclick="fnSaveBaseValues()">Submit</button>
+        <button class="btn-outline-info" id="btnclear" value="Submit">Clear</button>
+    </div>
+    <table class="table-bordered" id="tblbaseval">
+        <thead>
+            <tr>
+                <th>User Id</th>
+                <th>User Name</th>
+                <th>Question ID</th>
+                <th>Question Text</th>
+                <th>Question Expalnation</th>
+                <th>Project Id</th>
+                <th>Project Name</th>
+                <th>Project Manager</th>
+                <th>Category Id</th>
+                <th>Category Name</th>
+                <th>Sub Category ID</th>
+                <th>Sub Category Name</th>
+                <th>Base Level Current FC</th>
+                <th>Goal Level Current FC</th>
+                <th>State</th>
+
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+<script>
+    $(document).ready(function () {
+        var UserID = $('#UserID').val();
+        $.getJSON("@Url.Action("GetUserName", "AssetDetails")", { UserID: UserID }, function (data) {
+            var UserName = data[0];
+            $('#UserName').val(UserName);
+        });
+        //$('#tblquestions').DataTable();
+
+    });
+
+    function fnGetDispalyname() {
+ 
+        var UserID = $('#UserID').val();
+        var FeatureCycle = $('#FeatureCycleID').find(':selected').text();
+        $.getJSON("@Url.Action("GetUserName", "AssetDetails")", { UserID: UserID }, function (data) {
+            var UserName = data[0];
+            $('#UserName').val(UserName);
+
+            var ProjectID = $('#ProjectID').val();
+            $.getJSON("@Url.Action("GetQuestions", "Competency")", { ProjectID: ProjectID, UserID: UserID }, function (data) {
+                var ds = [];
+                var baseVal = 0; var goalVal = 0;
+                for (var i = 0; i < data.data.length; i++) {
+                    if (FeatureCycle.indexOf('FC1') !== -1)
+                    {
+                        baseVal = data.data[i].BaseFC1;
+                        goalVal = data.data[i].GoalFC1;
+                    }
+                   else if (FeatureCycle.indexOf('FC2') !== -1) {
+                        baseVal = data.data[i].BaseFC2;
+                        goalVal = data.data[i].GoalFC2;
+                    }
+                    else if (FeatureCycle.indexOf('FC3') !== -1) {
+                        baseVal = data.data[i].BaseFC3;
+                        goalVal = data.data[i].GoalFC3;
+                    }
+
+                    else if (FeatureCycle.indexOf('FC4') !== -1)
+                    {
+                        baseVal = data.data[i].BaseFC4;
+                        goalVal = data.data[i].GoalFC4;
+                    }
+
+                    ds.push([data.data[i].UserId,
+                        data.data[i].UserName,
+                        data.data[i].QuestionID,
+                        data.data[i].QuestionText,
+                        data.data[i].QuestionExplanation,
+                       data.data[i].ProjectID,
+                       data.data[i].ProjectName,
+                       data.data[i].ProjectManager,
+                       data.data[i].Category_ID,
+                       data.data[i].CategoryName,
+                       data.data[i].SubCategory_ID,
+                       data.data[i].SubCategory_Name,
+                      baseVal,
+                    goalVal]);
+                }
+
+                console.log(ds);
+                $('#tblbaseval').DataTable().clear().destroy();
+                var table = $("#tblbaseval").DataTable({
+                    data: ds,
+                    processing: true,
+                    "lengthMenu": [[10, 20, 50, -1], [10, 20, 50, "All"]],
+                    "pageLength": 20,
+                    'columnDefs': [{
+                        'targets': 12,
+
+                        'searchable': false,
+                        'orderable': false,
+                        'className': 'dt-body-center',
+                        'render': function (data, type, full, meta) {
+                            if (data === 4)
+                            {
+                                return '<select id ="ddlBaseVal"><option selected>Basic<option>Advanced<option>Expert</select>';
+                             
+                            }
+                            else if (data === 5)
+                            {
+                                return '<select id ="ddlBaseVal"><option">Basic<option selected>Advanced<option>Expert</select>';
+                            }
+                            else if (data === 6) {
+                                return '<select id ="ddlBaseVal"><option>Basic<option>Advanced<option selected>Expert</select>';
+                            }
+                            else {
+                                return '<select id ="ddlBaseVal"><option>Basic<option>Advanced<option>Expert</select>';
+                            }
+                           
+                        },
+                    },
+                    {
+                        'targets': 13,
+                        'searchable': false,
+                        'orderable': false,
+                        'className': 'dt-body-center',
+                        'render': function (data, type, full, meta) {
+                            if (data === 4) {
+                                return '<select id ="ddlBaseVal"><option selected>Basic<option>Advanced<option>Expert</select>';
+
+                            }
+                            else if (data === 5) {
+                                return '<select id ="ddlBaseVal"><option">Basic<option selected>Advanced<option>Expert</select>';
+                            }
+                            else if (data === 6) {
+                                return '<select id ="ddlBaseVal"><option>Basic<option>Advanced<option selected>Expert</select>';
+                            }
+                            else {
+                                return '<select id ="ddlBaseVal"><option>Basic<option>Advanced<option>Expert</select>';
+                            }
+
+                        },
+
+                    },
+                     {
+                         'targets': 14,
+                         'searchable': false,
+                         'orderable': false,
+                         'className': 'dt-body-center',
+                         'render': function (data, type, full, meta) {
+                           
+                             return '<select id ="ddlstate"><option selected>Required<option>Not Required</select>';
+
+                          
+
+                         },
+
+                     }],
+                    dom: 'Bfrtip',
+                    buttons: [
+                      'copyHtml5', 'excelHtml5', 'pdfHtml5', 'csvHtml5'
+                    ]
+                }).order([0, 'asc']).draw();
+                table.columns([0, 1, 2, 5, 8, 10]).visible(false);
+            });
+        });
+    }
+
+
+    function fnSaveBaseValues() {
+        var table = $("#tblbaseval").DataTable();
+        table.columns([0, 1, 2, 5, 8, 10]).visible(true);
+
+        //Loop through the Table rows and build a JSON array.
+        var userValues = new Array();
+        $("#tblbaseval TBODY TR").each(function () {
+            var row = $(this);
+            var userValue = {};
+            userValue.UserID = $('#UserID').val();
+            userValue.UserName = $('#UserID').val();
+            userValue.ProjectID = $('#ProjectID').val();
+
+            userValue.Category_ID = row.find("TD").eq(8).html();
+            userValue.SubCategory_ID = row.find("TD").eq(10).html();
+            userValue.QuestiionID = row.find("TD").eq(2).html();
+            var baseData = row.find("TD").eq(12);
+            var baseVal = baseData.find(':selected').text();
+            var BaseFC1 = 0;
+            if (baseVal === "Basic") {
+                BaseFC1 = 4
+            }
+            if (baseVal === "Advanced") {
+                BaseFC1 = 5
+            }
+            if (baseVal === "Expert") {
+                BaseFC1 = 6
+            }
+            userValue.BaseFC1 = BaseFC1
+            userValue.BaseFC2 = BaseFC1
+            userValue.BaseFC3 = BaseFC1
+            userValue.BaseFC4 = BaseFC1
+
+            var goalData = row.find("TD").eq(13);
+            var goalVal = goalData.find(':selected').text();
+            var GoalFC1 = 0;
+            if (goalVal === "Basic") {
+                GoalFC1 = 4
+            }
+            if (goalVal === "Advanced") {
+                GoalFC1 = 5
+            }
+            if (goalVal === "Expert") {
+                GoalFC1 = 6
+            }
+
+            userValue.GoalFC1 = GoalFC1
+            userValue.GoalFC2 = GoalFC1
+            userValue.GoalFC3 = GoalFC1
+            userValue.GoalFC4 = GoalFC1
+
+
+            userValue.ModifiedBy = "Admin";
+            userValue.ModifiedDate = new Date();
+            userValue.Comment = "NA";
+            userValue.FinancialYear = "2019-2020";
+
+
+            var qStateData = row.find("TD").eq(14);
+            var qStateVal = qStateData.find(':selected').text();
+            if (qStateVal === "Required")
+            { userValue.IsActive = 1; }
+            else { userValue.IsActive = 0; }
+          
+            userValues.push(userValue);
+        });
+
+        //Send the JSON array to Controller using AJAX.
+        $.ajax({
+            type: "POST",
+            url: "/AssetManagement/Competency/SaveBaseValue",
+            data: JSON.stringify(userValues),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (r) {
+                alert(r + " record(s) inserted.");
+                table.columns([0, 1, 2, 5, 8, 10]).visible(false);
+            }
+        });
+
+
+
+
+    }
+</script>

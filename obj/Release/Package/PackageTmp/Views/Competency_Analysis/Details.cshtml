@@ -1,0 +1,147 @@
+﻿@model AssetManagement.Models.Competency_Analysis
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Competency_Analysis</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Base_Value)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Base_Value)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Goal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Goal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InsertedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InsertedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InsertedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InsertedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsValid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsValid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompetencyCategory.CategoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompetencyCategory.CategoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompetencyQuestion.QuestionText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompetencyQuestion.QuestionText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FeatureCycle.FeatureCycle_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FeatureCycle.FeatureCycle_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Competency_Analysis1.InsertedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Competency_Analysis1.InsertedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Competency_Analysis2.InsertedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Competency_Analysis2.InsertedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompetencyLevel.Level_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompetencyLevel.Level_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.ProjectName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.ProjectName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompetencySubCategory.SubCategory_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompetencySubCategory.SubCategory_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CompetencyID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

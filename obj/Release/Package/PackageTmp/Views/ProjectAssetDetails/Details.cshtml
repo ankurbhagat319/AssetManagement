@@ -1,0 +1,235 @@
+﻿@model AssetManagement.Models.ProjectAssetDetail
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ProjectAssetDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Manufacturer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Manufacturer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resources_Class)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resources_Class)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Serial_No)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Serial_No)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HostName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HostName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SpiridonNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SpiridonNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRNO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRNO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PONO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PONO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WarrantyStartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WarrantyStartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgeOfAsset)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgeOfAsset)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpireBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExpireBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Owner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Owner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RAM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RAM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Storage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Storage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Processor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Processor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CPUClockSpeed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CPUClockSpeed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicalCores)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhysicalCores)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NIC_Count)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NIC_Count)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ISActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ISActive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ToBeReplaced)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToBeReplaced)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Acknowledge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Acknowledge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.ProjectName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.ProjectName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.UserName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

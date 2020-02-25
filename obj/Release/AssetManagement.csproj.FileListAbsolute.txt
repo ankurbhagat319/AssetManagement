@@ -1,0 +1,162 @@
+D:\AssetManagement\AssetManagement\bin\ApplicationInsights.config
+D:\AssetManagement\AssetManagement\bin\roslyn\csc.exe
+D:\AssetManagement\AssetManagement\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\AssetManagement\AssetManagement\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\AssetManagement\AssetManagement\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\AssetManagement\AssetManagement\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\AssetManagement\AssetManagement\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\AssetManagement\AssetManagement\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\AssetManagement\AssetManagement\bin\roslyn\System.Collections.Immutable.dll
+D:\AssetManagement\AssetManagement\bin\roslyn\System.Reflection.Metadata.dll
+D:\AssetManagement\AssetManagement\bin\roslyn\vbc.exe
+D:\AssetManagement\AssetManagement\bin\roslyn\VBCSCompiler.exe
+D:\AssetManagement\AssetManagement\bin\roslyn\VBCSCompiler.exe.config
+D:\AssetManagement\AssetManagement\bin\AssetManagement.dll.config
+D:\AssetManagement\AssetManagement\bin\AssetManagement.dll
+D:\AssetManagement\AssetManagement\bin\AssetManagement.pdb
+D:\AssetManagement\AssetManagement\bin\Antlr3.Runtime.dll
+D:\AssetManagement\AssetManagement\bin\EntityFramework.dll
+D:\AssetManagement\AssetManagement\bin\EntityFramework.SqlServer.dll
+D:\AssetManagement\AssetManagement\bin\Microsoft.AI.Agent.Intercept.dll
+D:\AssetManagement\AssetManagement\bin\Microsoft.AI.DependencyCollector.dll
+D:\AssetManagement\AssetManagement\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\AssetManagement\AssetManagement\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\AssetManagement\AssetManagement\bin\Microsoft.AI.Web.dll
+D:\AssetManagement\AssetManagement\bin\Microsoft.AI.WindowsServer.dll
+D:\AssetManagement\AssetManagement\bin\Microsoft.ApplicationInsights.dll
+D:\AssetManagement\AssetManagement\bin\Microsoft.AspNet.Identity.Core.dll
+D:\AssetManagement\AssetManagement\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\AssetManagement\AssetManagement\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\AssetManagement\AssetManagement\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\AssetManagement\AssetManagement\bin\Microsoft.Owin.dll
+D:\AssetManagement\AssetManagement\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\AssetManagement\AssetManagement\bin\Microsoft.Owin.Security.Cookies.dll
+D:\AssetManagement\AssetManagement\bin\Microsoft.Owin.Security.dll
+D:\AssetManagement\AssetManagement\bin\Microsoft.Owin.Security.Facebook.dll
+D:\AssetManagement\AssetManagement\bin\Microsoft.Owin.Security.Google.dll
+D:\AssetManagement\AssetManagement\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\AssetManagement\AssetManagement\bin\Microsoft.Owin.Security.OAuth.dll
+D:\AssetManagement\AssetManagement\bin\Microsoft.Owin.Security.Twitter.dll
+D:\AssetManagement\AssetManagement\bin\Microsoft.Web.Infrastructure.dll
+D:\AssetManagement\AssetManagement\bin\Newtonsoft.Json.dll
+D:\AssetManagement\AssetManagement\bin\Owin.dll
+D:\AssetManagement\AssetManagement\bin\System.Web.Helpers.dll
+D:\AssetManagement\AssetManagement\bin\System.Web.Mvc.dll
+D:\AssetManagement\AssetManagement\bin\System.Web.Optimization.dll
+D:\AssetManagement\AssetManagement\bin\System.Web.Razor.dll
+D:\AssetManagement\AssetManagement\bin\System.Web.WebPages.Deployment.dll
+D:\AssetManagement\AssetManagement\bin\System.Web.WebPages.dll
+D:\AssetManagement\AssetManagement\bin\System.Web.WebPages.Razor.dll
+D:\AssetManagement\AssetManagement\bin\WebGrease.dll
+D:\AssetManagement\AssetManagement\bin\Microsoft.AI.DependencyCollector.xml
+D:\AssetManagement\AssetManagement\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\AssetManagement\AssetManagement\bin\Microsoft.AI.Web.xml
+D:\AssetManagement\AssetManagement\bin\Microsoft.AI.WindowsServer.xml
+D:\AssetManagement\AssetManagement\bin\Microsoft.ApplicationInsights.xml
+D:\AssetManagement\AssetManagement\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\AssetManagement\AssetManagement\bin\System.Web.Helpers.xml
+D:\AssetManagement\AssetManagement\bin\System.Web.Mvc.xml
+D:\AssetManagement\AssetManagement\bin\System.Web.Optimization.xml
+D:\AssetManagement\AssetManagement\bin\System.Web.Razor.xml
+D:\AssetManagement\AssetManagement\bin\System.Web.WebPages.xml
+D:\AssetManagement\AssetManagement\bin\System.Web.WebPages.Deployment.xml
+D:\AssetManagement\AssetManagement\bin\System.Web.WebPages.Razor.xml
+D:\AssetManagement\AssetManagement\bin\Antlr3.Runtime.pdb
+D:\AssetManagement\AssetManagement\bin\Newtonsoft.Json.xml
+D:\AssetManagement\AssetManagement\bin\EntityFramework.xml
+D:\AssetManagement\AssetManagement\bin\EntityFramework.SqlServer.xml
+D:\AssetManagement\AssetManagement\bin\Microsoft.AspNet.Identity.Core.xml
+D:\AssetManagement\AssetManagement\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\AssetManagement\AssetManagement\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\AssetManagement\AssetManagement\bin\Microsoft.Owin.xml
+D:\AssetManagement\AssetManagement\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\AssetManagement\AssetManagement\bin\Microsoft.Owin.Security.xml
+D:\AssetManagement\AssetManagement\bin\Microsoft.Owin.Security.Facebook.xml
+D:\AssetManagement\AssetManagement\bin\Microsoft.Owin.Security.Cookies.xml
+D:\AssetManagement\AssetManagement\bin\Microsoft.Owin.Security.OAuth.xml
+D:\AssetManagement\AssetManagement\bin\Microsoft.Owin.Security.Google.xml
+D:\AssetManagement\AssetManagement\bin\Microsoft.Owin.Security.Twitter.xml
+D:\AssetManagement\AssetManagement\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\AssetManagement\AssetManagement\obj\Release\AssetManagement.dll
+D:\AssetManagement\AssetManagement\obj\Release\AssetManagement.pdb
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\ApplicationInsights.config
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\roslyn\csc.exe
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\roslyn\System.Collections.Immutable.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\roslyn\System.Reflection.Metadata.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\roslyn\vbc.exe
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\roslyn\VBCSCompiler.exe
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\roslyn\VBCSCompiler.exe.config
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\AssetManagement.dll.config
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\AssetManagement.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\AssetManagement.pdb
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Antlr3.Runtime.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\EntityFramework.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\EntityFramework.SqlServer.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.AI.Agent.Intercept.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.AI.DependencyCollector.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.AI.Web.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.AI.WindowsServer.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.ApplicationInsights.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.AspNet.Identity.Core.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.Owin.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.Owin.Security.Cookies.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.Owin.Security.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.Owin.Security.Facebook.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.Owin.Security.Google.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.Owin.Security.OAuth.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.Owin.Security.Twitter.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.Web.Infrastructure.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Newtonsoft.Json.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Owin.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\System.Web.Helpers.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\System.Web.Mvc.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\System.Web.Optimization.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\System.Web.Razor.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\System.Web.WebPages.Deployment.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\System.Web.WebPages.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\System.Web.WebPages.Razor.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\WebGrease.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.AI.DependencyCollector.xml
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.AI.Web.xml
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.AI.WindowsServer.xml
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.ApplicationInsights.xml
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\System.Web.Helpers.xml
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\System.Web.Mvc.xml
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\System.Web.Optimization.xml
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\System.Web.Razor.xml
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\System.Web.WebPages.xml
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\System.Web.WebPages.Deployment.xml
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\System.Web.WebPages.Razor.xml
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Antlr3.Runtime.pdb
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Newtonsoft.Json.xml
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\EntityFramework.xml
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\EntityFramework.SqlServer.xml
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.AspNet.Identity.Core.xml
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.Owin.xml
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.Owin.Security.xml
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.Owin.Security.Facebook.xml
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.Owin.Security.Cookies.xml
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.Owin.Security.OAuth.xml
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.Owin.Security.Google.xml
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.Owin.Security.Twitter.xml
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\obj\Release\AssetManagement.dll
+D:\19-2-2020 Asset management\AssetManagement\AssetManagement\obj\Release\AssetManagement.pdb
